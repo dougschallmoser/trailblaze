@@ -1,9 +1,9 @@
-![HikingBuddy]()
+![Trailblaze]()
 
 
-# HikingBuddy
+# Trailblaze
 
-Find a buddy to go hiking with! This is a single page application React/Redux application with a Rails API backend.
+Trailblaze your way to a new trail friend. This is a single page application React/Redux application with a Rails API backend.
 
 
 ## Installation
