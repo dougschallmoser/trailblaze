@@ -27,6 +27,24 @@ nav .navbar {
   font-family: 'Montserrat', sans-serif;
 }
 
+.container.signup {
+  width: 500px;
+}
+
+.btn.btn-primary {
+  background: #45dbab;
+  border: none;
+  color: white;
+}
+
+.btn.btn-primary:hover {
+  background: #3aba91;
+}
+
+.navbar-toggler-icon {
+  color: #3aba91;
+}
+
 @media screen and (max-width: 844px) {
   nav .navbar-collapse {
     position: fixed;
@@ -34,13 +52,16 @@ nav .navbar {
     background: #45dbab;
     right: -100%;
     width: 100vw;
-    /* height: 100vh; */
     display: block;
     transition: right 0.2s ease;
   }
   
   nav .navbar-collapse.show {
     right: 0;
+  }
+
+  .container.signup {
+    width: 100%;
   }
 
 }
