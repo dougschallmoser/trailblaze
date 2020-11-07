@@ -1,0 +1,48 @@
+* {
+  color: #222222;
+}
+
+.container {
+  margin-top: 70px;
+}
+
+nav .navbar {
+  background: #fff;
+}
+
+.navbar-brand a {
+  margin-left: 50px;
+  font-family: 'Big Shoulders Stencil Text', cursive;
+  color: #45dbab;
+  font-size: 28px;
+}
+
+.navbar-brand a:hover {
+  color: #45dbab;
+  text-decoration: none;
+  color: none;
+}
+
+.navbar-nav a {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media screen and (max-width: 844px) {
+  nav .navbar-collapse {
+    position: fixed;
+    top: 66px;
+    background: #45dbab;
+    right: -100%;
+    width: 100vw;
+    /* height: 100vh; */
+    display: block;
+    transition: right 0.2s ease;
+  }
+  
+  nav .navbar-collapse.show {
+    right: 0;
+  }
+
+}
+
+
