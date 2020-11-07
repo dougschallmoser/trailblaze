@@ -2,7 +2,7 @@ import React from 'react';
 
 const App = () => {
 
-  const fetchUser = fetch('http://localhost:3000/api/v1/users', {
+  const fetchUser = () => (fetch('http://localhost:3000/api/v1/users', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -19,7 +19,10 @@ const App = () => {
   })
     .then(r => r.json())
     .then(console.log)
+  )
 
+  fetchUser()
+  
   return (
     <div>App</div>
   )
