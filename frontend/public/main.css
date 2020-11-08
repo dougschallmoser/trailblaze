@@ -1,8 +1,17 @@
 * {
   color: #222222;
+  font-family: 'Rubik', sans-serif;
+}
+
+.form-control.form-control-md::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
 }
 
 .container {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
   margin-top: 70px;
 }
 
@@ -24,7 +33,7 @@ nav .navbar {
 }
 
 .navbar-nav a {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 .nav-link:hover {
@@ -51,14 +60,26 @@ nav .navbar {
 }
 
 .searchbar {
+  width: auto;
+  margin: 0 auto;
+  align-items: center;
   border-radius: 35px;
-  border: 1px solid gray;
+  border: 1px solid #e3e3e3;
+}
+
+.search-column {
+  border-radius: 35px;
+  float: left;
   padding: 25px;
 }
 
-.form-control.form-control-lg.testing {
-  width: 200px;
+.search-column:hover {
+  background: #f7f7f7;
 }
+
+/* .form-control.form-control-lg.testing {
+  width: 200px;
+} */
 
 @media screen and (max-width: 844px) {
   nav .navbar-collapse {
