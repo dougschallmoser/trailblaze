@@ -27,6 +27,11 @@ nav .navbar {
   font-family: 'Montserrat', sans-serif;
 }
 
+.nav-link:hover {
+  background: #f7f7f7;
+  border-radius: 15px;
+}
+
 .container.signup {
   width: 500px;
 }
@@ -43,6 +48,16 @@ nav .navbar {
 
 .navbar-toggler-icon {
   color: #3aba91;
+}
+
+.searchbar {
+  border-radius: 35px;
+  border: 1px solid gray;
+  padding: 25px;
+}
+
+.form-control.form-control-lg.testing {
+  width: 200px;
 }
 
 @media screen and (max-width: 844px) {
