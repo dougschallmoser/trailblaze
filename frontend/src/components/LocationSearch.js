@@ -2,11 +2,12 @@ import React from 'react';
 
 const LocationSearch = () => {
   return (
-    <div>
+    <div className="search-column">
+      <span>Location</span>
       <input
-        className="form-control form-control-lg testing"
+        className="form-control form-control-md"
         type="text"
-        placeholder="Location"
+        placeholder="Where would you like to go?"
       />
     </div>
   )
