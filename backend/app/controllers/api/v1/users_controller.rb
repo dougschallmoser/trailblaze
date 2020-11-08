@@ -6,6 +6,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
+    binding.pry
     user = User.new(user_params)
     if user.save
       token = encode_token(user_id: user.id)
