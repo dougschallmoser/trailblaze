@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { addUser } from '../actions/addUser';
 
 const Signup = () => {
   const [user, setUser] = useState({
@@ -19,8 +20,7 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('here')
-
+    addUser(user)
   }
 
   return (
@@ -35,7 +35,7 @@ const Signup = () => {
             name='username'
             value={user.username}
             onChange={handleChange}
-          /><br/>
+          />
         </div>
 
         <div className="form-group">
@@ -46,7 +46,7 @@ const Signup = () => {
             name='password'
             value={user.password}
             onChange={handleChange}
-          /><br/>
+          />
         </div>
 
         <div className="form-group">
@@ -56,7 +56,7 @@ const Signup = () => {
             name='bio'
             value={user.bio}
             onChange={handleChange}
-          /><br/>
+          />
         </div>
         
         <div className="form-group">
@@ -67,7 +67,7 @@ const Signup = () => {
             name='avatar'
             value={user.avatar}
             onChange={handleChange}
-          /><br/>
+          />
         </div>
 
         <input type="submit" className="btn btn-primary"></input>
@@ -76,4 +76,4 @@ const Signup = () => {
   )
 }
 
-export default Signup;
+export default connect(null, { addUser })(Signup);
