@@ -2,11 +2,12 @@ import React from 'react';
 
 const DateSearch = () => {
   return (
-    <div>
+    <div className="search-column">
+      <span>Date</span>
       <input
-        className="form-control form-control-lg testing"
+        className="form-control form-control-md"
         type="text"
-        placeholder="Date"
+        placeholder="When would you want to go?"
       />
     </div>
   )
