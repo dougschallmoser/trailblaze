@@ -1,9 +1,9 @@
-// import usersReducer from './usersReducer';
-import requestsReducer from './requestsReducer';
+import userReducer from './userReducer';
+import requestReducer from './requestReducer';
 import { combineReducers } from 'redux';
 
 export default combineReducers({
-  requests: requestsReducer
-  // users: usersReducer
+  requests: requestReducer,
+  user: userReducer
 });
 
