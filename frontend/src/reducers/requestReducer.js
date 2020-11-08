@@ -1,4 +1,4 @@
-const requestReducer = (state = [], action) => {
+const requestReducer = (state = {requests: []}, action) => {
   switch (action.type) {
     case 'FETCH_REQUESTS':
       return action.payload;

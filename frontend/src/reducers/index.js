@@ -2,8 +2,9 @@ import userReducer from './userReducer';
 import requestReducer from './requestReducer';
 import { combineReducers } from 'redux';
 
-export default combineReducers({
+const rootReducer = combineReducers({
   requests: requestReducer,
   user: userReducer
 });
 
+export default rootReducer
