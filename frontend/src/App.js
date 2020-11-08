@@ -1,26 +1,36 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavBar from './components/NavBar';
 import SearchContainer from './containers/SearchContainer';
-import Signup from './components/Signup';
-import Login from './components/Login';
+import Signup from './components/users/Signup';
+import Login from './components/users/Login';
+import { getUserProfile } from './actions'
 
 const App = () => {
 
+  const currentUser = useSelector(state => state.currentUser);
+
+  useEffect(() => {
+    getUserProfile();
+  })
+
   return (
     <div>
-      <NavBar />
-      <Route path="/" exact>
-        <SearchContainer />
-      </Route>
-      <Route path="/signup" exact>
-        <Signup />
-      </Route>
-      <Route path="/login" exact>
-        <Login />
-      </Route>
+      <Router>
+        <NavBar currentUser={currentUser} />
+        <Route path="/" exact>
+          <SearchContainer />
+        </Route>
+        <Route path="/signup" exact>
+          <Signup />
+        </Route>
+        <Route path="/login" exact>
+          <Login />
+        </Route>
+      </Router>
     </div>
   )
 }
