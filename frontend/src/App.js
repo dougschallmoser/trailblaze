@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavBar from './components/NavBar';
 import SearchContainer from './containers/SearchContainer';
+import ResultsContainer from './containers/ResultsContainer';
 import Signup from './components/users/Signup';
 import Login from './components/users/Login';
 import RequestCreate from './components/requests/RequestCreate';
@@ -24,6 +25,7 @@ const App = () => {
         <NavBar currentUser={currentUser} />
         <Route path="/" exact>
           <SearchContainer />
+          <ResultsContainer />
         </Route>
         <Route path="/signup" exact>
           <Signup />
