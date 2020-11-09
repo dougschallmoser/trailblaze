@@ -1,6 +1,5 @@
 import React from 'react';
 import LocationSearchInput from '../components/LocationSearchInput';
-// import DateSearch from '../components/DateSearch';
 
 const SearchContainer = () => {
 
