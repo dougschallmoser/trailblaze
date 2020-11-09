@@ -1,13 +1,13 @@
 import React from 'react';
-import LocationSearch from '../components/LocationSearch';
-import DateSearch from '../components/DateSearch';
+import LocationSearchInput from '../components/LocationSearchInput';
+// import DateSearch from '../components/DateSearch';
 
 const SearchContainer = () => {
+
   return (
     <div className="container">
       <div className="searchbar">
-        <LocationSearch />
-        <DateSearch />
+        <LocationSearchInput />
       </div>
     </div>
   )
