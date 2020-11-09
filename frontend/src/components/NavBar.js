@@ -12,6 +12,7 @@ const NavBar = ({ currentUser }) => {
         <Nav className="mr-auto">
           <Nav.Link as={Link} to="/signup">Signup</Nav.Link>
           <Nav.Link as={Link} to="/login">Login</Nav.Link>
+          <Nav.Link as={Link} to="/create">Create</Nav.Link>
           <Nav.Item>Current User: {currentUser && currentUser.username}</Nav.Item>
         </Nav>
       </Navbar.Collapse>
