@@ -1,23 +1,25 @@
 import React from 'react';
 import { useState } from 'react';
-import PlacesAutocomplete, { geocodeByAddress,getLatLng } from 'react-places-autocomplete';
+import { useDispatch } from 'react-redux';
+import { getUsers } from '../actions';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 const LocationSearchInput = () => {
-  
+
   const [address, setAddress] = useState('')
+  const dispatch = useDispatch();
  
   const handleChange = input => {
     setAddress(input)
   };
- 
-  const handleSelect = selection => {
-    geocodeByAddress(selection)
-      .then(results => getLatLng(results[0]))
-      .then(latLng => console.log('Success', latLng))
-      .catch(error => console.error('Error', error));
-  };
 
-  const searchOptions = {
+  const handleSelect = async selection => {
+    const response = await geocodeByAddress(selection)
+    const coordinates = await getLatLng(response[0])
+    dispatch(getUsers(coordinates))
+  }
+
+  const options = {
     types: ['(cities)'],
     componentRestrictions: {country: "us"}
   }
@@ -28,7 +30,7 @@ const LocationSearchInput = () => {
       value={address}
       onChange={handleChange}
       onSelect={handleSelect}
-      searchOptions={searchOptions}
+      searchOptions={options}
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
         <div>
