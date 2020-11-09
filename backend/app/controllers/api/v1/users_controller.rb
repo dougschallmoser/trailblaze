@@ -1,5 +1,18 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:create, :search]
+
+  def search
+    # if (params[:lat] && params[:lng])
+    # end
+    # lat = params[:lat].to_f
+    # lng = params[:lng].to_f
+    coordinates = params[:search].split(' ')
+    lat = coordinates[0].to_f
+    lng = coordinates[1].to_f
+    binding.pry
+    users = User.within(100, :origin => [lat, lng])
+    render json: users
+  end
 
   def profile
     render json: { user: UserSerializer.new(current_user) }, status: :accepted
@@ -19,6 +32,10 @@ class Api::V1::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :password, :bio, :avatar)
+  end
+
+  def search_params
+    params.require(:search).permit(:location)
   end
 
 end
