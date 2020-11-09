@@ -15,6 +15,14 @@
   margin-top: 70px;
 }
 
+.two-column {
+  display: flex;
+}
+
+.left-column {
+  flex: 1;
+}
+
 nav .navbar {
   background: #fff;
 }
@@ -41,18 +49,16 @@ nav .navbar {
   border-radius: 15px;
 }
 
-.container.signup {
-  width: 500px;
-}
-
 .btn.btn-primary {
   background: #45dbab;
   border: none;
   color: white;
 }
 
-.btn.btn-primary:hover {
-  background: #3aba91;
+.btn.btn-primary:hover,
+.btn.btn-primary:active,
+.btn.btn-primary:focus {
+  background: #3aba91 !important;
 }
 
 .navbar-toggler-icon {
@@ -77,10 +83,6 @@ nav .navbar {
   background: #f7f7f7;
 }
 
-/* .form-control.form-control-lg.testing {
-  width: 200px;
-} */
-
 @media screen and (max-width: 844px) {
   nav .navbar-collapse {
     position: fixed;
@@ -96,7 +98,7 @@ nav .navbar {
     right: 0;
   }
 
-  .container.signup {
+  .container.full-width {
     width: 100%;
   }
 
