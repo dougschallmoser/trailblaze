@@ -4,6 +4,7 @@ import LocationSearchInput from '../components/LocationSearchInput';
 
 const SearchContainer = () => {
 
+
   return (
     <div className="container">
       <div className="searchbar">
