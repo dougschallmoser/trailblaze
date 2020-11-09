@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import SearchContainer from './containers/SearchContainer';
 import Signup from './components/users/Signup';
 import Login from './components/users/Login';
+import RequestCreate from './components/requests/RequestCreate';
 import { getUserProfile } from './actions'
 
 const App = () => {
@@ -29,6 +30,9 @@ const App = () => {
         </Route>
         <Route path="/login" exact>
           <Login />
+        </Route>
+        <Route path="/create" exact>
+          <RequestCreate />
         </Route>
       </Router>
     </div>
