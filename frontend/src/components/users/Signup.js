@@ -78,7 +78,7 @@ const Signup = () => {
           />
         </div>
 
-        <input type="submit" className="btn btn-primary"></input>
+        <input type="submit" className="btn btn-primary" />
       </form>
     </div>
   )
