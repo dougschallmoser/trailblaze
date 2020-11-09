@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { search } from '../actions';
+import { getUsers } from '../actions';
 import LocationSearchInput from './LocationSearchInput';
 
 const LocationSearch = () => {
@@ -14,7 +14,7 @@ const LocationSearch = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(search(location))
+    dispatch(getUsers(location))
   }
 
   return (
