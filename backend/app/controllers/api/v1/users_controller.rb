@@ -2,14 +2,8 @@ class Api::V1::UsersController < ApplicationController
   skip_before_action :authorized, only: [:create, :search]
 
   def search
-    # if (params[:lat] && params[:lng])
-    # end
-    # lat = params[:lat].to_f
-    # lng = params[:lng].to_f
-    coordinates = params[:search].split(' ')
-    lat = coordinates[0].to_f
-    lng = coordinates[1].to_f
-    binding.pry
+    lat = params[:location][:lat]
+    lng = params[:location][:lng]
     users = User.within(100, :origin => [lat, lng])
     render json: users
   end
@@ -34,8 +28,8 @@ class Api::V1::UsersController < ApplicationController
     params.require(:user).permit(:username, :password, :bio, :avatar)
   end
 
-  def search_params
-    params.require(:search).permit(:location)
+  def location_params
+    params.require(:location).permit(:lat, :lng)
   end
 
 end
