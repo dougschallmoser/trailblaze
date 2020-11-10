@@ -37,10 +37,11 @@ const LocationSearchInput = () => {
         <div>
           <input
             {...getInputProps({
-              placeholder: 'Where would you like to find Trailblazers',
-              className: 'location-search-input',
+              placeholder: 'Enter a city or select Current Location',
+              className: 'location-search-input search-bar',
             })}
           />
+          <img className="search-icon" src="./search_icon.png" />
           <div className="autocomplete-dropdown-container">
             {loading && <div>Loading...</div>}
             {suggestions.map(suggestion => {
