@@ -1,7 +1,7 @@
 # Users
 
 User.create(
-  username: "Doug",
+  username: "doug",
   password: "monkey",
   bio: "I am Doug",
   avatar: "blank",
@@ -10,7 +10,7 @@ User.create(
   )
 
   User.create(
-  username: "Erin",
+  username: "erin",
   password: "monkey",
   bio: "I am Doug",
   avatar: "blank",
@@ -19,7 +19,7 @@ User.create(
   )
 
   User.create(
-  username: "Mom",
+  username: "mom",
   password: "monkey",
   bio: "I am Doug",
   avatar: "blank",
