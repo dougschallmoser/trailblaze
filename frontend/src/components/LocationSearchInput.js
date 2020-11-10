@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getUsers } from '../actions';
+import { GoogleApiWrapper } from 'google-maps-react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 const LocationSearchInput = () => {
@@ -68,4 +69,6 @@ const LocationSearchInput = () => {
   )
 }
 
-export default LocationSearchInput;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyB41qACz2BElvLdaa3miyhluj0dsdyWoBE'
+})(LocationSearchInput);
