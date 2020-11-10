@@ -1,6 +1,5 @@
 const initialState = {
-  currentUser: {},
-  searchResults: []
+  currentUser: {}
 };
 
 const userReducer = (state = initialState, action) => {
@@ -9,8 +8,6 @@ const userReducer = (state = initialState, action) => {
       return {...state, currentUser: action.payload}
     case 'LOGOUT_USER':
       return {...state, currentUser: {}}
-    case 'SEARCH_RESULTS':
-      return {...state, searchResults: action.payload }
     default:
       return state;
   }
