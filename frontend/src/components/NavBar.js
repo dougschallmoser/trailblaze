@@ -14,7 +14,7 @@ const NavBar = () => {
       <Link to="/signup">Signup</Link>
       <Link to="/login">Login</Link>
       <Link to="/logout">Logout</Link>
-      <Link to="/create">Create</Link>
+      <Link to="/map">Map</Link>
       <span id="current-user">Current User: {user.currentUser && user.currentUser.username}</span>
     </div>
   )

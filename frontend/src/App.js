@@ -7,7 +7,7 @@ import ResultsContainer from './containers/ResultsContainer';
 import Signup from './components/users/Signup';
 import Login from './components/users/Login';
 import Logout from './components/users/Logout';
-import RequestCreate from './components/requests/RequestCreate';
+import GoogleMap from './components/GoogleMap';
 import { getUserProfile } from './actions'
 
 const App = () => {
@@ -34,8 +34,8 @@ const App = () => {
           <Route path="/logout" exact>
             <Logout />
           </Route>
-          <Route path="/create" exact>
-            <RequestCreate />
+          <Route path="/map" exact>
+            <GoogleMap />
           </Route>
         </div>
       </Router>
