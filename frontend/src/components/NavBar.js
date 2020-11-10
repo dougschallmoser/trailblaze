@@ -1,22 +1,22 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
 
-const NavBar = ({ currentUser }) => {
+const NavBar = () => {
+
+  const user = useSelector(state => state.users);
+
+  console.log('state is:', user)
+
   return (
-    <Navbar collapseOnSelect expand="md" fixed="top">
-      <Navbar.Brand><Link to="/">Trailblaze</Link></Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/signup">Signup</Nav.Link>
-          <Nav.Link as={Link} to="/login">Login</Nav.Link>
-          <Nav.Link as={Link} to="/create">Create</Nav.Link>
-          <Nav.Item>Current User: {currentUser && currentUser.username}</Nav.Item>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+    <div className="navbar">
+      <Link to="/" className="nav-logo">Trailblaze</Link>
+      <Link to="/signup">Signup</Link>
+      <Link to="/login">Login</Link>
+      <Link to="/logout">Logout</Link>
+      <Link to="/create">Create</Link>
+      <span id="current-user">Current User: {user.currentUser && user.currentUser.username}</span>
+    </div>
   )
 }
 
