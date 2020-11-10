@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { loginUser } from '../../actions';
 
 const Login = () => {
-  // const currentUser = useSelector(state => state.currentUser);
+  
   const dispatch = useDispatch();
 
   const [loginData, setLoginData] = useState({
