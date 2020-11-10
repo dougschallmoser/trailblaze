@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addUser } from '../../actions';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../actions';
 
-const Signup = () => {
-  // const currentUser = useSelector(state => state.currentUser);
+const UserSignup = () => {
+  
   const dispatch = useDispatch();
 
   const [userData, setUserData] = useState({
@@ -91,4 +91,4 @@ const Signup = () => {
 //   }
 // }
 
-export default Signup;
+export default UserSignup;

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../../actions';
+import { loginUser } from '../actions';
 
-const Login = () => {
+const UserLogin = () => {
   
   const dispatch = useDispatch();
 
@@ -61,4 +61,4 @@ const Login = () => {
   )
 }
 
-export default Login;
+export default UserLogin;

@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import SearchContainer from './containers/SearchContainer';
 import ResultsContainer from './containers/ResultsContainer';
-import Signup from './components/users/Signup';
-import Login from './components/users/Login';
+import UserSignup from './components/UserSignup';
+import UserLogin from './components/UserLogin';
 import GoogleMap from './components/GoogleMap';
 import { getUserProfile } from './actions'
 
@@ -28,10 +28,10 @@ const App = () => {
             <ResultsContainer />
           </Route>
           <Route path="/signup" exact>
-            <Signup />
+            <UserSignup />
           </Route>
           <Route path="/login" exact>
-            <Login />
+            <UserLogin />
           </Route>
           <Route path="/map" exact>
             <GoogleMap />
