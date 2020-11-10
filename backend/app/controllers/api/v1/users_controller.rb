@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
     lat = params[:location][:lat]
     long = params[:location][:lng]
     radius = params[:location][:radius]
-    users = User.within(radius, :origin => [lat, long])
+    users = User.within(100, :origin => [lat, long])
     render json: users
   end
 
