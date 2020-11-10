@@ -1,11 +1,14 @@
 import React from 'react';
-import RequestList from '../components/requests/RequestList';
+import { useSelector } from 'react-redux';
+import ResultItem from '../components/ResultItem';
 
 const ResultsContainer = () => {
+
+  const results = useSelector(state => state.search.results)
   
   return (
     <div>
-      <RequestList />
+      {results.map(user => <ResultItem user={user} key={user.id} />)}
     </div>
   )
 }
