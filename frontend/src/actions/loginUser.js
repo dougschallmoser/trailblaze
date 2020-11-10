@@ -6,13 +6,14 @@ export const loginUser = userData => {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify({user: userData})
+      body: JSON.stringify({ user: userData })
     });
     const data = await response.json();
     if (data.message) {
       // add error handling
     } else {
       localStorage.setItem('token', data.jwt)
+      console.log('success')
       dispatch({ type: 'LOGIN_USER', payload: data.user })
     }
   }
