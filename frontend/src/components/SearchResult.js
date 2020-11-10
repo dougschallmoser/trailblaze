@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ResultItem = ({ user }) => {
+const SearchResult = ({ user }) => {
   return (
     <div>
       <img src={user.avatar} alt="avatar" /><br/>
@@ -10,4 +10,4 @@ const ResultItem = ({ user }) => {
   )
 }
 
-export default ResultItem
+export default SearchResult

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import ResultItem from '../components/ResultItem';
+import SearchResult from '../components/SearchResult';
 
 const ResultsContainer = () => {
 
@@ -8,7 +8,7 @@ const ResultsContainer = () => {
   
   return (
     <div>
-      {results.map(user => <ResultItem user={user} key={user.id} />)}
+      {results.map(user => <SearchResult user={user} key={user.id} />)}
     </div>
   )
 }
