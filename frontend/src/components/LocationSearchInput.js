@@ -1,14 +1,22 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getUsers } from '../actions';
+import { useSelector } from 'react-redux';
+import { updateCoordinates } from '../actions';
 import { GoogleApiWrapper } from 'google-maps-react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 const LocationSearchInput = () => {
 
   const [address, setAddress] = useState('')
+  const [coordinates, setCoordinates] = useState({})
+  const queryData = useSelector(state => state.search.query);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(updateCoordinates(coordinates))
+  }, [coordinates])
  
   const handleChange = input => {
     setAddress(input)
@@ -16,8 +24,12 @@ const LocationSearchInput = () => {
 
   const handleSelect = async selection => {
     const response = await geocodeByAddress(selection)
-    const coordinates = await getLatLng(response[0])
-    dispatch(getUsers(coordinates))
+    const results = await getLatLng(response[0])
+    setCoordinates(results)
+  }
+
+  const handleSubmit = () => {
+    dispatch(getUsers(queryData))
   }
 
   const options = {
@@ -41,7 +53,7 @@ const LocationSearchInput = () => {
               className: 'location-search-input search-bar',
             })}
           />
-          <img className="search-icon" src="./search_icon.png" />
+          <img onClick={handleSubmit} className="search-icon" src="./search_icon.png" />
           <div className="autocomplete-dropdown-container">
             {loading && <div>Loading...</div>}
             {suggestions.map(suggestion => {
