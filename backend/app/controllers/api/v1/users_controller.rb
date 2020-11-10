@@ -4,8 +4,8 @@ class Api::V1::UsersController < ApplicationController
   def search
     lat = params[:location][:lat]
     long = params[:location][:lng]
-    radius = params[:location][:radius]
-    users = User.within(100, :origin => [lat, long])
+    radius = params[:location][:radius].to_i
+    users = User.within(radius, :origin => [lat, long])
     render json: users
   end
 
