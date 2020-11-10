@@ -34,17 +34,17 @@ const RequestCreate = () => {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-xs-6">
+      <div>
+        <div>
           <GoogleMap />
         </div>
-        <div className="col-xs-6">
+        <div>
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
+            <div className="">
 
               <label>Trail:</label>
               <input 
-                className="form-control"
+                className=""
                 type="text"
                 name='username'
                 value={userData.username}
@@ -52,10 +52,10 @@ const RequestCreate = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className="">
               <label>Group Size:</label>
               <input 
-                className="form-control"
+                className=""
                 type="password"
                 name='password'
                 value={userData.password}
@@ -63,20 +63,20 @@ const RequestCreate = () => {
               />
             </div>
 
-            <div className="form-group">
+            <div className="">
               <label>Date:</label>
               <textarea 
-                className="form-control"
+                className=""
                 name='bio'
                 value={userData.bio}
                 onChange={handleChange}
               />
             </div>
             
-            <div className="form-group">
+            <div className="">
               <label>Description:</label>
               <input 
-                className="form-control"
+                className=""
                 type="text"
                 name='avatar'
                 value={userData.avatar}
@@ -84,7 +84,7 @@ const RequestCreate = () => {
               />
             </div>
 
-            <input type="submit" className="btn btn-primary"></input>
+            <input type="submit" className=""></input>
           </form>
         </div>
       </div>
