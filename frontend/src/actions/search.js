@@ -1,3 +1,15 @@
+export const updateRadius = (radius) => {
+  return (dispatch) => {
+    dispatch({ type: 'UPDATE_RADIUS', payload: radius })
+  }
+}
+
+export const updateCoordinates = (coordinates) => {
+  return (dispatch) => {
+    dispatch({ type: 'UPDATE_COORDINATES', payload: coordinates })
+  }
+}
+
 export const getUsers = coordinates => {
   return async dispatch => {
     const response = await fetch('http://localhost:3001/api/v1/search', {
