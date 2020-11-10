@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
 
   const user = useSelector(state => state.users);
-
-  console.log('state is:', user)
+  const theState = useSelector(state => state)
+  console.log('current state is:', theState)
 
   return (
     <div className="navbar">
