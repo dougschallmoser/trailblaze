@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import NavBar from './components/NavBar';
@@ -12,8 +13,10 @@ import { getUserProfile } from './actions'
 
 const App = () => {
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    getUserProfile();
+    dispatch(getUserProfile());
   })
 
   return (
