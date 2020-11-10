@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { updateRadius } from '../actions';
 
 const LocationRadiusInput = () => {
 
   const [radius, setRadius] = useState(50)
+  const dispatch = useDispatch();
 
   const handleOnChange = (event) => {
     setRadius(event.currentTarget.value)
   }
+
+  useEffect(() => {
+    dispatch(updateRadius(radius))
+  }, [radius])
+
 
   return (
     <div className="radius-slider">
