@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { updateRadius } from '../actions';
 
-const LocationRadiusInput = () => {
+const SearchRadius = () => {
 
   const [radius, setRadius] = useState(50)
   const dispatch = useDispatch();
@@ -33,4 +33,4 @@ const LocationRadiusInput = () => {
   )
 }
 
-export default LocationRadiusInput;
+export default SearchRadius;

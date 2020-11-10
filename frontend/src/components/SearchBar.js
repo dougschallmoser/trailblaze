@@ -7,7 +7,7 @@ import { updateCoordinates } from '../actions';
 import { GoogleApiWrapper } from 'google-maps-react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
-const LocationSearchInput = () => {
+const SearchBar = () => {
 
   const [address, setAddress] = useState('')
   const [coordinates, setCoordinates] = useState({})
@@ -84,4 +84,4 @@ const LocationSearchInput = () => {
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyB41qACz2BElvLdaa3miyhluj0dsdyWoBE'
-})(LocationSearchInput);
+})(SearchBar);

@@ -1,14 +1,14 @@
 import React from 'react';
-import LocationSearchInput from '../components/LocationSearchInput';
-import LocationRadiusInput from '../components/LocationRadiusInput';
+import SearchRadius from '../components/SearchRadius';
+import SearchBar from '../components/SearchBar';
 
 const SearchContainer = () => {
 
   return (
     <div className="container">
       <div className="">
-        <LocationRadiusInput />
-        <LocationSearchInput />
+        <SearchRadius />
+        <SearchBar />
       </div>
     </div>
   )
