@@ -20,22 +20,24 @@ const App = () => {
     <div>
       <Router>
         <NavBar />
-        <Route path="/" exact>
-          <SearchContainer />
-          <ResultsContainer />
-        </Route>
-        <Route path="/signup" exact>
-          <Signup />
-        </Route>
-        <Route path="/login" exact>
-          <Login />
-        </Route>
-        <Route path="/logout" exact>
-          <Logout />
-        </Route>
-        <Route path="/create" exact>
-          <RequestCreate />
-        </Route>
+        <div className="main-container">
+          <Route path="/" exact>
+            <SearchContainer />
+            <ResultsContainer />
+          </Route>
+          <Route path="/signup" exact>
+            <Signup />
+          </Route>
+          <Route path="/login" exact>
+            <Login />
+          </Route>
+          <Route path="/logout" exact>
+            <Logout />
+          </Route>
+          <Route path="/create" exact>
+            <RequestCreate />
+          </Route>
+        </div>
       </Router>
     </div>
   )

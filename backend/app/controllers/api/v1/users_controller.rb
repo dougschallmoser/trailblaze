@@ -3,8 +3,9 @@ class Api::V1::UsersController < ApplicationController
 
   def search
     lat = params[:location][:lat]
-    lng = params[:location][:lng]
-    users = User.within(100, :origin => [lat, lng])
+    long = params[:location][:lng]
+    radius = params[:location][:radius]
+    users = User.within(radius, :origin => [lat, long])
     render json: users
   end
 
@@ -26,10 +27,6 @@ class Api::V1::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :password, :bio, :avatar)
-  end
-
-  def location_params
-    params.require(:location).permit(:lat, :lng)
   end
 
 end
