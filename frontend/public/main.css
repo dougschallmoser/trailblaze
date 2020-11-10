@@ -3,9 +3,49 @@
   font-family: 'Rubik', sans-serif;
 }
 
-.form-control.form-control-md::placeholder {
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 12px;
+.navbar {
+  overflow: hidden;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #222222;
+  text-align: center;
+  padding: 6px 12px;
+  text-decoration: none;
+  line-height: 28px;
+  font-size: 14px;
+}
+
+.navbar a:hover {
+  background: #f7f7f7;
+  border-radius: 15px;
+}
+
+a.nav-logo {
+  margin-left: 50px;
+  margin-right: 20px;
+  font-family: 'Big Shoulders Stencil Text', cursive;
+  color: #45dbab;
+  font-size: 28px;
+}
+
+a.nav-logo:hover {
+  background: none;
+  border-radius: none;
+}
+
+#current-user {
+  float: right;
+  margin-right: 25px;
 }
 
 .container {
@@ -22,86 +62,4 @@
 .left-column {
   flex: 1;
 }
-
-nav .navbar {
-  background: #fff;
-}
-
-.navbar-brand a {
-  margin-left: 50px;
-  font-family: 'Big Shoulders Stencil Text', cursive;
-  color: #45dbab;
-  font-size: 28px;
-}
-
-.navbar-brand a:hover {
-  color: #45dbab;
-  text-decoration: none;
-  color: none;
-}
-
-.navbar-nav a {
-  font-family: 'Rubik', sans-serif;
-}
-
-.nav-link:hover {
-  background: #f7f7f7;
-  border-radius: 15px;
-}
-
-.btn.btn-primary {
-  background: #45dbab;
-  border: none;
-  color: white;
-}
-
-.btn.btn-primary:hover,
-.btn.btn-primary:active,
-.btn.btn-primary:focus {
-  background: #3aba91 !important;
-}
-
-.navbar-toggler-icon {
-  color: #3aba91;
-}
-
-.searchbar {
-  width: auto;
-  margin: 0 auto;
-  align-items: center;
-  border-radius: 35px;
-  border: 1px solid #e3e3e3;
-}
-
-.search-column {
-  border-radius: 35px;
-  float: left;
-  padding: 25px;
-}
-
-.search-column:hover {
-  background: #f7f7f7;
-}
-
-@media screen and (max-width: 844px) {
-  nav .navbar-collapse {
-    position: fixed;
-    top: 66px;
-    background: #45dbab;
-    right: -100%;
-    width: 100vw;
-    display: block;
-    transition: right 0.2s ease;
-  }
-  
-  nav .navbar-collapse.show {
-    right: 0;
-  }
-
-  .container.full-width {
-    width: 100%;
-  }
-
-}
-
 
