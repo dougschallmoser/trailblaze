@@ -21,7 +21,7 @@ const GoogleMap = (props) => {
 
   const mapStyles = {
     width: '55%',
-    height: '100%'
+    height: '83%'
   };
 
   const containerStyle = {

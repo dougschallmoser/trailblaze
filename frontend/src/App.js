@@ -22,22 +22,24 @@ const App = () => {
     <>
       <Router>
         <NavBar />
-        <Route path="/" exact>
-          <SearchContainer />
-        </Route>
-        <Route path="/signup" exact>
-          <UserSignup />
-        </Route>
-        <Route path="/login" exact>
-          <UserLogin />
-        </Route>
-        <Route path="/map" exact>
-          <GoogleMap />
-        </Route>
-        <Route path="/search" exact>
-          <SearchContainer />
-          <ResultsContainer />
-        </Route>
+        <div className="main-container">
+          <Route path="/" exact>
+            <SearchContainer />
+          </Route>
+          <Route path="/signup" exact>
+            <UserSignup />
+          </Route>
+          <Route path="/login" exact>
+            <UserLogin />
+          </Route>
+          <Route path="/map" exact>
+            <GoogleMap />
+          </Route>
+          <Route path="/search" exact>
+            <SearchContainer />
+            <ResultsContainer />
+          </Route>
+        </div>
       </Router>
     </>
   )
