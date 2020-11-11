@@ -28,6 +28,7 @@
   padding-top: 15px;
   padding-bottom: 15px;
   text-align: center;
+  z-index: 2;
 }
 
 .navbar a {
@@ -149,6 +150,37 @@ a.nav-logo:hover {
   margin-bottom: 20px;
   color: #767676;
   font-size: 14px;
+}
+
+.results {
+  width: 100;
+  display: table;
+}
+
+.results div {
+  float: left;
+}
+
+.items {
+  width: 50%;
+  left: 0;
+  position: relative;
+  z-index: 5;
+  box-shadow: 7px 0 8px -8px #333;
+}
+
+.items:before {
+  content: "";
+  height: 7px;
+  width: 100%;
+  position: absolute;
+  top: -7px;
+  background: inherit;
+  z-index: 2;
+}
+
+.google-map {
+  width: 50%;
 }
 
 #current-user {
