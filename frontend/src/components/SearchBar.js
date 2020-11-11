@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { updateCoordinates } from '../actions';
 import { GoogleApiWrapper } from 'google-maps-react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import { Link } from 'react-router-dom';
 
 const SearchBar = (props) => {
 
@@ -47,14 +48,14 @@ const SearchBar = (props) => {
       searchOptions={options}
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-        <>
+        <div className="search-container">
             <input
               {...getInputProps({
                 placeholder: 'Enter a city to find other trailblazers...',
                 className: 'location-search-input search-bar',
               })}
             />
-            <img onClick={handleSubmit} alt="search icon" className="search-icon" src="./search_icon.png" />
+            <Link to="/search"><img onClick={handleSubmit} alt="search icon" className="search-icon" src="./search_icon.png" /></Link>
           <div className="autocomplete-dropdown-container">
             {loading && <div>Loading...</div>}
             {suggestions.map(suggestion => {
@@ -73,7 +74,7 @@ const SearchBar = (props) => {
               );
             })}
           </div>
-        </>
+        </div>
       )}
     </PlacesAutocomplete>
   )
