@@ -9,6 +9,7 @@ const UserSignup = () => {
   const [userData, setUserData] = useState({
     username: '',
     password: '',
+    dob: '',
     bio: '',
     avatar: ''
   })
@@ -27,6 +28,7 @@ const UserSignup = () => {
     setUserData({
       username: '',
       password: '',
+      dob: '',
       bio: '',
       avatar: ''
     })
@@ -35,10 +37,10 @@ const UserSignup = () => {
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div className="">
           <label>Username:</label>
           <input 
-            className="form-control"
+            className=""
             type="text"
             name='username'
             value={userData.username}
@@ -46,10 +48,10 @@ const UserSignup = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="">
           <label>Password:</label>
           <input 
-            className="form-control"
+            className=""
             type="password"
             name='password'
             value={userData.password}
@@ -57,20 +59,31 @@ const UserSignup = () => {
           />
         </div>
 
-        <div className="form-group">
+        <div className="">
+          <label>Birthdate:</label>
+          <input 
+            className=""
+            type="date"
+            name='dob'
+            value={userData.dob}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="">
           <label>Bio:</label>
           <textarea 
-            className="form-control"
+            className=""
             name='bio'
             value={userData.bio}
             onChange={handleChange}
           />
         </div>
         
-        <div className="form-group">
+        <div className="">
           <label>Avatar:</label>
           <input 
-            className="form-control"
+            className=""
             type="text"
             name='avatar'
             value={userData.avatar}
