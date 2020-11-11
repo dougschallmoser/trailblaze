@@ -48,27 +48,25 @@ const SearchBar = (props) => {
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
         <div>
-          <input
-            {...getInputProps({
-              placeholder: 'Enter a city to find other trailblazers...',
-              className: 'location-search-input search-bar',
-            })}
-          />
-          <img onClick={handleSubmit} alt="search icon" className="search-icon" src="./search_icon.png" />
+          <div className="search">
+            <input
+              {...getInputProps({
+                placeholder: 'Enter a city to find other trailblazers...',
+                className: 'location-search-input search-bar',
+              })}
+            />
+            <img onClick={handleSubmit} alt="search icon" className="search-icon" src="./search_icon.png" />
+          </div>
           <div className="autocomplete-dropdown-container">
             {loading && <div>Loading...</div>}
             {suggestions.map(suggestion => {
               const className = suggestion.active
                 ? 'suggestion-item--active'
                 : 'suggestion-item';
-              const style = suggestion.active
-                ? { backgroundColor: '#fafafa', cursor: 'pointer' }
-                : { backgroundColor: '#ffffff', cursor: 'pointer' };
               return (
                 <div
                   {...getSuggestionItemProps(suggestion, {
                     className,
-                    style,
                   })}
                   key={suggestion.placeId}
                 >
