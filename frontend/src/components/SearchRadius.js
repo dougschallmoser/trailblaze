@@ -19,7 +19,9 @@ const SearchRadius = () => {
 
   return (
     <div className="radius-slider">
-      <div className="miles-display">{radius} Miles</div>
+      <div className="miles-display">
+        Search Radius: <span class="main-color">{radius}</span> Miles
+      </div>
       <input
         type="range"
         min="25"

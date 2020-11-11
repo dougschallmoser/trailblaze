@@ -8,6 +8,9 @@ const ResultsContainer = () => {
   
   return (
     <div>
+      <div className="result-length">
+        {results.length} trailblazers were found
+      </div>
       {results.map(user => <SearchResult user={user} key={user.id} />)}
     </div>
   )

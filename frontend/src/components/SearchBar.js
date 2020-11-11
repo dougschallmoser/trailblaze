@@ -7,7 +7,7 @@ import { updateCoordinates } from '../actions';
 import { GoogleApiWrapper } from 'google-maps-react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
 
   const [address, setAddress] = useState('')
   const [coordinates, setCoordinates] = useState({})
@@ -23,6 +23,7 @@ const SearchBar = () => {
   };
 
   const handleSelect = async selection => {
+    setAddress(selection)
     const response = await geocodeByAddress(selection)
     const results = await getLatLng(response[0])
     setCoordinates(results)
@@ -49,11 +50,11 @@ const SearchBar = () => {
         <div>
           <input
             {...getInputProps({
-              placeholder: 'Enter a city or select Current Location',
+              placeholder: 'Enter a city to find other trailblazers...',
               className: 'location-search-input search-bar',
             })}
           />
-          <img onClick={handleSubmit} className="search-icon" src="./search_icon.png" />
+          <img onClick={handleSubmit} alt="search icon" className="search-icon" src="./search_icon.png" />
           <div className="autocomplete-dropdown-container">
             {loading && <div>Loading...</div>}
             {suggestions.map(suggestion => {
