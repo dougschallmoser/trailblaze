@@ -9,25 +9,30 @@ const GoogleMap = (props) => {
     error: ''
   })
 
-  useEffect(() => {
-    window.navigator.geolocation.getCurrentPosition(
-      position => setLocation({
-        lat: position.coords.latitude, 
-        long: position.coords.longitude
-      }),
-      err => setLocation({ error: err.message })
-    )
-  }, [])
+  // useEffect(() => {
+  //   window.navigator.geolocation.getCurrentPosition(
+  //     position => setLocation({
+  //       lat: position.coords.latitude, 
+  //       long: position.coords.longitude
+  //     }),
+  //     err => setLocation({ error: err.message })
+  //   )
+  // }, [])
 
   const mapStyles = {
     width: '50%',
-    height: '50%',
+    height: '100%'
   };
+
+  const containerStyle = {
+    position: 'fixed'
+  }
 
   return (
     <Map
       google={props.google}
       zoom={10}
+      containerStyle={containerStyle}
       style={mapStyles}
       initialCenter={{ lat: 47.444, lng: -122.176}}
       center={{ lat: location.lat, lng: location.long}}
