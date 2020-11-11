@@ -8,16 +8,23 @@
 }
 
 .search {
+  padding: 5px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   display: flex;
+  position: fixed;
   align-items: center;
   margin: 0 auto;
-  margin-top: 70px;
+  /* margin-top: 50px; */
+  background: white;
+  z-index: 20;
+  width: 100%;
 }
 
 .navbar {
   overflow: hidden;
-  background-color: #fff;
   position: fixed;
+  background-color: #fff;
   top: 0;
   width: 100%;
   padding-top: 15px;
@@ -57,7 +64,7 @@ a.nav-logo:hover {
 
 .search-bar {
   box-sizing: border-box;
-  width: 500px;
+  width: 400px;
   padding: 22px 28px;
   font-size: 16px;
   font-weight: 400;
@@ -94,11 +101,16 @@ a.nav-logo:hover {
 .search-icon {
   position: absolute;
   margin-top: 15px;
-  left: 445px;
+  left: 345px;
   cursor: pointer;
   height: 36px;
   display: inline-block;
   vertical-align: middle;
+  opacity: 0.7;
+}
+
+.search-icon:hover {
+  opacity: 1;
 }
 
 .suggestion-item,
@@ -119,8 +131,9 @@ a.nav-logo:hover {
 
 .radius-slider {
   margin-bottom: 30px;
+  margin-left: 30px;
   text-align: center;
-  width: 350px;
+  width: 250px;
 }
 
 .slider {
@@ -139,9 +152,9 @@ a.nav-logo:hover {
   cursor: pointer;
   -webkit-appearance: none;
   border: 1px solid #000000;
-  height: 32px;
-  width: 32px;
-  border-radius: 32px;
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
   background: #45dbab;
   cursor: pointer;
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
@@ -152,15 +165,17 @@ a.nav-logo:hover {
 }
 
 #result-length {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   margin-bottom: 20px;
   color: #767676;
   font-size: 14px;
+  width: 100%;
 }
 
 .results {
-  width: 100;
-  display: table;
+  margin-top: 60px;
+  width: 100%;
+  /* display: table; */
 }
 
 .results div {
@@ -168,10 +183,11 @@ a.nav-logo:hover {
 }
 
 .items {
+  padding-top: 100px;
   width: 45%;
   left: 0;
   position: relative;
-  z-index: 5;
+  z-index: 1;
   box-shadow: 7px 0 8px -8px #333;
 }
 
