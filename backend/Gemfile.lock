@@ -75,6 +75,7 @@ GEM
     faker (2.14.0)
       i18n (>= 1.6, < 2)
     ffi (1.13.1)
+    geocoder (1.6.3)
     geokit (1.13.1)
     geokit-rails (2.3.1)
       geokit (~> 1.5)
@@ -174,6 +175,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   faker
+  geocoder
   geokit-rails
   jwt
   listen (~> 3.2)
