@@ -6,10 +6,8 @@ const SearchContainer = () => {
 
   return (
     <div className="search">
-      <div>
-        <SearchRadius />
-        <SearchBar />
-      </div>
+      <SearchBar />
+      <SearchRadius />
     </div>
   )
 }
