@@ -8,19 +8,17 @@ const ResultsContainer = () => {
   const results = useSelector(state => state.search.results)
   
   return (
-    <>
-      <div id="result-length">
-        {results.length} trailblazers were found
-      </div>
-      <div className="results">
-        <div className="items">
-          {results.map(user => <SearchResult user={user} key={user.id} />)}
+    <div className="results">
+      <div className="items">
+        <div id="result-length">
+          {results.length} trailblazers were found
         </div>
-        <div className="google-map">
-          {results.length > 0 ? <GoogleMap /> : null }
-        </div>
+        {results.map(user => <SearchResult user={user} key={user.id} />)}
       </div>
-    </>
+      <div className="google-map">
+        <GoogleMap />
+      </div>
+    </div>
   )
 }
 
