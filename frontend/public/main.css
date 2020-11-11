@@ -35,7 +35,7 @@
   display: block;
   color: #222222;
   text-align: center;
-  padding: 6px 12px;
+  padding: 4px 16px;
   text-decoration: none;
   line-height: 28px;
   font-size: 14px;
@@ -59,12 +59,16 @@ a.nav-logo:hover {
   border-radius: none;
 }
 
+.search {
+  position: relative;
+}
+
 .search-bar {
   box-sizing: border-box;
   width: 500px;
   padding: 22px 28px;
   font-size: 16px;
-  font-weight: 500px;
+  font-weight: 400;
   border-radius: 4px;
   border: 1px solid #ccc;
 }
@@ -79,6 +83,27 @@ a.nav-logo:hover {
 
 .search-bar::placeholder {
   color: #767676;
+}
+
+.search-icon {
+  position: absolute;
+  margin-top: 15px;
+  left: 445px;
+  cursor: pointer;
+  height: 36px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.suggestion-item,
+.suggestion-item--active {
+  padding: 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.suggestion-item--active {
+  background: #45dbab;
+  cursor: pointer;
 }
 
 .miles-display {
@@ -117,14 +142,6 @@ a.nav-logo:hover {
 
 .slider:hover {
   opacity: 1;
-}
-
-.search-icon {
-  cursor: pointer;
-  margin-left: 15px;
-  height: 55px;
-  display: inline-block;
-  vertical-align: middle;
 }
 
 .result-length {
