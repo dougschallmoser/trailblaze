@@ -47,8 +47,7 @@ const SearchBar = (props) => {
       searchOptions={options}
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-        <div>
-          <div className="search">
+        <>
             <input
               {...getInputProps({
                 placeholder: 'Enter a city to find other trailblazers...',
@@ -56,7 +55,6 @@ const SearchBar = (props) => {
               })}
             />
             <img onClick={handleSubmit} alt="search icon" className="search-icon" src="./search_icon.png" />
-          </div>
           <div className="autocomplete-dropdown-container">
             {loading && <div>Loading...</div>}
             {suggestions.map(suggestion => {
@@ -75,7 +73,7 @@ const SearchBar = (props) => {
               );
             })}
           </div>
-        </div>
+        </>
       )}
     </PlacesAutocomplete>
   )
