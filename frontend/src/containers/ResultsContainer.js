@@ -9,7 +9,7 @@ const ResultsContainer = () => {
   
   return (
     <>
-      <div className="result-length">
+      <div id="result-length">
         {results.length} trailblazers were found
       </div>
       <div className="results">

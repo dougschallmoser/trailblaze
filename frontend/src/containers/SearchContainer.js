@@ -5,8 +5,8 @@ import SearchBar from '../components/SearchBar';
 const SearchContainer = () => {
 
   return (
-    <div className="container">
-      <div className="">
+    <div className="search">
+      <div>
         <SearchRadius />
         <SearchBar />
       </div>
