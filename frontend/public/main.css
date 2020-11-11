@@ -151,7 +151,7 @@ a.nav-logo:hover {
   opacity: 1;
 }
 
-.result-length {
+#result-length {
   margin-top: 10px;
   margin-bottom: 20px;
   color: #767676;
