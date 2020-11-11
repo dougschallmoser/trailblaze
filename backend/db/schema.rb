@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_11_07_165502) do
     t.string "password_digest"
     t.string "bio"
     t.string "avatar"
+    t.string "dob"
     t.float "lat"
     t.float "lng"
     t.datetime "created_at", precision: 6, null: false

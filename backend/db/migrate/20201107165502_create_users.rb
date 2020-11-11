@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :password_digest
       t.string :bio
       t.string :avatar
+      t.string :dob
       t.float :lat
       t.float :lng
 
