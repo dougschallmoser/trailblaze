@@ -20,7 +20,7 @@ const GoogleMap = (props) => {
   // }, [])
 
   const mapStyles = {
-    width: '50%',
+    width: '55%',
     height: '100%'
   };
 
