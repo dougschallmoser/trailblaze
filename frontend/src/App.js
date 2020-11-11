@@ -3,8 +3,6 @@ import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import NavBar from './components/NavBar';
-import SearchRadius from './components/SearchRadius';
-import SearchBar from './components/SearchBar';
 import SearchContainer from './containers/SearchContainer';
 import ResultsContainer from './containers/ResultsContainer';
 import UserSignup from './components/UserSignup';
