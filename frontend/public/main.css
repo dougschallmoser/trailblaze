@@ -8,6 +8,10 @@
   align-items: center;
 }
 
+.main-color {
+  color: #45dbab;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -84,6 +88,7 @@ a.nav-logo:hover {
 .radius-slider {
   margin-bottom: 30px;
   text-align: center;
+  width: 350px;
 }
 
 .slider {
@@ -120,6 +125,12 @@ a.nav-logo:hover {
   height: 55px;
   display: inline-block;
   vertical-align: middle;
+}
+
+.result-length {
+  margin-top: 10px;
+  color: #767676;
+  font-size: 14px;
 }
 
 #current-user {
