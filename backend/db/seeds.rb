@@ -5,7 +5,7 @@ require 'faker'
 User.create(
   username: "doug",
   password: "monkey",
-  bio: Faker::Hipster.sentence(word_count: 25),
+  bio: Faker::Hipster.sentence(word_count: 15),
   avatar: Faker::Avatar.image(size: "100x100"),
   lat: 48.752230399999995,
   lng: -122.49006080000001,
@@ -15,7 +15,7 @@ User.create(
   User.create(
   username: "erin",
   password: "monkey",
-  bio: Faker::Hipster.sentence(word_count: 25),
+  bio: Faker::Hipster.sentence(word_count: 15),
   avatar: Faker::Avatar.image(size: "100x100"),
   lat: 47.261058,
   lng: -122.167780,
@@ -29,7 +29,7 @@ userss_list = []
 10.times do
   username = Faker::Name.first_name
   password = Faker::Internet.password(min_length: 8)
-  bio = Faker::Hipster.sentence(word_count: 25)
+  bio = Faker::Hipster.sentence(word_count: 15)
   avatar = Faker::Avatar.image(size: "100x100")
   dob = Faker::Date.birthday(min_age: 18, max_age: 65)
   lat = 48.762696
@@ -51,7 +51,7 @@ user_list = []
 10.times do
   username = Faker::Name.first_name
   password = Faker::Internet.password(min_length: 8)
-  bio = Faker::Hipster.sentence(word_count: 25)
+  bio = Faker::Hipster.sentence(word_count: 15)
   avatar = Faker::Avatar.image(size: "100x100")
   dob = Faker::Date.birthday(min_age: 18, max_age: 65)
   lat = 47.607957
@@ -73,7 +73,7 @@ users_list = []
 10.times do
   username = Faker::Name.first_name
   password = Faker::Internet.password(min_length: 8)
-  bio = Faker::Hipster.sentence(word_count: 25)
+  bio = Faker::Hipster.sentence(word_count: 15)
   avatar = Faker::Avatar.image(size: "100x100")
   dob = Faker::Date.birthday(min_age: 18, max_age: 65)
   lat = 45.460522
