@@ -4,13 +4,13 @@ export const updateRadius = (radius) => {
   }
 }
 
-export const updateCoordinates = (coordinates) => {
+export const updateLocation = (location) => {
   return (dispatch) => {
-    dispatch({ type: 'UPDATE_COORDINATES', payload: coordinates })
+    dispatch({ type: 'UPDATE_LOCATION', payload: location })
   }
 }
 
-export const getUsers = coordinates => {
+export const getUsers = queryData => {
   return async dispatch => {
     const response = await fetch('http://localhost:3001/api/v1/search', {
       method: 'POST',
@@ -18,7 +18,7 @@ export const getUsers = coordinates => {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify({ location: coordinates })
+      body: JSON.stringify({ location: queryData })
     });
     const data = await response.json();
     if (data.error) {
