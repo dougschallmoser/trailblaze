@@ -5,7 +5,7 @@ import { updateRadius } from '../actions';
 
 const SearchRadius = () => {
 
-  const [radius, setRadius] = useState(50)
+  const [radius, setRadius] = useState(30)
   const dispatch = useDispatch();
 
   const handleOnChange = (event) => {
@@ -21,9 +21,9 @@ const SearchRadius = () => {
     <div className="radius-slider">
       <input
         type="range"
-        min="25"
-        max="200"
-        step="25"
+        min="10"
+        max="100"
+        step="10"
         value={radius}
         onChange={handleOnChange}
         className="slider"
