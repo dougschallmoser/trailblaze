@@ -1,21 +1,15 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateRadius } from '../actions';
 
 const SearchRadius = () => {
 
-  const [radius, setRadius] = useState(30)
+  const radius = useSelector(state => state.search.query.radius)
   const dispatch = useDispatch();
 
   const handleOnChange = (event) => {
-    setRadius(event.currentTarget.value)
+    dispatch(updateRadius(event.currentTarget.value))
   }
-
-  useEffect(() => {
-    dispatch(updateRadius(radius))
-  }, [radius])
-
 
   return (
     <div className="radius-slider">
