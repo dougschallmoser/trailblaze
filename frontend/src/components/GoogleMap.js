@@ -5,7 +5,7 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 const GoogleMap = (props) => {
 
   const query = useSelector(state => state.search.query);
-  const trails = useSelector(state => state.search.trails)
+  const trails = useSelector(state => state.search.trails);
   const [markerInfo, setMarkerInfo] = useState({ showInfo: false, activeMarker: {}, selected: {} })
 
   // const [location, setLocation] = useState({
@@ -44,10 +44,10 @@ const GoogleMap = (props) => {
   return (
     <Map
       google={props.google}
-      zoom={10}
+      zoom={9}
       containerStyle={containerStyle}
       style={mapStyles}
-      initialCenter={{ lat: 47.444, lng: -122.176}}
+      initialCenter={{ lat: 47.444, lng: -122.176 }}
       center={{ lat: query.lat, lng: query.lng }}>
       
       {trails.map(trail => {
@@ -74,7 +74,7 @@ const GoogleMap = (props) => {
         marker={markerInfo.activeMarker}
         visible={markerInfo.showInfo}>
           <div className="trail-info">
-            <img src={`${markerInfo.selected.image}`} /><br/>
+            <img src={`${markerInfo.selected.image}`} alt="trail iamge" /><br/>
             <span id="trail-name">{markerInfo.selected.name}</span><br/>
             <span id="trail-city">{markerInfo.selected.local}</span><br/>
             <p>
@@ -83,7 +83,12 @@ const GoogleMap = (props) => {
               Lat: {markerInfo.selected.latitude}, Long: {markerInfo.selected.longitude}<br/>
             </p>
             <p>{markerInfo.selected.summary}</p>
-            <a id="trail-link" href={`${markerInfo.selected.url}`} target="_blank">Get trail details</a>
+            <a
+              id="trail-link"
+              href={`${markerInfo.selected.url}`}
+              target="_blank" rel="noreferrer">
+              Get trail details
+            </a>
           </div>
       </InfoWindow>
     </Map>
