@@ -12,13 +12,8 @@ import { Link } from 'react-router-dom';
 const SearchBar = (props) => {
 
   const [address, setAddress] = useState('')
-  const [location, setLocation] = useState({})
   const queryData = useSelector(state => state.search.query);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(updateLocation(location))
-  }, [location])
  
   const handleChange = input => {
     setAddress(input)
@@ -28,7 +23,7 @@ const SearchBar = (props) => {
     setAddress(selection)
     const response = await geocodeByAddress(selection)
     const results = await getLatLng(response[0])
-    setLocation({ ...results, city: selection })
+    dispatch(updateLocation({ ...results, city: selection }))
   }
 
   const handleSubmit = () => {
