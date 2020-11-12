@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 const GoogleMap = (props) => {
 
-  const [location, setLocation] = useState({
-    lat: null,
-    long: null,
-    error: ''
-  })
+  const query = useSelector(state => state.search.query);
+
+  // const [location, setLocation] = useState({
+  //   lat: null,
+  //   long: null,
+  //   error: ''
+  // })
 
   // useEffect(() => {
   //   window.navigator.geolocation.getCurrentPosition(
@@ -35,7 +38,7 @@ const GoogleMap = (props) => {
       containerStyle={containerStyle}
       style={mapStyles}
       initialCenter={{ lat: 47.444, lng: -122.176}}
-      center={{ lat: location.lat, lng: location.long}}
+      center={{ lat: query.lat, lng: query.lng }}
     />
   )
 }
