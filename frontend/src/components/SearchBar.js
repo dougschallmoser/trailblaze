@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getUsers } from '../actions';
 import { useSelector } from 'react-redux';
-import { updateCoordinates } from '../actions';
+import { updateLocation } from '../actions';
 import { GoogleApiWrapper } from 'google-maps-react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { Link } from 'react-router-dom';
@@ -11,13 +11,13 @@ import { Link } from 'react-router-dom';
 const SearchBar = (props) => {
 
   const [address, setAddress] = useState('')
-  const [coordinates, setCoordinates] = useState({})
+  const [location, setLocation] = useState({})
   const queryData = useSelector(state => state.search.query);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(updateCoordinates(coordinates))
-  }, [coordinates])
+    dispatch(updateLocation(location))
+  }, [location])
  
   const handleChange = input => {
     setAddress(input)
@@ -27,7 +27,7 @@ const SearchBar = (props) => {
     setAddress(selection)
     const response = await geocodeByAddress(selection)
     const results = await getLatLng(response[0])
-    setCoordinates(results)
+    setLocation({ ...results, city: selection })
   }
 
   const handleSubmit = () => {
