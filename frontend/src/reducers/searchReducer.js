@@ -1,6 +1,6 @@
 const initialState = {
   results: [],
-  query: {},
+  query: { lat: 47.444, lng: -122.176, radius: 30 },
   trails: []
 };
 
