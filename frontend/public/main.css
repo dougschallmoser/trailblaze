@@ -71,7 +71,7 @@ a.nav-logo:hover {
 .search-bar {
   box-sizing: border-box;
   width: 400px;
-  padding: 22px 28px;
+  padding: 18px 28px;
   font-size: 16px;
   font-weight: 400;
   border-radius: 4px;
@@ -106,7 +106,7 @@ a.nav-logo:hover {
 
 .search-icon {
   position: absolute;
-  margin-top: 15px;
+  margin-top: 11px;
   left: 345px;
   cursor: pointer;
   height: 36px;
@@ -131,18 +131,22 @@ a.nav-logo:hover {
   cursor: pointer;
 }
 
+.radius-slider {
+  margin: 12px 0 4px 30px;
+  align-items: center;
+  text-align: center;
+  width: 200px;
+}
+
 .miles-display {
+  margin-top: 8px;
+  vertical-align: middle;
+  font-size: 14px;
   padding-bottom: 10px;
 }
 
-.radius-slider {
-  margin-bottom: 30px;
-  margin-left: 30px;
-  text-align: center;
-  width: 250px;
-}
-
 .slider {
+  vertical-align: middle;
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
