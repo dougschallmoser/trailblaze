@@ -13,7 +13,7 @@ const SearchResult = ({ user }) => {
   return (
     <div className="item">
       <img src={faker.image.avatar()} alt="avatar" />
-      <span id="username-display">{user.username}</span>,
+      <span id="username-display">{user.username},</span>
       <span id="age-display">{userAge()}</span>
       <p id="bio-display">{user.bio}</p>
     </div>
