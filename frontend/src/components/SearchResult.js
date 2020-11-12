@@ -11,10 +11,11 @@ const SearchResult = ({ user }) => {
   }
 
   return (
-    <div>
-      <img src={faker.image.avatar()} alt="avatar" /><br/>
-      {user.username}, {userAge()}<br/>
-      {user.bio}
+    <div className="item">
+      <img src={faker.image.avatar()} alt="avatar" />
+      <span id="username-display">{user.username}</span>,
+      <span id="age-display">{userAge()}</span>
+      <p id="bio-display">{user.bio}</p>
     </div>
   )
 }
