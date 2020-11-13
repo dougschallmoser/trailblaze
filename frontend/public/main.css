@@ -185,7 +185,7 @@ a.nav-logo:hover {
   width: 100%;
   position: absolute;
   background-color: white;
-  min-width: 250px;
+  min-width: 275px;
   box-shadow: 0.1px 0.1px 6px 0px #ccc, -0.1px -0.1px 6px 0px #ccc;
   padding: 14px 22px;
   z-index: 1;
@@ -221,7 +221,7 @@ a.nav-logo:hover {
 }
 
 select {
-  width: 120px;
+  width: 145px;
 }
 
 .filter-button {
@@ -306,6 +306,13 @@ select {
   font-size: 24px;
   font-weight: 400;
   padding-left: 4px;
+  color: #767676;
+}
+
+#gender-display {
+  padding: 0 0 2px 16px;
+  font-size: 18px;
+  font-weight: 300;
   color: #767676;
 }
 
