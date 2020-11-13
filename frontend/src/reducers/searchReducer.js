@@ -1,6 +1,13 @@
 const initialState = {
   results: [],
-  query: { lat: 47.444, lng: -122.176, radius: 30 },
+  query: {
+    lat: 47.444,
+    lng: -122.176,
+    radius: 30,
+    agemin: '',
+    agemax: '',
+    gender: 'any'
+  },
   trails: []
 };
 
@@ -11,6 +18,8 @@ const searchReducer = (state = initialState, action) => {
     case 'UPDATE_RADIUS':
       return { ...state, query: {...state.query, radius: action.payload }}
     case 'UPDATE_LOCATION':
+      return { ...state, query: { ...state.query, ...action.payload }}
+    case 'UPDATE_FILTERS':
       return { ...state, query: { ...state.query, ...action.payload }}
     case 'GET_TRAILS':
       return { ...state, trails: action.payload }

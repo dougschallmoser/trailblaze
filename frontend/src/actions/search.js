@@ -10,6 +10,12 @@ export const updateLocation = (location) => {
   }
 }
 
+export const updateFilters = (filters) => {
+  return (dispatch) => {
+    dispatch({ type: 'UPDATE_FILTERS', payload: filters })
+  }
+}
+
 export const getUsers = queryData => {
   return async dispatch => {
     const response = await fetch('http://localhost:3001/api/v1/search', {
@@ -18,7 +24,7 @@ export const getUsers = queryData => {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify({ location: queryData })
+      body: JSON.stringify({ query: queryData })
     });
     const data = await response.json();
     if (data.error) {
