@@ -242,6 +242,11 @@ select {
   border: 1px solid #45dbab;
 }
 
+.filter-button.applied {
+  background: #d4f0e8;
+  border: 1px solid #45dbab;
+}
+
 #result-city {
   padding: 8px 5px 5px 5px;
   font-size: 18px;
@@ -322,7 +327,7 @@ select {
 }
 
 .google-map {
-  margin-top: 90px;
+  margin-top: 78px;
   width: 55%;
 }
 
