@@ -5,20 +5,24 @@ class Api::V1::UsersController < ApplicationController
     lat = params[:query][:lat]
     long = params[:query][:lng]
     radius = params[:query][:radius].to_i
+    agemin = params[:query][:agemin]
+    agemax = params[:query][:agemax]
+    gender = params[:query][:gender]
     users = User.within(radius, :origin => [lat, long])
-    # if params[:query][:agemin] && params[:query][:agemax]
-    #   users = users.where(age: params[:query][:agemin]..params[:query][:agemax])
-    # elsif params[:query][:agemin]
-    #   users = users.where("age >= ?", params[:query][:agemin])
-    # elsif params[:query][:agemax]
-    #   users = users.where("age <= ?", params[:query][:agemax])
-    # end
-    if params[:query][:gender] == 'male'
+    if gender == 'male'
       users = users.where(gender: 'male')
-    elsif params[:query][:gender] == 'female'
+    elsif gender == 'female'
       users = users.where(gender: 'female')
-    elsif params[:query][:gender] == 'nonbinary'
+    elsif gender== 'nonbinary'
       users = users.where(gender: 'nonbinary')
+    end
+
+    if agemin != '' && agemax != ''
+      users = users.select {|user| user.age.between?(agemin.to_i, agemax.to_i)}
+    elsif agemin != ''
+      users = users.select {|user| user.age >= agemin.to_i}
+    elsif agemax !=''
+      users = users.select {|user| user.age <= agemax.to_i}
     end
     render json: users
   end
