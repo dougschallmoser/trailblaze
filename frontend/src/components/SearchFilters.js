@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateFilters } from '../actions';
+import { updateQuery } from '../actions';
 import { getUsers } from '../actions';
 
 const SearchFilters = () => {
@@ -15,7 +15,7 @@ const SearchFilters = () => {
   }
 
   const handleChange = (event) => {
-    dispatch(updateFilters({...query, [event.target.name]: event.target.value}))
+    dispatch(updateQuery({...query, [event.target.name]: event.target.value}))
     dispatch(getUsers({...query, [event.target.name]: event.target.value}))
   }
 

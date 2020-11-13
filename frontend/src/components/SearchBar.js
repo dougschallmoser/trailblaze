@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getUsers } from '../actions';
 import { getTrails } from '../actions';
-import { updateLocation } from '../actions';
+import { updateQuery } from '../actions';
 import { GoogleApiWrapper } from 'google-maps-react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { Link } from 'react-router-dom';
@@ -23,7 +23,7 @@ const SearchBar = (props) => {
     setAddress(selection)
     const response = await geocodeByAddress(selection)
     const results = await getLatLng(response[0])
-    dispatch(updateLocation({ ...results, city: selection }))
+    dispatch(updateQuery({ ...results, city: selection }))
   }
 
   const handleSubmit = () => {

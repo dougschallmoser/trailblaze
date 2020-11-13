@@ -1,18 +1,6 @@
-export const updateRadius = (radius) => {
+export const updateQuery = (query) => {
   return (dispatch) => {
-    dispatch({ type: 'UPDATE_RADIUS', payload: radius })
-  }
-}
-
-export const updateLocation = (location) => {
-  return (dispatch) => {
-    dispatch({ type: 'UPDATE_LOCATION', payload: location })
-  }
-}
-
-export const updateFilters = (filters) => {
-  return (dispatch) => {
-    dispatch({ type: 'UPDATE_FILTERS', payload: filters })
+    dispatch({ type: 'UPDATE_QUERY', payload: query })
   }
 }
 

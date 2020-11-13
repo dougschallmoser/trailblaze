@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateRadius } from '../actions';
+import { updateQuery } from '../actions';
 
 const SearchRadius = () => {
 
@@ -8,7 +8,7 @@ const SearchRadius = () => {
   const dispatch = useDispatch();
 
   const handleOnChange = (event) => {
-    dispatch(updateRadius(event.currentTarget.value))
+    dispatch(updateQuery({ radius: event.currentTarget.value }))
   }
 
   return (
