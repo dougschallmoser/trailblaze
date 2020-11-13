@@ -1,21 +1,22 @@
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateFilters } from '../actions';
+import { getUsers } from '../actions';
 
 const SearchFilters = () => {
 
+  const query = useSelector(state => state.search.query)
   const [clicked, setClicked] = useState(false);
-  const [age, setAge] = useState({ min: '', max: '' })
+  const dispatch = useDispatch();
 
   const handleClick = () => {
     setClicked(prevState => !prevState)
   }
 
   const handleChange = (event) => {
-    setAge(prevAge => {
-      return {
-        ...prevAge, [event.target.name]: event.target.value
-      }
-    })
+    dispatch(updateFilters({...query, [event.target.name]: event.target.value}))
+    dispatch(getUsers({...query, [event.target.name]: event.target.value}))
   }
 
   const renderDropdown = 
@@ -23,17 +24,17 @@ const SearchFilters = () => {
       <div className="dropdown-content-item">
         <span className="dropdown-content-header">Age</span>
         <input
-          name="min"
+          name="agemin"
           type="text"
-          value={age.min}
+          value={query.agemin}
           className="age-input-field"
           onChange={handleChange}
           placeholder="Min"
         /> {' - '}
         <input
-          name="max"
+          name="agemax"
           type="text"
-          value={age.max}
+          value={query.agemax}
           className="age-input-field"
           onChange={handleChange}
           placeholder="Max"
@@ -41,8 +42,8 @@ const SearchFilters = () => {
       </div>
       <div className="dropdown-content-item gender">
         <span className="dropdown-content-header">Gender</span>
-        <select name="gender">
-          <option value="" selected>Any</option>
+        <select value={query.gender} onChange={handleChange} name="gender">
+          <option value="any">Any</option>
           <option value="female">Female</option>
           <option value="male">Male</option>
           <option value="nonbinary">Non-binary</option>
