@@ -150,7 +150,7 @@ a.nav-logo:hover {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 10px;
+  height: 6px;
   background: #ccc;
   opacity: 0.7;
   -webkit-transition: .2s;
@@ -161,13 +161,11 @@ a.nav-logo:hover {
 .slider::-webkit-slider-thumb {
   cursor: pointer;
   -webkit-appearance: none;
-  border: 1px solid #000000;
   height: 24px;
   width: 24px;
   border-radius: 24px;
   background: #45dbab;
   cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 
 .slider:hover {
@@ -179,15 +177,24 @@ a.nav-logo:hover {
   display: inline-block;
 }
 
+.arrow-up {
+  z-index: 10;
+  margin-left: 30px;
+  width: 0; 
+  height: 0; 
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid black;
+}
+
 .dropdown-content {
   border-radius: 3px;
   align-items: center;
   width: 100%;
   position: absolute;
   background-color: white;
-  min-width: 275px;
+  min-width: 300px;
   box-shadow: 0.1px 0.1px 6px 0px #ccc, -0.1px -0.1px 6px 0px #ccc;
-  padding: 14px 22px;
   z-index: 1;
 }
 
@@ -197,8 +204,20 @@ a.nav-logo:hover {
   font-size: 14px;
 }
 
+.dropdown-content-padding {
+  padding: 14px 22px 0 22px;
+}
+
 .dropdown-content-item.gender {
   padding-top: 20px;
+}
+
+.dropdown-content-bottom {
+  background: #45dbab;
+  margin-top: 20px;
+  width: 100%;
+  height: 50px;
+  /* display: flex; */
 }
 
 .age-input-field, select {
@@ -238,13 +257,37 @@ select {
 
 .filter-button:hover {
   background: #d4f0e8;
-  color: #1d5e49;
+  color: #24745a;
   border: 1px solid #45dbab;
 }
 
 .filter-button.applied {
   background: #d4f0e8;
   border: 1px solid #45dbab;
+}
+
+.filter-button.clicked {
+  background: #45dbab;
+  color: white;
+}
+
+.close-button {
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background: white;
+  color: #45dbab;
+  transition: background 0.2s, color 0.2s;
+}
+
+.close-button:hover {
+  background: #d4f0e8;
+  color: #24745a;
 }
 
 #result-city {
