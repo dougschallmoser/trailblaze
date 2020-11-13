@@ -75,7 +75,7 @@ const GoogleMap = (props) => {
         marker={markerInfo.activeMarker}
         visible={markerInfo.showInfo}>
           <div className="trail-info">
-            <img src={`${markerInfo.selected.image}`} alt="trail iamge" /><br/>
+            <img src={`${markerInfo.selected.image}`} alt="trail" /><br/>
             <span id="trail-name">{markerInfo.selected.name}</span><br/>
             <span id="trail-city">{markerInfo.selected.local}</span><br/>
             <p>
