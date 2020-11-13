@@ -2,10 +2,24 @@ class Api::V1::UsersController < ApplicationController
   skip_before_action :authorized, only: [:create, :search]
 
   def search
-    lat = params[:location][:lat]
-    long = params[:location][:lng]
-    radius = params[:location][:radius].to_i
+    lat = params[:query][:lat]
+    long = params[:query][:lng]
+    radius = params[:query][:radius].to_i
     users = User.within(radius, :origin => [lat, long])
+    # if params[:query][:agemin] && params[:query][:agemax]
+    #   users = users.where(age: params[:query][:agemin]..params[:query][:agemax])
+    # elsif params[:query][:agemin]
+    #   users = users.where("age >= ?", params[:query][:agemin])
+    # elsif params[:query][:agemax]
+    #   users = users.where("age <= ?", params[:query][:agemax])
+    # end
+    if params[:query][:gender] == 'male'
+      users = users.where(gender: 'male')
+    elsif params[:query][:gender] == 'female'
+      users = users.where(gender: 'female')
+    elsif params[:query][:gender] == 'nonbinary'
+      users = users.where(gender: 'nonbinary')
+    end
     render json: users
   end
 
