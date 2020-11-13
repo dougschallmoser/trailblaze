@@ -27,7 +27,7 @@
 }
 
 .navbar {
-  overflow: hidden;
+  /* overflow: hidden; */
   position: fixed;
   background-color: #fff;
   top: 0;
@@ -291,6 +291,7 @@ select {
 }
 
 #result-city {
+  margin-top: 80px;
   padding: 8px 5px 5px 5px;
   font-size: 18px;
   font-weight: 500;
@@ -315,7 +316,8 @@ select {
 }
 
 .items-container {
-  margin-top: 90px;
+  min-height: 100vh;
+  /* padding-top: 200px; */
   padding-bottom: 15px;
   width: 45%;
   left: 0;
