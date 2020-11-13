@@ -9,6 +9,10 @@
   z-index: 5;
 }
 
+.container {
+  margin-top: 120px;
+}
+
 .main-color {
   color: #45dbab;
 }
@@ -38,8 +42,9 @@
   z-index: 2;
 }
 
-.navbar a {
+.navbar a, .nav-link-button {
   float: left;
+  cursor: pointer;
   display: block;
   color: #222222;
   text-align: center;
@@ -49,7 +54,7 @@
   font-size: 14px;
 }
 
-.navbar a:hover {
+.navbar a:hover, .nav-link-button:hover {
   background: #f7f7f7;
   border-radius: 15px;
 }
@@ -221,7 +226,6 @@ a.nav-logo:hover {
   margin-top: 20px;
   width: 100%;
   height: 50px;
-  /* display: flex; */
 }
 
 .age-input-field, select {

@@ -1,0 +1,123 @@
+.user-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  overflow: auto;
+  border-radius: 10px;
+  outline: none;
+  padding: 20px;
+}
+
+.user-modal-overlay {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.get-started {
+  font-size: 26px;
+  font-weight: 500;
+  text-align: center;
+  padding-bottom: 40px;
+  padding-left: 70px;
+}
+
+.modal-container {
+  position: relative;
+  align-items: center;
+}
+
+.signup-input {
+  padding: 0 10px 20px 15px;
+}
+
+.signup-input label {
+  padding-right: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.signup-input input[type="text"],
+.signup-input input[type="date"],
+.signup-input input[type="password"],
+.signup-input select,
+.signup-input textarea {
+  width: 325px;
+  padding: 8px 16px;
+  font-weight: 300;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  align-items: center;
+  margin: 0 auto;
+  background: #F6F6FA;
+  z-index: 5;
+}
+
+.signup-input input[type="text"]:hover,
+.signup-input input[type="date"]:hover,
+.signup-input input[type="password"]:hover,
+.signup-input select:hover,
+.signup-input textarea:hover {
+  border: 1px solid #45dbab;
+}
+
+.signup-input input[type="text"]:focus,
+.signup-input input[type="date"]:focus,
+.signup-input input[type="password"]:focus,
+.signup-input select:focus,
+.signup-input textarea:hover {
+  background: white;
+}
+
+.signup-input textarea {
+  resize: none;
+}
+
+.user-submit {
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: white;
+  color: #45dbab;
+  transition: background 0.2s, border 0.2s, color 0.2s;
+}
+
+.user-submit:hover {
+  background: #d4f0e8;
+  border: 1px solid #45dbab;
+  color: #24745a;
+}
+
+.submit-container {
+  text-align: center;
+}
+
+.close-button-user {
+  position: relative;
+  float: right;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background: white;
+  color: #45dbab;
+  transition: background 0.2s, color 0.2s;
+}
+
+.close-button-user:hover {
+  background: #d4f0e8;
+  color: #24745a;
+}
