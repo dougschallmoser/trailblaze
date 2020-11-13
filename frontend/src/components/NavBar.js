@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../actions';
+import UserSignup from './UserSignup';
 
 const NavBar = () => {
 
@@ -18,7 +19,7 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <Link to="/" className="nav-logo">Trailblaze</Link>
-      <Link to="/signup">Signup</Link>
+      <UserSignup />
       <Link to="/login">Login</Link>
       <button onClick={handleLogout}>Logout</button>
       <Link to="/map">Map</Link>
