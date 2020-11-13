@@ -24,7 +24,7 @@ const GoogleMap = (props) => {
   //   )
   // }, [])
 
-  const onMarkerClick = (props, marker, e) => {
+  const onMarkerClick = (props, marker) => {
     setMarkerInfo({
       selected: props,
       activeMarker: marker,
@@ -66,6 +66,7 @@ const GoogleMap = (props) => {
             url={trail.url}
             position={{lat: trail.latitude, lng: trail.longitude}}
             onClick={onMarkerClick}
+            icon={{url: "http://maps.google.com/mapfiles/ms/micons/ltblue-dot.png"}}
           />
         )
       })}
