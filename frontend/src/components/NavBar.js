@@ -7,7 +7,7 @@ import UserSignup from './UserSignup';
 
 const NavBar = () => {
 
-  const user = useSelector(state => state.users);
+  const currentUser = useSelector(state => state.currentUser);
   const theState = useSelector(state => state)
   const dispatch = useDispatch();
   console.log('current state is:', theState)
@@ -23,7 +23,7 @@ const NavBar = () => {
       <Link to="/login">Login</Link>
       <button onClick={handleLogout}>Logout</button>
       <Link to="/map">Map</Link>
-      <span id="current-user">Current User: {user.currentUser && user.currentUser.email}</span>
+      <span id="current-user">Current User: {currentUser && currentUser.email}</span>
     </div>
   )
 }
