@@ -5,7 +5,7 @@ import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers({
   request: requestReducer,
-  users: userReducer,
+  currentUser: userReducer,
   search: searchReducer
 });
 
