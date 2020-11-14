@@ -1,0 +1,84 @@
+#menu-toggle {
+  display: block;
+  position: fixed;
+  top: 30px;
+  right: 15px;
+  z-index: 6;
+}
+
+#menu-toggle input {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 5;
+}
+
+#menu-toggle span {
+  display: block;
+  width: 34px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #45dbab;
+  border-radius: 3px;
+  z-index: 4;
+  transform-origin: 4px 0px;
+  transition:
+    transform 0.5s cubic-bezier(0.5,0.1,0.1,1.0),
+    opacity 0.5s ease,
+    background 0.5s cubic-bezier(0.5,0.1,0.1,1.0);
+}
+
+#menu-toggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menu-toggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+#menu-toggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-3px, -1px);
+  background: white;
+}
+
+#menu-toggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menu-toggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu {
+  width: 400px;
+  margin: -100px -100px 0 -305px;
+  list-style-type: none;
+  padding: 130px 50px 50px 0px;
+  height: 100vh;
+  background: #45dbab;
+  transform: translate(100%, 0);
+  transform-origin: 0% 0%;
+  transition: transform 0.3s cubic-bezier(0.5,0.1,0.1,1.0);
+}
+
+#menu-toggle input:checked ~ div {
+  transform: none;
+}
+
+#menu div {
+  font-family: 'Montserrat', serif;
+  cursor: pointer;
+  padding: 10px 45px;
+  font-size: 22px;
+  color: white;
+}
+
+#menu div:hover {
+  background: white;
+  color: #45dbab;
+}
