@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password 
-  # validates :username, uniqueness: { case_sensitive: false }
+  validates :email, uniqueness: true
+  validates :name, :email, :bio, :gender, :dob, :avatar, :lat, :lng, presence: true
   acts_as_mappable
 
   def age
