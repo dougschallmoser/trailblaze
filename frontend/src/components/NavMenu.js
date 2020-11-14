@@ -15,10 +15,10 @@ const NavMenu = () => {
       <span></span>
       <span></span>
       <div id="menu">
+        <div id="current-user">Logged in: {currentUser.email}</div>
         <UserSignup />
         <UserLogin />
         <UserLogout />
-        <div id="current-user">Current User: {currentUser && currentUser.email}</div>
       </div>
     </div>
   )

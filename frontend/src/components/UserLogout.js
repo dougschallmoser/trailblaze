@@ -19,7 +19,7 @@ const UserLogout = () => {
 
   return (
     <>
-      <div onClick={toggleModal}>Logout</div>
+      <div onClick={toggleModal}>LOGOUT</div>
       <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}

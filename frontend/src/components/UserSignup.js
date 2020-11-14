@@ -45,7 +45,7 @@ const UserSignup = () => {
 
   return (
     <>
-      <div onClick={toggleModal}>Signup</div>
+      <div onClick={toggleModal}>SIGNUP</div>
       <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}
