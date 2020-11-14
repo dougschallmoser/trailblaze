@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import SearchContainer from './containers/SearchContainer';
 import ResultsContainer from './containers/ResultsContainer';
-import UserLogin from './components/UserLogin';
 import GoogleMap from './components/GoogleMap';
 import { getUserProfile } from './actions'
 
@@ -24,9 +23,6 @@ const App = () => {
         <div className="main-container">
           <Route path="/" exact>
             <SearchContainer />
-          </Route>
-          <Route path="/login" exact>
-            <UserLogin />
           </Route>
           <Route path="/map" exact>
             <GoogleMap />
