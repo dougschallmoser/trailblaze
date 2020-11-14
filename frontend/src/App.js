@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import SearchContainer from './containers/SearchContainer';
 import ResultsContainer from './containers/ResultsContainer';
+import ConversationsList from './components/ConversationsList';
 import GoogleMap from './components/GoogleMap';
 import { getUserProfile } from './actions'
 
@@ -21,6 +22,9 @@ const App = () => {
       <Router>
         <NavBar />
         <div className="main-container">
+          <Route path="/conversations" exact>
+            <ConversationsList />
+          </Route>
           <Route path="/" exact>
             <SearchContainer />
           </Route>

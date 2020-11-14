@@ -22,6 +22,7 @@ const NavMenu = () => {
         {loggedIn() && <div id="current-user">Signed in as:<br/>{currentUser.name}</div>}
         {!loggedIn() && <UserSignup />}
         {!loggedIn() && <UserLogin />}
+        <div>MESSAGES</div>
         {loggedIn() && <UserLogout />}
       </div>
     </div>
