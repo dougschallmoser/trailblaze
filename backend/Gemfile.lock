@@ -75,7 +75,6 @@ GEM
     faker (2.14.0)
       i18n (>= 1.6, < 2)
     ffi (1.13.1)
-    geocoder (1.6.3)
     geokit (1.13.1)
     geokit-rails (2.3.1)
       geokit (~> 1.5)
@@ -146,6 +145,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.2.2)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -175,7 +175,6 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   faker
-  geocoder
   geokit-rails
   jwt
   listen (~> 3.2)
@@ -184,6 +183,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rack-cors
   rails (~> 6.0.3, >= 6.0.3.4)
+  redis (~> 4.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
