@@ -1,11 +1,11 @@
 import React from 'react';
 import { ActionCableConsumer } from 'react-actioncable-provider';
 import { API_ROOT } from '../constants';
-import NewConversationForm from './NewConversationForm';
-import MessagesArea from './MessagesArea';
-import Cable from './Cable';
+import ChatNewConversationForm from './ChatNewConversationForm';
+import ChatMessagesArea from './ChatMessagesArea';
+import ChatCable from './ChatCable';
 
-class ConversationsList extends React.Component {
+class ChatConversationsList extends React.Component {
   state = {
     conversations: [],
     activeConversation: null
@@ -47,16 +47,16 @@ class ConversationsList extends React.Component {
           onReceived={this.handleReceivedConversation}
         />
         {this.state.conversations.length ? (
-          <Cable
+          <ChatCable
             conversations={conversations}
             handleReceivedMessage={this.handleReceivedMessage}
           />
         ) : null}
         <h2>Conversations</h2>
         <ul>{mapConversations(conversations, this.handleClick)}</ul>
-        <NewConversationForm />
+        <ChatNewConversationForm />
         {activeConversation ? (
-          <MessagesArea
+          <ChatMessagesArea
             conversation={findActiveConversation(
               conversations,
               activeConversation
@@ -84,4 +84,4 @@ const mapConversations = (conversations, handleClick) => {
   })
 }
 
-export default ConversationsList;
+export default ChatConversationsList;

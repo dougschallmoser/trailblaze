@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { ActionCableConsumer } from 'react-actioncable-provider';
 
-const Cable = ({ conversations, handleReceivedMessage }) => {
+const ChatCable = ({ conversations, handleReceivedMessage }) => {
   return (
     <>
       {conversations.map(conversation => {
@@ -17,4 +17,4 @@ const Cable = ({ conversations, handleReceivedMessage }) => {
   );
 };
 
-export default Cable;
+export default ChatCable;

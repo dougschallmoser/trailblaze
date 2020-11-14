@@ -1,17 +1,17 @@
 import React from 'react';
-import NewMessageForm from './NewMessageForm';
+import ChatNewMessageForm from './ChatNewMessageForm';
 
-const MessagesArea = ({
+const ChatMessagesArea = ({
   conversation: { id, title, messages },
   }) => {
   return (
     <div className="messagesArea">
       <h2>{title}</h2>
       <ul>{orderedMessages(messages)}</ul>
-      <NewMessageForm conversation_id={id} />
+      <ChatNewMessageForm conversation_id={id} />
     </div>
-  );
-};
+  )
+}
 
 const orderedMessages = messages => {
   const sortedMessages = messages.sort(
@@ -22,4 +22,4 @@ const orderedMessages = messages => {
   })
 }
 
-export default MessagesArea;
+export default ChatMessagesArea;

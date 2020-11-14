@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import UserSignup from './UserSignup';
+import { Link } from 'react-router-dom';
 import UserLogin from './UserLogin';
 import UserLogout from './UserLogout';
 
@@ -22,7 +23,7 @@ const NavMenu = () => {
         {loggedIn() && <div id="current-user">Signed in as:<br/>{currentUser.name}</div>}
         {!loggedIn() && <UserSignup />}
         {!loggedIn() && <UserLogin />}
-        <div>MESSAGES</div>
+        {loggedIn() && <Link to="/conversations"><div>MESSAGES</div></Link>}
         {loggedIn() && <UserLogout />}
       </div>
     </div>
