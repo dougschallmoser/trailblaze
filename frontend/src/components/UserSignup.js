@@ -8,6 +8,7 @@ Modal.setAppElement("#root");
 const UserSignup = () => {
   
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
   const [userData, setUserData] = useState({
     email: '', name: '', password: '', dob: '', bio: '', gender: 1, avatar: '', lat: null, lng: null
   })
@@ -37,8 +38,6 @@ const UserSignup = () => {
       email: '', name: '', password: '', dob: '', bio: '', gender: 1, avatar: '', lat: null, lng: null
     })
   }
-  
-  const [isOpen, setIsOpen] = useState(false);
 
   const toggleModal = () => {
     setIsOpen(!isOpen);
@@ -46,7 +45,7 @@ const UserSignup = () => {
 
   return (
     <>
-      <span className="nav-link-button" onClick={toggleModal}>Signup</span>
+      <div onClick={toggleModal}>Signup</div>
       <Modal
         isOpen={isOpen}
         onRequestClose={toggleModal}
@@ -56,7 +55,7 @@ const UserSignup = () => {
         closeTimeoutMS={0}
       >
         <div className="modal-container">
-          <button className="close-button-user" onClick={toggleModal}>Close</button><br/>
+          <button className="close-button-user" onClick={toggleModal}>x</button><br/>
           <div className="get-started">GET STARTED</div>
           <form onSubmit={handleSubmit}>
             <div className="signup-input">
