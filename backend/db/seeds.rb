@@ -4,7 +4,7 @@ require 'faker'
 
 User.create(
   name: "doug",
-  email: Faker::Internet.email,
+  email: "doug@gmail.com",
   password: "monkey",
   bio: Faker::Hipster.sentence(word_count: 15),
   gender: "male",
