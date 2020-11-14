@@ -2,7 +2,7 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 400px;
+  width: 425px;
   transform: translate(-50%, -50%);
   background: #fff;
   overflow: auto;
@@ -35,7 +35,7 @@
 }
 
 .signup-input {
-  padding: 0 10px 20px 15px;
+  padding: 0 10px 20px 20px;
 }
 
 .signup-input label {
@@ -75,6 +75,8 @@
 .signup-input select:focus,
 .signup-input textarea:hover {
   background: white;
+  outline: none;
+  border: 2px solid #45dbab;
 }
 
 .signup-input textarea {
