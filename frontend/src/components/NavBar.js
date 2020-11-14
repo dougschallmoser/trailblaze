@@ -23,7 +23,7 @@ const NavBar = () => {
       <Link to="/login">Login</Link>
       <button onClick={handleLogout}>Logout</button>
       <Link to="/map">Map</Link>
-      <span id="current-user">Current User: {user.currentUser && user.currentUser.username}</span>
+      <span id="current-user">Current User: {user.currentUser && user.currentUser.email}</span>
     </div>
   )
 }

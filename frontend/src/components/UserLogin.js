@@ -7,7 +7,7 @@ const UserLogin = () => {
   const dispatch = useDispatch();
 
   const [loginData, setLoginData] = useState({
-    username: '',
+    email: '',
     password: ''
   })
 
@@ -23,7 +23,7 @@ const UserLogin = () => {
     event.preventDefault();
     dispatch(loginUser(loginData))
     setLoginData({
-      username: '',
+      email: '',
       password: '',
       bio: '',
       avatar: ''
@@ -34,12 +34,12 @@ const UserLogin = () => {
     <div className="container">
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Username:</label>
+          <label>Email:</label>
           <input 
             className="form-control"
             type="text"
-            name='username'
-            value={loginData.username}
+            name='email'
+            value={loginData.email}
             onChange={handleChange}
           />
         </div>
