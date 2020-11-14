@@ -3,7 +3,8 @@ require 'faker'
 # Users
 
 User.create(
-  username: "doug",
+  name: "doug",
+  email: Faker::Internet.email,
   password: "monkey",
   bio: Faker::Hipster.sentence(word_count: 15),
   gender: "male",
@@ -14,7 +15,8 @@ User.create(
 )
 
   User.create(
-  username: "erin",
+  name: "erin",
+  email: Faker::Internet.email,
   password: "monkey",
   bio: Faker::Hipster.sentence(word_count: 15),
   gender: "female",
@@ -30,7 +32,8 @@ userss_list = []
 genders = ["male", "female", "nonbinary"]
 
 10.times do
-  username = Faker::Name.first_name
+  name = Faker::Name.first_name
+  email = Faker::Internet.email
   password = Faker::Internet.password(min_length: 8)
   bio = Faker::Hipster.sentence(word_count: 15)
   gender = genders.sample
@@ -39,12 +42,12 @@ genders = ["male", "female", "nonbinary"]
   lat = 48.762696
   lng = -122.436228
 
-  userss_list << [username, password, bio, gender, avatar, lat, lng, dob]
+  userss_list << [name, email, password, bio, gender, avatar, lat, lng, dob]
 
 end
 
-userss_list.each do |username, password, bio, gender, avatar, lat, lng, dob|
-  User.create(username: username, password: password, bio: bio, gender: gender, avatar: avatar, lat: lat, lng: lng, dob: dob)
+userss_list.each do |name, email, password, bio, gender, avatar, lat, lng, dob|
+  User.create(name: name, email: email, password: password, bio: bio, gender: gender, avatar: avatar, lat: lat, lng: lng, dob: dob)
 end
 
 
@@ -53,7 +56,8 @@ end
 user_list = []
 
 10.times do
-  username = Faker::Name.first_name
+  name = Faker::Name.first_name
+  email = Faker::Internet.email
   password = Faker::Internet.password(min_length: 8)
   bio = Faker::Hipster.sentence(word_count: 15)
   gender = genders.sample
@@ -62,12 +66,12 @@ user_list = []
   lat = 47.607957
   lng = -122.322040
 
-  user_list << [username, password, bio, gender, avatar, lat, lng, dob]
+  user_list << [name, email, password, bio, gender, avatar, lat, lng, dob]
 
 end
 
-user_list.each do |username, password, bio, gender, avatar, lat, lng, dob|
-  User.create(username: username, password: password, bio: bio, gender: gender, avatar: avatar, lat: lat, lng: lng, dob: dob)
+user_list.each do |name, email, password, bio, gender, avatar, lat, lng, dob|
+  User.create(name: name, email: email, password: password, bio: bio, gender: gender, avatar: avatar, lat: lat, lng: lng, dob: dob)
 end
 
 
@@ -76,7 +80,8 @@ end
 users_list = []
 
 10.times do
-  username = Faker::Name.first_name
+  name = Faker::Name.first_name
+  email = Faker::Internet.email
   password = Faker::Internet.password(min_length: 8)
   bio = Faker::Hipster.sentence(word_count: 15)
   gender = genders.sample
@@ -85,10 +90,10 @@ users_list = []
   lat = 45.460522
   lng = -122.611955
 
-  users_list << [username, password, bio, gender, avatar, lat, lng, dob]
+  users_list << [name, email, password, bio, gender, avatar, lat, lng, dob]
 
 end
 
-users_list.each do |username, password, bio, gender, avatar, lat, lng, dob|
-  User.create(username: username, password: password, bio: bio, gender: gender, avatar: avatar, lat: lat, lng: lng, dob: dob)
+users_list.each do |name, email, password, bio, gender, avatar, lat, lng, dob|
+  User.create(name: name, email: email, password: password, bio: bio, gender: gender, avatar: avatar, lat: lat, lng: lng, dob: dob)
 end
