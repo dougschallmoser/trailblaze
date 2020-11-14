@@ -129,6 +129,10 @@ a.nav-logo span {
   cursor: pointer;
 }
 
+.suggestion-item--active span {
+  color: white;
+}
+
 .radius-slider {
   margin: 11px 0 2px 30px;
   align-items: center;
@@ -416,11 +420,6 @@ select:focus {
   font-size: 20px;
   color: #45dbab;
   margin-bottom: 10px;
-}
-
-#current-user {
-  /* float: right; */
-  margin-right: 25px;
 }
 
 .two-column {
