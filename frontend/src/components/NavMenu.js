@@ -8,6 +8,10 @@ const NavMenu = () => {
 
   const currentUser = useSelector(state => state.currentUser);
 
+  const loggedIn = () => {
+    return Object.keys(currentUser).length > 0
+  }
+
   return (
     <div id="menu-toggle">
       <input type="checkbox" />
@@ -15,10 +19,10 @@ const NavMenu = () => {
       <span></span>
       <span></span>
       <div id="menu">
-        <div id="current-user">Logged in: {currentUser.email}</div>
-        <UserSignup />
-        <UserLogin />
-        <UserLogout />
+        {loggedIn() && <div id="current-user">Signed in as:<br/>{currentUser.name}</div>}
+        {!loggedIn() && <UserSignup />}
+        {!loggedIn() && <UserLogin />}
+        {loggedIn() && <UserLogout />}
       </div>
     </div>
   )
