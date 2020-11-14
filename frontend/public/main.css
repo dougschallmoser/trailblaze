@@ -1,16 +1,14 @@
 * {
   color: #222222;
   font-family: 'Rubik', sans-serif;
+  margin: 0;
 }
 
 .main-container {
-  margin-top: 60px;
+  margin-top: 80px;
+  width: 100%;
   background: white;
   z-index: 5;
-}
-
-.container {
-  margin-top: 120px;
 }
 
 .main-color {
@@ -18,7 +16,7 @@
 }
 
 .search {
-  padding: 5px 0;
+  padding: 4px 0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   display: flex;
@@ -31,32 +29,25 @@
 }
 
 .navbar {
-  /* overflow: hidden; */
   position: fixed;
   background-color: #fff;
   top: 0;
+  line-height: 80px;
   width: 100%;
-  padding-top: 15px;
-  padding-bottom: 15px;
   text-align: center;
+  align-items: center;
   z-index: 2;
 }
 
-.navbar a, .nav-link-button {
+.navbar a {
   float: left;
   cursor: pointer;
   display: block;
   color: #222222;
   text-align: center;
-  padding: 4px 16px;
+  padding: 0 16px;
   text-decoration: none;
-  line-height: 28px;
   font-size: 14px;
-}
-
-.navbar a:hover, .nav-link-button:hover {
-  background: #f7f7f7;
-  border-radius: 15px;
 }
 
 a.nav-logo {
@@ -64,12 +55,12 @@ a.nav-logo {
   margin-right: 20px;
   font-family: 'Big Shoulders Stencil Text', cursive;
   color: #45dbab;
-  font-size: 28px;
+  font-size: 34px;
 }
 
-a.nav-logo:hover {
-  background: none;
-  border-radius: none;
+a.nav-logo span {
+  color: #0ab89a;
+  font-weight: 500;
 }
 
 .search-bar {
@@ -261,6 +252,12 @@ select {
   width: 145px;
 }
 
+select:focus {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #45dbab;
+}
+
 .filter-button {
   margin-left: 30px;
   font-size: 13px;
@@ -268,7 +265,7 @@ select {
   padding: 6px 26px;
   border-radius: 3px;
   background: white;
-  color: #45dbab;
+  color: black;
   border: 1px solid #ccc;
   transition: background 0.2s, border 0.2s, color 0.2s;
 }
@@ -277,6 +274,12 @@ select {
   background: #d4f0e8;
   color: #24745a;
   border: 1px solid #45dbab;
+}
+
+.filter-button:focus {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #45dbab;
 }
 
 .filter-button.applied {
@@ -306,6 +309,12 @@ select {
 .close-button:hover {
   background: #d4f0e8;
   color: #24745a;
+}
+
+.close-button:focus {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #45dbab;
 }
 
 #result-city {
@@ -389,7 +398,7 @@ select {
 }
 
 .google-map {
-  margin-top: 78px;
+  margin-top: 76px;
   width: 55%;
 }
 
@@ -410,7 +419,7 @@ select {
 }
 
 #current-user {
-  float: right;
+  /* float: right; */
   margin-right: 25px;
 }
 
