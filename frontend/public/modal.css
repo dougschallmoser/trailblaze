@@ -35,12 +35,12 @@
 }
 
 .signup-input {
-  padding: 0 10px 20px 20px;
+  padding: 0 10px 14px 30px;
 }
 
 .signup-input label {
   padding-right: 30px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -73,10 +73,15 @@
 .signup-input input[type="date"]:focus,
 .signup-input input[type="password"]:focus,
 .signup-input select:focus,
-.signup-input textarea:hover {
+.signup-input textarea:focus {
   background: white;
-  outline: none;
-  border: 2px solid #45dbab;
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #45dbab;
+}
+
+.signup-input select {
+  width: 361px;
 }
 
 .signup-input textarea {
