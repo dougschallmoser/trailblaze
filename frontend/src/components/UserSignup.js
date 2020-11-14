@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../actions';
 import Modal from "react-modal";
@@ -8,20 +8,24 @@ Modal.setAppElement("#root");
 const UserSignup = () => {
   
   const dispatch = useDispatch();
-
   const [userData, setUserData] = useState({
-    username: '',
-    password: '',
-    dob: '',
-    bio: '',
-    gender: 1,
-    avatar: ''
+    email: '', name: '', password: '', dob: '', bio: '', gender: 1, avatar: '', lat: null, lng: null
   })
 
+  useEffect(() => {
+    window.navigator.geolocation.getCurrentPosition(
+      position => setUserData(prevUserData => {
+        return {
+          ...prevUserData, lat: position.coords.latitude, lng: position.coords.longitude
+        }
+      })
+    )
+  }, [])
+
   const handleChange = (event) => {
-    setUserData(prevUser => {
+    setUserData(prevUserData => {
       return {
-        ...prevUser, [event.target.name]: event.target.value
+        ...prevUserData, [event.target.name]: event.target.value
       }
     })
   }
@@ -30,11 +34,7 @@ const UserSignup = () => {
     event.preventDefault();
     dispatch(addUser(userData))
     setUserData({
-      username: '',
-      password: '',
-      dob: '',
-      bio: '',
-      avatar: ''
+      email: '', name: '', password: '', dob: '', bio: '', gender: 1, avatar: '', lat: null, lng: null
     })
   }
   
@@ -60,11 +60,21 @@ const UserSignup = () => {
           <div className="get-started">GET STARTED</div>
           <form onSubmit={handleSubmit}>
             <div className="signup-input">
-              <label>Username:</label>
+              <label>First Name:</label>
               <input 
                 type="text"
-                name='username'
-                value={userData.username}
+                name='name'
+                value={userData.name}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="signup-input">
+              <label>Email:</label>
+              <input 
+                type="text"
+                name='email'
+                value={userData.email}
                 onChange={handleChange}
               />
             </div>
