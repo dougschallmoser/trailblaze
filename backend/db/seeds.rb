@@ -16,7 +16,7 @@ User.create(
 
   User.create(
   name: "erin",
-  email: Faker::Internet.email,
+  email: "erin@gmail.com",
   password: "monkey",
   bio: Faker::Hipster.sentence(word_count: 15),
   gender: "female",
