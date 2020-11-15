@@ -57,8 +57,8 @@ class ChatConversationsList extends React.Component {
           <h2>Messages</h2>
           {mapConversations(conversations, this.handleClick)}
         </div>
-        <div>
-          <ChatNewConversationForm />
+        <div className="messages">
+          {/* <ChatNewConversationForm /> */}
           {activeConversation ? (
             <ChatMessagesArea
               conversation={findActiveConversation(
