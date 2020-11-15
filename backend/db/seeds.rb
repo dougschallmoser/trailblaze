@@ -14,7 +14,7 @@ User.create(
   dob: "1987-10-14"
 )
 
-  User.create(
+User.create(
   name: "erin",
   email: "erin@gmail.com",
   password: "monkey",
@@ -24,6 +24,18 @@ User.create(
   lat: 47.261058,
   lng: -122.167780,
   dob: "1985-12-04"
+)
+
+User.create(
+  name: "noah",
+  email: "noah@gmail.com",
+  password: "monkey",
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: Faker::Avatar.image(size: "100x100"),
+  lat: 47.261058,
+  lng: -122.167780,
+  dob: "1997-10-16"
 )
 
 # BELLINGHAM
