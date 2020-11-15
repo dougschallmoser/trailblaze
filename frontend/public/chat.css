@@ -1,0 +1,43 @@
+.conversationsList {
+  margin: auto;
+  text-align: center;
+  width: 50%;
+}
+
+.conversationsList h2 {
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 50px;
+}
+
+.conversation-item {
+  display: flex;
+  margin: auto;
+  /* width: 50%; */
+  align-items: center;
+  /* width: 100%; */
+  cursor: pointer;
+  border-radius: 16px;
+  padding: 10px 25px;
+}
+
+.conversation-item:hover {
+  background: #F6F6FA;
+}
+
+.conversation-item span {
+  padding-left: 60px;
+  font-size: 24px;
+}
+
+.conversation-item p {
+  color: #767676;
+}
+
+.circular-portrait {
+  position: relative;
+  width: 125px;
+  height: 125px;
+  overflow: hidden;
+  border-radius: 50%;
+}
