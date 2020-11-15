@@ -12,7 +12,7 @@ const ChatNewConversationForm = () => {
   };
 
   const handleSubmit = e => {
-    e.preventDefault()
+    e.preventDefault();
     fetch(`${API_ROOT}/conversations`, {
       method: 'POST',
       headers: HEADERS,

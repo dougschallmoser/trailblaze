@@ -21,7 +21,7 @@ const NavMenu = () => {
       <span></span>
       <div id="menu">
         {loggedIn() && <div id="current-user">Signed in as:<br/>{currentUser.name}</div>}
-        {/* {!loggedIn() && <UserSignup />} */}
+        {!loggedIn() && <UserSignup />}
         {!loggedIn() && <UserLogin />}
         {loggedIn() && <Link to="/conversations"><div>MESSAGES</div></Link>}
         {loggedIn() && <UserLogout />}

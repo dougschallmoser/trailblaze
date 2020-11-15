@@ -7,19 +7,15 @@ const ChatNewMessageForm = (props) => {
     text: '', conversation_id: props.conversation_id, user_id: 1
   })
 
-  useEffect(() => {
-    setMessage({ ...message, conversation_id: props.conversation_id })
-  }, [props])
+  // useEffect(() => {
+  //   setMessage({ ...message, conversation_id: props.conversation_id })
+  // }, [props])
 
-  // componentDidUpdate = nextProps => {
-  //   this.setState({ conversation_id: nextProps.conversation_id });
-  // };
-
-  const handleChange = e => {
+  const handleChange = (e) => {
     setMessage({ ...message, text: e.target.value })
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     fetch(`${API_ROOT}/messages`, {
       method: 'POST',

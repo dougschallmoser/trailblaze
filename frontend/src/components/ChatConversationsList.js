@@ -3,6 +3,7 @@ import { ActionCableConsumer } from 'react-actioncable-provider';
 import { API_ROOT } from '../constants';
 import ChatNewConversationForm from './ChatNewConversationForm';
 import ChatMessagesArea from './ChatMessagesArea';
+import ChatConversation from './ChatConversation';
 import ChatCable from './ChatCable';
 
 class ChatConversationsList extends React.Component {
@@ -17,7 +18,7 @@ class ChatConversationsList extends React.Component {
       .then(conversations => this.setState({ conversations }));
   };
 
-  handleClick = id => {
+  handleClick = (id) => {
     this.setState({ activeConversation: id });
   };
 
@@ -41,29 +42,33 @@ class ChatConversationsList extends React.Component {
   render = () => {
     const { conversations, activeConversation } = this.state;
     return (
-      <div className="conversationsList">
-        <ActionCableConsumer
-          channel={{ channel: 'ConversationsChannel' }}
-          onReceived={this.handleReceivedConversation}
-        />
-        {this.state.conversations.length ? (
-          <ChatCable
-            conversations={conversations}
-            handleReceivedMessage={this.handleReceivedMessage}
+      <>
+        <div className="conversationsList">
+          <ActionCableConsumer
+            channel={{ channel: 'ConversationsChannel' }}
+            onReceived={this.handleReceivedConversation}
           />
-        ) : null}
-        <h2>Conversations</h2>
-        <ul>{mapConversations(conversations, this.handleClick)}</ul>
-        <ChatNewConversationForm />
-        {activeConversation ? (
-          <ChatMessagesArea
-            conversation={findActiveConversation(
-              conversations,
-              activeConversation
-            )}
-          />
-        ) : null}
-      </div>
+          {this.state.conversations.length ? (
+            <ChatCable
+              conversations={conversations}
+              handleReceivedMessage={this.handleReceivedMessage}
+            />
+          ) : null}
+          <h2>Messages</h2>
+          {mapConversations(conversations, this.handleClick)}
+        </div>
+        <div>
+          <ChatNewConversationForm />
+          {activeConversation ? (
+            <ChatMessagesArea
+              conversation={findActiveConversation(
+                conversations,
+                activeConversation
+              )}
+            />
+          ) : null}
+        </div>
+      </>
     );
   };
 }
@@ -77,9 +82,9 @@ const findActiveConversation = (conversations, activeConversation) => {
 const mapConversations = (conversations, handleClick) => {
   return conversations.map(conversation => {
     return (
-      <li key={conversation.id} onClick={() => handleClick(conversation.id)}>
-        {conversation.title} created by {conversation.author.name} with {conversation.receiver.name}
-      </li>
+      <div className="conversation-item" key={conversation.id} onClick={() => handleClick(conversation.id)}>
+        <ChatConversation conversation={conversation} />
+      </div>
     )
   })
 }
