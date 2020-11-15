@@ -13,7 +13,7 @@
 .conversation-item {
   margin: auto;
   width: 500px;
-  height: 120px;
+  height: 100px;
   align-items: center;
   cursor: pointer;
   border-radius: 16px;
@@ -32,14 +32,25 @@
   font-size: 24px;
 }
 
-.conversation-item p {
+.conversation-item #chat-time time {
+  margin-top: 5px;
+  font-size: 14px;
+  float: right;
   color: #767676;
+}
+
+#chat-preview {
+  font-size: 14px;
+  color: #767676;
+  margin-top: 10px;
+  margin-left: 147px;
+  text-align: left;
 }
 
 .circular-portrait {
   position: absolute;
-  width: 125px;
-  height: 125px;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
   border-radius: 50%;
 }
@@ -50,9 +61,8 @@
   display: block;
   overflow: auto;
   align-items: center;
-  cursor: pointer;
   border-radius: 16px;
-  padding: 10px 25px;
+  padding: 10px 25px 100px 25px;
 }
 
 ul {
@@ -62,9 +72,9 @@ ul {
 }
 
 ul li {
-  display:inline-block;
+  display: inline-block;
   clear: both;
-  padding: 12px 18px;
+  padding: 8px 18px;
   border-radius: 30px;
   margin-bottom: 2px;
 }
@@ -82,4 +92,58 @@ ul li {
 
 .newMessageForm {
   clear: both;
+  margin: auto;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.newMessageForm form {
+  display: flex;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.message-input {
+  width: 100%;
+  padding: 16px 16px;
+  font-weight: 300;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  align-items: center;
+  background: #F6F6FA;
+  z-index: 5;
+}
+
+.message-input:hover {
+  border: 1px solid #45dbab;
+}
+
+.message-input:focus {
+  background: white;
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #45dbab;
+}
+
+.message-submit {
+  font-size: 40px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: white;
+  color: #45dbab;
+  transition: background 0.2s, border 0.2s, color 0.2s;
+}
+
+.message-submit:hover {
+  background: #d4f0e8;
+  border: 1px solid #45dbab;
+  color: #24745a;
+}
+
+.message-submit:focus {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #45dbab;
 }
