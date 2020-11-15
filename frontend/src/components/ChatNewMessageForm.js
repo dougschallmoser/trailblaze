@@ -4,7 +4,7 @@ import { API_ROOT, HEADERS } from '../constants';
 const ChatNewMessageForm = (props) => {
 
   const [message, setMessage] = useState({
-    text: '', conversation_id: props.conversation_id, user_id: 1
+    text: '', conversation_id: props.conversation_id, user_id: props.currentUserId
   })
 
   // useEffect(() => {
@@ -28,14 +28,17 @@ const ChatNewMessageForm = (props) => {
   return (
     <div className="newMessageForm">
       <form onSubmit={handleSubmit}>
-        <label>New Message:</label>
-        <br />
-        <input
-          type="text"
-          value={message.text}
-          onChange={handleChange}
-        />
-        <input type="submit" />
+        
+          <input
+            type="text"
+            value={message.text}
+            onChange={handleChange}
+            className="message-input"
+          />
+        
+        <div className="submit-container">
+          <input type="submit" value="&#8593;" className="message-submit" />
+        </div>
       </form>
     </div>
   );

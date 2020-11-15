@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../actions';
+import { Link } from 'react-router-dom';
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
@@ -32,7 +33,7 @@ const UserLogout = () => {
           <button className="close-button-user" onClick={toggleModal}>x</button><br/>
           <div className="get-started">Are you sure you want to logout?</div>
           <div className="submit-container">
-            <button className="user-submit" onClick={handleLogout}>Yes, log me out</button>
+            <Link to="/"><button className="user-submit" onClick={handleLogout}>Yes, log me out</button></Link>
           </div>
         </div>
       </Modal>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { ActionCableConsumer } from 'react-actioncable-provider';
 import { API_ROOT } from '../constants';
-import ChatNewConversationForm from './ChatNewConversationForm';
+// import ChatNewConversationForm from './ChatNewConversationForm';
+import { connect } from 'react-redux';
 import ChatMessagesArea from './ChatMessagesArea';
 import ChatConversation from './ChatConversation';
 import ChatCable from './ChatCable';
@@ -9,13 +10,18 @@ import ChatCable from './ChatCable';
 class ChatConversationsList extends React.Component {
   state = {
     conversations: [],
-    activeConversation: null
+    activeConversation: null,
+    currentUserId: null
   };
 
   componentDidMount = () => {
     fetch(`${API_ROOT}/conversations`)
       .then(res => res.json())
-      .then(conversations => this.setState({ conversations }));
+      .then(conversations => {
+        const userConvos = conversations.filter(convo => convo.author.id === this.props.currentUser || convo.receiver.id === this.props.currentUser)
+        this.setState({ ...this.state, conversations: userConvos })
+      }
+      );
   };
 
   handleClick = (id) => {
@@ -55,7 +61,7 @@ class ChatConversationsList extends React.Component {
             />
           ) : null}
           <h2>Messages</h2>
-          {mapConversations(conversations, this.handleClick)}
+          {mapConversations(conversations, this.handleClick, this.props.currentUser)}
         </div>
         <div className="messages">
           {/* <ChatNewConversationForm /> */}
@@ -79,14 +85,20 @@ const findActiveConversation = (conversations, activeConversation) => {
   );
 };
 
-const mapConversations = (conversations, handleClick) => {
+const mapConversations = (conversations, handleClick, currentUserId) => {
   return conversations.map(conversation => {
     return (
       <div className="conversation-item" key={conversation.id} onClick={() => handleClick(conversation.id)}>
-        <ChatConversation conversation={conversation} />
+        <ChatConversation conversation={conversation} currentUserId={currentUserId} />
       </div>
     )
   })
 }
 
-export default ChatConversationsList;
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUser.id
+  }
+}
+
+export default connect(mapStateToProps)(ChatConversationsList);

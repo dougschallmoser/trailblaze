@@ -11,10 +11,10 @@ const ChatMessagesArea = ({ conversation: { id, title, messages } }) => {
     )
     return sortedMessages.map(message => {
       const myMsg = () => {
-        return (currentUser.id === message.author_id || currentUser.id === message.receiver.id)
+        return (currentUser.id === message.user.id)
       }
       return (
-      <li key={message.id}  className={myMsg ? "me" : "them"}>{message.text} by {message.user.name}</li>
+      <li key={message.id} className={myMsg() ? "me" : "them"}>{message.text}</li>
       )
     })
   }
@@ -22,7 +22,7 @@ const ChatMessagesArea = ({ conversation: { id, title, messages } }) => {
   return (
     <>
       <ul>{orderedMessages(messages)}</ul>
-      <ChatNewMessageForm conversation_id={id} />
+      <ChatNewMessageForm conversation_id={id} currentUserId={currentUser.id} />
     </>
   )
 }

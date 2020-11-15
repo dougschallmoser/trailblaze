@@ -133,7 +133,7 @@ const UserSignup = () => {
 
             <div className="submit-container">
               <input type="submit" className="user-submit" />
-              </div>
+            </div>
           </form>
         </div>
       </Modal>
