@@ -14,14 +14,17 @@ const UserSignup = () => {
   })
 
   useEffect(() => {
-    window.navigator.geolocation.getCurrentPosition(
+    if (isOpen) {
+      window.navigator.geolocation.getCurrentPosition(
       position => setUserData(prevUserData => {
         return {
           ...prevUserData, lat: position.coords.latitude, lng: position.coords.longitude
         }
       })
-    )
-  }, [])
+      )
+    }
+
+  }, [isOpen])
 
   const handleChange = (event) => {
     setUserData(prevUserData => {
