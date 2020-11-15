@@ -78,7 +78,7 @@ const mapConversations = (conversations, handleClick) => {
   return conversations.map(conversation => {
     return (
       <li key={conversation.id} onClick={() => handleClick(conversation.id)}>
-        {conversation.title}
+        {conversation.title} created by {conversation.author.name} with {conversation.receiver.name}
       </li>
     )
   })
