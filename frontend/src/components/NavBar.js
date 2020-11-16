@@ -13,7 +13,6 @@ const NavBar = () => {
       <NavMenu />
       <div className="navbar">
       <Link to="/" className="nav-logo"><span>Trail</span>blaze</Link>
-      <Link to="/map">Map</Link>
     </div>
     </>
   )
