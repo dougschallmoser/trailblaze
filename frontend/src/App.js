@@ -6,7 +6,6 @@ import NavBar from './components/NavBar';
 import SearchContainer from './containers/SearchContainer';
 import ResultsContainer from './containers/ResultsContainer';
 import ChatConversationsList from './components/ChatConversationsList';
-import GoogleMap from './components/GoogleMap';
 import { getUserProfile } from './actions'
 
 const App = () => {
@@ -18,23 +17,21 @@ const App = () => {
   })
 
   return (
-    <>
-      <Router>
-        <NavBar />
-        <div className="main-container">
-          <Route path="/conversations" exact>
-            <ChatConversationsList />
-          </Route>
-          <Route path="/" exact>
-            <SearchContainer />
-          </Route>
-          <Route path="/search" exact>
-            <SearchContainer />
-            <ResultsContainer />
-          </Route>
-        </div>
-      </Router>
-    </>
+    <Router>
+      <NavBar />
+      <div className="main-container">
+        <Route path="/messages" exact>
+          <ChatConversationsList />
+        </Route>
+        <Route path="/" exact>
+          <SearchContainer />
+        </Route>
+        <Route path="/search" exact>
+          <SearchContainer />
+          <ResultsContainer />
+        </Route>
+      </div>
+    </Router>
   )
 }
 
