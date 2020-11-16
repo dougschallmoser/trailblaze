@@ -44,6 +44,15 @@ class ChatConversationsList extends React.Component {
     this.setState({ conversations });
   };
 
+  handleUpdateConvo = updatedConvo => {
+    const oldConversations = [...this.state.conversations]
+    const conversations = oldConversations.filter(
+      conversation => conversation.id !== updatedConvo.id
+    )
+    conversations.push(updatedConvo)
+    this.setState({ conversations })
+  }
+
   render = () => {
     const { conversations, activeConversation } = this.state;
     return (
@@ -60,7 +69,7 @@ class ChatConversationsList extends React.Component {
             />
           ) : null}
           <h2>Messages</h2>
-          {mapConversations(conversations, this.handleClick, this.props.currentUser)}
+          {mapConversations(conversations, this.handleClick, this.props.currentUser, this.handleUpdateConvo)}
         </div>
         <div className="messages">
           {activeConversation ? (
@@ -83,13 +92,13 @@ const findActiveConversation = (conversations, activeConversation) => {
   );
 };
 
-const mapConversations = (conversations, handleClick, currentUserId) => {
+const mapConversations = (conversations, handleClick, currentUserId, handleUpdateConvo) => {
   return conversations.map(conversation => {
     const renderConvo = () => {
-      if ((!conversation.accepted && conversation.author.id === currentUserId) || (!conversation.accepted && conversation.receiver.id === currentUserId)) {
+      if (!conversation.accepted) {
         return (
           <div className="conversation-item no-cursor" key={conversation.id}>
-            <ChatConversation conversation={conversation} currentUserId={currentUserId}/>
+            <ChatConversation conversation={conversation} currentUserId={currentUserId} updateConvo={handleUpdateConvo} />
           </div>
         )
       } else {

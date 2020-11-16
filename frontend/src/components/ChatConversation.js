@@ -3,7 +3,7 @@ import faker from 'faker';
 import Moment from 'react-moment';
 import { API_ROOT, HEADERS } from '../constants';
 
-const ChatConversation = ({ conversation, currentUserId, updateConversation }) => {
+const ChatConversation = ({ conversation, currentUserId, updateConvo }) => {
 
   const displayOtherUserName = () => {
     if (currentUserId === conversation.author.id) {
@@ -26,7 +26,8 @@ const ChatConversation = ({ conversation, currentUserId, updateConversation }) =
       method: 'PATCH',
       headers: HEADERS,
       body: JSON.stringify({ conversation: {accepted: true} })
-    });
+    }).then(response => response.json())
+    .then(conversation => updateConvo(conversation))
   }
 
   const handleReject = () => {
