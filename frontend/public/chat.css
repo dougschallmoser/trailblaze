@@ -147,3 +147,13 @@ ul li {
   outline-width: 2px;
   outline-color: #45dbab;
 }
+
+.pending-conversation {
+  color: #45dbab;
+  margin-top: 8px;
+  float: right;
+}
+
+.no-cursor {
+  cursor: auto;
+}
