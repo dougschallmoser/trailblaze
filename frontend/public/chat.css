@@ -82,7 +82,7 @@
 .messages {
   margin: 0 0 0 550px;
   overflow-y: scroll;
-  width: 35%;
+  width: 450px;
   position: fixed;
   bottom: 0;
   top: 0;
@@ -129,7 +129,7 @@ ul li {
 
 .newMessageForm form {
   display: flex;
-  width: 100%;
+  width: 90%;
 }
 
 .message-input {
