@@ -121,7 +121,6 @@ const mapConversations = (conversations, handleClick, currentUserId, handleAccep
       } else {
         return (
           <div
-            className="conversation-item"
             className={`conversation-item ${selected() ? "selected-convo" : ""}`}
             key={conversation.id}
             onClick={() => handleClick(conversation.id)}

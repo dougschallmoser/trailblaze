@@ -11,10 +11,10 @@ const ChatCable = ({ conversations, handleReceivedMessage }) => {
             channel={{ channel: 'MessagesChannel', conversation: conversation.id }}
             onReceived={handleReceivedMessage}
           />
-        );
+        )
       })}
     </>
-  );
-};
+  )
+}
 
 export default ChatCable;
