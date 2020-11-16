@@ -1,5 +1,5 @@
 class Api::V1::ConversationsController < ApplicationController
-  skip_before_action :authorized, only: [:create, :index]
+  skip_before_action :authorized, only: [:create, :index, :update, :destroy]
 
   def index
     conversations = Conversation.all
@@ -17,9 +17,19 @@ class Api::V1::ConversationsController < ApplicationController
     end
   end
 
+  def update
+    conversation = Conversation.find_by(id: params[:id])
+    conversation.update(conversation_params)    
+  end
+
+  def destroy
+    conversation = Conversation.find_by(id: params[:id])
+    conversation.destroy
+  end
+
   private
 
   def conversation_params
-    params.require(:conversation).permit(:title, :author_id, :receiver_id, :current_user_id)
+    params.require(:conversation).permit(:title, :author_id, :receiver_id, :accepted)
   end
 end
