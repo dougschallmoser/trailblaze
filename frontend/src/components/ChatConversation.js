@@ -45,8 +45,12 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
           <div className="circular-portrait">
             <img src={faker.image.avatar()} alt={displayOtherUserName()} />
           </div>
-          <span id="chat-time"><Moment format="h:mm a on MM/DD/YYYY">{(recentMessage() && recentMessage().created_at) || conversation.created_at}</Moment></span>
-          <span>{displayOtherUserName()}</span><br/>
+          <span id="chat-time">
+            <Moment format="h:mm a on MM/DD/YYYY">
+              {(recentMessage() && recentMessage().created_at) || conversation.created_at}
+            </Moment>
+          </span>
+          <span id="chat-user">{displayOtherUserName()}</span><br/>
           <p id="chat-preview">{(recentMessage() && recentMessage().text) || conversation.title} </p>
         </>
       )
@@ -56,9 +60,13 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
           <div className="circular-portrait">
             <img src={faker.image.avatar()} alt={displayOtherUserName()} />
           </div>
-          <span id="chat-time"><Moment format="h:mm a on MM/DD/YYYY">{conversation.created_at}</Moment></span>
+          <span id="chat-time">
+            <Moment format="h:mm a on MM/DD/YYYY">
+              {conversation.created_at}
+            </Moment>
+          </span>
           <span>{displayOtherUserName()}</span><br/>
-          <p id="chat-preview">{conversation.title} </p>
+          <p>{conversation.title} </p>
           <button className="user-submit" onClick={handleAccept}>Accept</button>
           <button className="user-submit" onClick={handleReject}>Reject</button>
         </>
@@ -69,7 +77,11 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
           <div className="circular-portrait">
             <img src={faker.image.avatar()} alt={displayOtherUserName()} />
           </div>
-          <span id="chat-time"><Moment format="h:mm a on MM/DD/YYYY">{conversation.created_at}</Moment></span>
+          <span id="chat-time">
+            <Moment format="h:mm a on MM/DD/YYYY">
+              {conversation.created_at}
+            </Moment>
+          </span>
           <span>{displayOtherUserName()}</span><br/>
           <p id="chat-preview">{conversation.title}</p>
           <div className="pending-conversation">Pending acceptance from {displayOtherUserName()}</div>

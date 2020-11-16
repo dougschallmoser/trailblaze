@@ -77,7 +77,7 @@ class ChatConversationsList extends React.Component {
             />
           ) : null}
           <h2>Messages</h2>
-          {mapConversations(conversations, this.handleClick, this.props.currentUser, this.handleAcceptConvo, this.handleRejectConvo)}
+          {mapConversations(conversations, this.handleClick, this.props.currentUser, this.handleAcceptConvo, this.handleRejectConvo, this.state.activeConversation)}
         </div>
         <div className="messages">
           {activeConversation ? (
@@ -100,8 +100,12 @@ const findActiveConversation = (conversations, activeConversation) => {
   );
 };
 
-const mapConversations = (conversations, handleClick, currentUserId, handleAcceptConvo, handleRejectConvo) => {
+const mapConversations = (conversations, handleClick, currentUserId, handleAcceptConvo, handleRejectConvo, activeConversation) => {
   return conversations.map(conversation => {
+    const selected = () => {
+      return activeConversation === conversation.id
+    }
+    
     const renderConvo = () => {
       if (!conversation.accepted) {
         return (
@@ -110,18 +114,26 @@ const mapConversations = (conversations, handleClick, currentUserId, handleAccep
               conversation={conversation}
               currentUserId={currentUserId}
               acceptConvo={handleAcceptConvo}
-              rejectConvo={handleRejectConvo} />
+              rejectConvo={handleRejectConvo}
+            />
           </div>
         )
       } else {
         return (
-          <div className="conversation-item" key={conversation.id} onClick={() => handleClick(conversation.id)}>
-            <ChatConversation conversation={conversation} currentUserId={currentUserId}/>
+          <div
+            className="conversation-item"
+            className={`conversation-item ${selected() ? "selected-convo" : ""}`}
+            key={conversation.id}
+            onClick={() => handleClick(conversation.id)}
+          >
+            <ChatConversation
+              conversation={conversation}
+              currentUserId={currentUserId}
+            />
           </div>
         )
       }
     }
-    
     return renderConvo();
   })
 }

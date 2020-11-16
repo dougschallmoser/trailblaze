@@ -2,11 +2,20 @@ import React from 'react';
 import ChatNewMessage from './ChatNewMessage';
 import { useSelector } from 'react-redux';
 
-const ChatMessagesList = ({ conversation: { id, author, title, messages } }) => {
+const ChatMessagesList = ({ conversation: { id, author, receiver, title, messages } }) => {
   const currentUser = useSelector(state => state.currentUser);
 
   const myMsg = (message) => {
     return (currentUser.id === message.user.id)
+  }
+
+  const displayOtherUserName = () => {
+    if (currentUser.id === author.id) {
+      return receiver.name
+    }
+    else if (currentUser.id === receiver.id) {
+      return author.name
+    }
   }
 
   const orderedMessages = messages => {
@@ -22,6 +31,7 @@ const ChatMessagesList = ({ conversation: { id, author, title, messages } }) => 
 
   return (
     <>
+      <h3>Chatting with <span className="main-color">{displayOtherUserName()}</span></h3>
       <ul>
         <li className={author.id === currentUser.id ? "me" : "them"}>{title}</li>
         {orderedMessages(messages)}
