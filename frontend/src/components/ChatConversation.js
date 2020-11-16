@@ -3,7 +3,7 @@ import faker from 'faker';
 import Moment from 'react-moment';
 import { API_ROOT, HEADERS } from '../constants';
 
-const ChatConversation = ({ conversation, currentUserId, updateConvo }) => {
+const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConvo }) => {
 
   const displayOtherUserName = () => {
     if (currentUserId === conversation.author.id) {
@@ -27,7 +27,7 @@ const ChatConversation = ({ conversation, currentUserId, updateConvo }) => {
       headers: HEADERS,
       body: JSON.stringify({ conversation: {accepted: true} })
     }).then(response => response.json())
-    .then(conversation => updateConvo(conversation))
+    .then(conversation => acceptConvo(conversation))
   }
 
   const handleReject = () => {
@@ -35,6 +35,7 @@ const ChatConversation = ({ conversation, currentUserId, updateConvo }) => {
       method: 'DELETE',
       headers: HEADERS
     });
+    rejectConvo(conversation)
   }
 
   const renderConversation = () => {

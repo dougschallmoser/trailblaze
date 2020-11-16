@@ -44,12 +44,20 @@ class ChatConversationsList extends React.Component {
     this.setState({ conversations });
   };
 
-  handleUpdateConvo = updatedConvo => {
+  handleAcceptConvo = updatedConvo => {
     const oldConversations = [...this.state.conversations]
     const conversations = oldConversations.filter(
       conversation => conversation.id !== updatedConvo.id
     )
     conversations.push(updatedConvo)
+    this.setState({ conversations })
+  }
+
+  handleRejectConvo = rejectedConvo => {
+    const oldConversations = [...this.state.conversations]
+    const conversations = oldConversations.filter(
+      conversation => conversation.id !== rejectedConvo.id
+    )
     this.setState({ conversations })
   }
 
@@ -69,7 +77,7 @@ class ChatConversationsList extends React.Component {
             />
           ) : null}
           <h2>Messages</h2>
-          {mapConversations(conversations, this.handleClick, this.props.currentUser, this.handleUpdateConvo)}
+          {mapConversations(conversations, this.handleClick, this.props.currentUser, this.handleAcceptConvo, this.handleRejectConvo)}
         </div>
         <div className="messages">
           {activeConversation ? (
@@ -92,13 +100,17 @@ const findActiveConversation = (conversations, activeConversation) => {
   );
 };
 
-const mapConversations = (conversations, handleClick, currentUserId, handleUpdateConvo) => {
+const mapConversations = (conversations, handleClick, currentUserId, handleAcceptConvo, handleRejectConvo) => {
   return conversations.map(conversation => {
     const renderConvo = () => {
       if (!conversation.accepted) {
         return (
           <div className="conversation-item no-cursor" key={conversation.id}>
-            <ChatConversation conversation={conversation} currentUserId={currentUserId} updateConvo={handleUpdateConvo} />
+            <ChatConversation
+              conversation={conversation}
+              currentUserId={currentUserId}
+              acceptConvo={handleAcceptConvo}
+              rejectConvo={handleRejectConvo} />
           </div>
         )
       } else {
