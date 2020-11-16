@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { API_ROOT, HEADERS } from '../constants';
 
-const ChatNewMessage = (props) => {
+const ChatNewMessage = ({ conversationId, currentUserId }) => {
 
   const [message, setMessage] = useState({
-    text: '', conversation_id: props.conversation_id, user_id: props.currentUserId
+    text: '', conversation_id: '', user_id: currentUserId
   })
 
-  // useEffect(() => {
-  //   setMessage({ ...message, conversation_id: props.conversation_id })
-  // }, [props])
+  const messageInput = React.createRef();
+
+  useEffect(() => {
+    setMessage({ ...message, conversation_id: conversationId })
+  }, [conversationId])
+
+  useEffect(() => {
+    messageInput.current.scrollIntoView();
+  })
 
   const handleChange = (e) => {
     setMessage({ ...message, text: e.target.value })
@@ -22,11 +28,11 @@ const ChatNewMessage = (props) => {
       headers: HEADERS,
       body: JSON.stringify(message)
     });
-    setMessage({ ...message, text: '' })
+    setMessage({ ...message, text: '', conversation_id: conversationId })
   };
 
   return (
-    <div className="newMessageForm">
+    <div className="newMessageForm" ref={messageInput}>
       <form onSubmit={handleSubmit}>
         
           <input
