@@ -89,7 +89,7 @@ const mapConversations = (conversations, handleClick, currentUserId) => {
   return conversations.map(conversation => {
     return (
       <div className="conversation-item" key={conversation.id} onClick={() => handleClick(conversation.id)}>
-        <ChatConversation conversation={conversation} currentUserId={currentUserId} />
+        {(!conversation.accepted && conversation.author.id === currentUserId) ? null : <ChatConversation conversation={conversation} currentUserId={currentUserId} />}
       </div>
     )
   })

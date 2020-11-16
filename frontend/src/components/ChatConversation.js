@@ -1,8 +1,9 @@
 import React from 'react';
 import faker from 'faker';
 import Moment from 'react-moment';
+import { API_ROOT, HEADERS } from '../constants';
 
-const ChatConversation = ({ conversation, currentUserId }) => {
+const ChatConversation = ({ conversation, currentUserId, updateConversation }) => {
 
   const displayOtherUserName = () => {
     if (currentUserId === conversation.author.id) {
@@ -14,19 +15,58 @@ const ChatConversation = ({ conversation, currentUserId }) => {
   }
 
   const recentMessage = () => {
+    if (conversation.messages.length === 0) {
+      return null
+    }
     return conversation.messages[conversation.messages.length - 1]
   }
 
-  return (
-    <>
-      <div className="circular-portrait">
-        <img src={faker.image.avatar()} alt={displayOtherUserName()} />
-      </div>
-      <span id="chat-time"><Moment format="h:mm a on MM/DD/YYYY">{recentMessage().created_at}</Moment></span>
-      <span>{displayOtherUserName()}</span><br/>
-      <p id="chat-preview">{recentMessage().text} </p>
-    </>
-  )
+  const handleAccept = () => {
+    fetch(`${API_ROOT}/conversations/${conversation.id}`, {
+      method: 'PATCH',
+      headers: HEADERS,
+      body: JSON.stringify({ conversation: {accepted: true} })
+    });
+  }
+
+  const handleReject = () => {
+    fetch(`${API_ROOT}/conversations/${conversation.id}`, {
+      method: 'DELETE',
+      headers: HEADERS
+    });
+  }
+
+  const renderConversation = () => {
+    if (conversation.accepted) {
+      return (
+        <>
+          <div className="circular-portrait">
+            <img src={faker.image.avatar()} alt={displayOtherUserName()} />
+          </div>
+          <span id="chat-time"><Moment format="h:mm a on MM/DD/YYYY">{(recentMessage() && recentMessage().created_at) || conversation.created_at}</Moment></span>
+          <span>{displayOtherUserName()}</span><br/>
+          <p id="chat-preview">{(recentMessage() && recentMessage().text) || conversation.title} </p>
+        </>
+      )
+    } else if (!conversation.accepted && conversation.receiver.id === currentUserId) {
+      return (
+        <>
+          <div className="circular-portrait">
+            <img src={faker.image.avatar()} alt={displayOtherUserName()} />
+          </div>
+          <span id="chat-time"><Moment format="h:mm a on MM/DD/YYYY">{conversation.created_at}</Moment></span>
+          <span>{displayOtherUserName()}</span><br/>
+          <p id="chat-preview">{conversation.title} </p>
+          <button className="user-submit" onClick={handleAccept}>Accept</button>
+          <button className="user-submit" onClick={handleReject}>Reject</button>
+        </>
+      )
+    } else {
+      return null
+    }
+  }
+
+  return renderConversation()
 }
 
 export default ChatConversation;

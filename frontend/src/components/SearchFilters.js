@@ -21,7 +21,6 @@ const SearchFilters = () => {
 
   const renderDropdown = 
   <>
-    
     <div className="dropdown-content">
       <div className="dropdown-content-padding">
         <div className="dropdown-content-item">
