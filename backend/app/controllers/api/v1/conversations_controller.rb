@@ -19,7 +19,8 @@ class Api::V1::ConversationsController < ApplicationController
 
   def update
     conversation = Conversation.find_by(id: params[:id])
-    conversation.update(conversation_params)    
+    conversation.update(conversation_params)   
+    render json: conversation 
   end
 
   def destroy
