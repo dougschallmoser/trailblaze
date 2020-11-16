@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_183743) do
     t.string "title"
     t.integer "author_id"
     t.integer "receiver_id"
+    t.boolean "accepted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
