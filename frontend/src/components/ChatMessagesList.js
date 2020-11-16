@@ -36,7 +36,7 @@ const ChatMessagesList = ({ conversation: { id, author, receiver, title, message
         <li className={author.id === currentUser.id ? "me" : "them"}>{title}</li>
         {orderedMessages(messages)}
       </ul>
-      <ChatNewMessage conversation_id={id} currentUserId={currentUser.id} />
+      <ChatNewMessage conversationId={id} currentUserId={currentUser.id} />
     </>
   )
 }
