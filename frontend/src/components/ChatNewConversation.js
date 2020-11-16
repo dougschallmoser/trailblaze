@@ -4,7 +4,7 @@ import { API_ROOT, HEADERS } from '../constants';
 
 Modal.setAppElement("#root");
 
-const ChatBegin = ({ user, currentUser }) => {
+const ChatNewConversation = ({ user, currentUser }) => {
   
   const [isOpen, setIsOpen] = useState(false);
   const [convoData, setConvoData] = useState({
@@ -70,4 +70,4 @@ const ChatBegin = ({ user, currentUser }) => {
   )
 }
 
-export default ChatBegin;
+export default ChatNewConversation;

@@ -61,7 +61,20 @@ const ChatConversation = ({ conversation, currentUserId, updateConversation }) =
           <button className="user-submit" onClick={handleReject}>Reject</button>
         </>
       )
-    } else {
+    } else if (!conversation.accepted && conversation.author.id === currentUserId) {
+      return (
+        <>
+          <div className="circular-portrait">
+            <img src={faker.image.avatar()} alt={displayOtherUserName()} />
+          </div>
+          <span id="chat-time"><Moment format="h:mm a on MM/DD/YYYY">{conversation.created_at}</Moment></span>
+          <span>{displayOtherUserName()}</span><br/>
+          <p id="chat-preview">{conversation.title}</p>
+          <div className="pending-conversation">Pending acceptance from {displayOtherUserName()}</div>
+        </>
+      )
+    }
+    else {
       return null
     }
   }

@@ -1,8 +1,8 @@
 import React from 'react';
-import ChatNewMessageForm from './ChatNewMessageForm';
+import ChatNewMessage from './ChatNewMessage';
 import { useSelector } from 'react-redux';
 
-const ChatMessagesArea = ({ conversation: { id, author, title, messages } }) => {
+const ChatMessagesList = ({ conversation: { id, author, title, messages } }) => {
   const currentUser = useSelector(state => state.currentUser);
 
   const myMsg = (message) => {
@@ -26,9 +26,9 @@ const ChatMessagesArea = ({ conversation: { id, author, title, messages } }) => 
         <li className={author.id === currentUser.id ? "me" : "them"}>{title}</li>
         {orderedMessages(messages)}
       </ul>
-      <ChatNewMessageForm conversation_id={id} currentUserId={currentUser.id} />
+      <ChatNewMessage conversation_id={id} currentUserId={currentUser.id} />
     </>
   )
 }
 
-export default ChatMessagesArea;
+export default ChatMessagesList;

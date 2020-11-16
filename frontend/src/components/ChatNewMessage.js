@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { API_ROOT, HEADERS } from '../constants';
 
-const ChatNewMessageForm = (props) => {
+const ChatNewMessage = (props) => {
 
   const [message, setMessage] = useState({
     text: '', conversation_id: props.conversation_id, user_id: props.currentUserId
@@ -44,4 +44,4 @@ const ChatNewMessageForm = (props) => {
   );
 }
 
-export default ChatNewMessageForm;
+export default ChatNewMessage;

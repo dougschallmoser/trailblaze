@@ -1,5 +1,5 @@
 import React from 'react';
-import ChatBegin from './ChatBegin';
+import ChatNewConversation from './ChatNewConversation';
 import { useSelector } from 'react-redux';
 import faker from 'faker';
 
@@ -27,7 +27,7 @@ const SearchResult = ({ user }) => {
           <span id="age-display">{userAge()}</span>
           <span id="gender-display">{user.gender}</span>
           <p id="bio-display">{user.bio}</p><br/>
-          {loggedIn() && <ChatBegin user={user} currentUser={currentUser} />}
+          {loggedIn() && <ChatNewConversation user={user} currentUser={currentUser} />}
         </div>
       )
     } else {
