@@ -28,9 +28,6 @@ const App = () => {
           <Route path="/" exact>
             <SearchContainer />
           </Route>
-          <Route path="/map" exact>
-            <GoogleMap />
-          </Route>
           <Route path="/search" exact>
             <SearchContainer />
             <ResultsContainer />
