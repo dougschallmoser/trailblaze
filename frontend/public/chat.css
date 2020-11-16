@@ -2,6 +2,7 @@
   position: fixed;
   width: 550px;
   height: 100vh;
+  margin-top: 10px;
   left: 0;
   right: 0;
   overflow-y: scroll;
@@ -9,7 +10,7 @@
 }
 
 .conversationsList h2 {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 500;
   margin-bottom: 20px;
 }
@@ -79,15 +80,14 @@
 }
 
 .messages {
-  margin: 90px 0 0px 550px;
+  margin: 0 0 0 550px;
   overflow-y: scroll;
-  width: 450px;
+  width: 35%;
   position: fixed;
   bottom: 0;
   top: 0;
-  /* height: 80vh; */
   border-left: 1px solid #ccc;
-  padding: 10px 25px 40px 25px;
+  padding: 100px 25px 40px 25px;
 }
 
 .messages h3 {

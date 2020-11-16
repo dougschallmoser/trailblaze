@@ -37,6 +37,7 @@
   text-align: center;
   align-items: center;
   z-index: 2;
+  border-bottom: 1px solid #ccc;
 }
 
 .navbar a {
@@ -65,7 +66,6 @@ a.nav-logo span {
 
 .search-bar {
   margin-left: 5px;
-  box-sizing: border-box;
   width: 400px;
   padding: 18px 28px;
   font-size: 16px;
