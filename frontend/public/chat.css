@@ -1,9 +1,12 @@
 .conversationsList {
   position: fixed;
   width: 475px;
-  height: 100vh;
   left: 0;
   right: 0;
+  bottom: 0;
+  top: 0;
+  margin-top: 70px;
+  padding-bottom: 10px;
   overflow-y: scroll;
   text-align: center;
   background:#eafaf6;
@@ -184,6 +187,32 @@ ul li {
   color: #45dbab;
   margin-top: 8px;
   float: right;
+}
+
+.message-accept {
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 3px 6px;
+  float: right;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: white;
+  color: #45dbab;
+  transition: background 0.2s, border 0.2s, color 0.2s;
+}
+
+.message-accept:hover {
+  background: #d4f0e8;
+  border: 1px solid #45dbab;
+  color: #24745a;
+}
+
+.message-accept:focus {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #45dbab;
 }
 
 .no-cursor {
