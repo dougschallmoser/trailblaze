@@ -10,7 +10,11 @@ const ChatNewMessage = ({ conversationId, currentUserId }) => {
   const messageInput = React.createRef();
 
   useEffect(() => {
-    setMessage({ ...message, conversation_id: conversationId })
+    setMessage(message => {
+      return {
+        ...message, conversation_id: conversationId
+      }
+    })
   }, [conversationId])
 
   useEffect(() => {
