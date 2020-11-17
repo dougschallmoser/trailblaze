@@ -47,7 +47,9 @@ const ChatNewConversation = ({ user, currentUser }) => {
     } else {
       return (
         <>
-          <div className="get-started">What would you like to say to {user.name}?</div>
+          <div className="get-started">
+            Reach out to <span className="main-color">{user.name}</span> ...
+          </div>
           <form onSubmit={handleSubmit}>
             <div className="signup-input">
               <input 
