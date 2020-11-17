@@ -1,29 +1,32 @@
 .conversationsList {
   position: fixed;
-  width: 550px;
+  width: 475px;
   height: 100vh;
-  margin-top: 10px;
   left: 0;
   right: 0;
   overflow-y: scroll;
   text-align: center;
+  background:#eafaf6;
+  box-shadow: 7px 0 8px -8px #333;
 }
 
 .conversationsList h2 {
+  width: 100%;
   font-size: 32px;
   font-weight: 500;
-  margin-bottom: 20px;
+  margin: 16px 0 20px 0;
 }
 
 .conversation-item {
-  background: #F6F6FA;
-  width: 500px;
-  height: 100px;
+  background: white;
+  width: 425px;
+  height: 80px;
   align-items: center;
   cursor: pointer;
   border-radius: 16px;
   padding: 10px 15px;
-  margin: 0 0 5px 10px;
+  margin: 0 0 8px 10px;
+  box-shadow: 0.3px 0.3px 4px -1px #ccc, -0.3px -0.3px 4px -1px #ccc;
 }
 
 .conversation-item img {
@@ -31,7 +34,7 @@
 }
 
 .conversation-item:hover {
-  background:#eafaf6;
+  background:#d7fdf4;
 }
 
 .conversation-item span {
@@ -67,26 +70,25 @@
   font-size: 14px;
   color: #767676;
   margin-top: 10px;
-  margin-left: 147px;
+  margin-left: 115px;
   text-align: left;
 }
 
 .circular-portrait {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   overflow: hidden;
   border-radius: 50%;
 }
 
 .messages {
-  margin: 0 0 0 550px;
+  margin: 0 0 0 475px;
   overflow-y: scroll;
-  width: 450px;
+  width: 550px;
   position: fixed;
   bottom: 0;
   top: 0;
-  border-left: 1px solid #ccc;
   padding: 100px 25px 40px 25px;
 }
 
@@ -133,7 +135,7 @@ ul li {
 }
 
 .message-input {
-  width: 300px;
+  width: 400px;
   padding: 16px 16px;
   font-weight: 300;
   font-size: 16px;
