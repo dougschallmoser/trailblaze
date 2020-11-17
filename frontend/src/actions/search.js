@@ -17,10 +17,7 @@ export const getUsers = queryData => {
     const data = await response.json();
     if (data.error) {
       // add error handling
-      console.log('error')
     } else {
-      console.log('success')
-      console.log(data)
       dispatch({ type: 'SEARCH_RESULTS', payload: data })
     }
   }
@@ -32,10 +29,7 @@ export const getTrails = queryData => {
     const data = await response.json();
     if (data.error) {
       // add error handling
-      console.log('error')
     } else {
-      console.log('success')
-      console.log(data)
       dispatch({ type: 'GET_TRAILS', payload: data.trails })
     }
   }

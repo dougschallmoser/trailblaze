@@ -13,7 +13,6 @@ export const loginUser = userData => {
       // add error handling
     } else {
       localStorage.setItem('token', data.jwt)
-      console.log('success')
       dispatch({ type: 'LOGIN_USER', payload: data.user })
     }
   }
