@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActionCableConsumer } from 'react-actioncable-provider';
+import { ActionCableConsumer } from '@thrash-industries/react-actioncable-provider';
 
 const ChatCable = ({ conversations, handleReceivedMessage }) => {
   return (
