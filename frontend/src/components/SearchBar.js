@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 const SearchBar = (props) => {
 
   const [address, setAddress] = useState('')
+  const [latlng, setLatlng] = useState({lat: '', lng: ''})
   const queryData = useSelector(state => state.search.query);
   const dispatch = useDispatch();
  
@@ -21,13 +22,17 @@ const SearchBar = (props) => {
     setAddress(selection)
     const response = await geocodeByAddress(selection)
     const results = await getLatLng(response[0])
-    dispatch(updateQuery({ ...results }))
+    setLatlng({ ...results })
   }
 
-  const handleSubmit = () => {
-    dispatch(updateQuery({ city: address }))
+  useEffect(() => {
     dispatch(getUsers(queryData))
     dispatch(getTrails(queryData))
+  }, [queryData, dispatch])
+  
+  const handleSubmit = () => {
+    dispatch(updateQuery({ ...latlng }))
+    dispatch(updateQuery({ city: address }))
   }
 
   const options = {
