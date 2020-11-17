@@ -52,11 +52,11 @@
 }
 
 .selected-convo {
-  background: #45dbab;
+  background:#1DA590;
 }
 
 .selected-convo:hover {
-  background: #45dbab;
+  background:#1DA590;
   cursor: auto;
 }
 
@@ -122,7 +122,7 @@ ul li {
 
 .me {
   float: right;
-  background: #45dbab;
+  background:#1DA590;
   color: #fff;
 }
 
@@ -150,14 +150,14 @@ ul li {
 }
 
 .message-input:hover {
-  border: 1px solid #45dbab;
+  border: 1px solid#1DA590;
 }
 
 .message-input:focus {
   background: white;
   outline-style: solid;
   outline-width: 2px;
-  outline-color: #45dbab;
+  outline-color:#1DA590;
 }
 
 .message-submit {
@@ -167,24 +167,24 @@ ul li {
   border: 1px solid #ccc;
   border-radius: 5px;
   background: white;
-  color: #45dbab;
+  color:#1DA590;
   transition: background 0.2s, border 0.2s, color 0.2s;
 }
 
 .message-submit:hover {
   background: #d4f0e8;
-  border: 1px solid #45dbab;
+  border: 1px solid#1DA590;
   color: #24745a;
 }
 
 .message-submit:focus {
   outline-style: solid;
   outline-width: 2px;
-  outline-color: #45dbab;
+  outline-color:#1DA590;
 }
 
 .pending-conversation {
-  color: #45dbab;
+  color:#1DA590;
   margin-top: 8px;
   float: right;
 }
@@ -199,20 +199,20 @@ ul li {
   border: 1px solid #ccc;
   border-radius: 5px;
   background: white;
-  color: #45dbab;
+  color:#1DA590;
   transition: background 0.2s, border 0.2s, color 0.2s;
 }
 
 .message-accept:hover {
   background: #d4f0e8;
-  border: 1px solid #45dbab;
+  border: 1px solid#1DA590;
   color: #24745a;
 }
 
 .message-accept:focus {
   outline-style: solid;
   outline-width: 2px;
-  outline-color: #45dbab;
+  outline-color:#1DA590;
 }
 
 .no-cursor {

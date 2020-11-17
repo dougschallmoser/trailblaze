@@ -22,7 +22,7 @@
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  background: #45dbab;
+  background: #1DA590;
   border-radius: 3px;
   z-index: 4;
   transform-origin: 4px 0px;
@@ -61,7 +61,7 @@
   list-style-type: none;
   padding: 130px 50px 50px 0px;
   height: 100vh;
-  background: #45dbab;
+  background: #1DA590;
   transform: translate(100%, 0);
   transform-origin: 0% 0%;
   transition: transform 0.3s cubic-bezier(0.5,0.1,0.1,1.0);
@@ -81,7 +81,7 @@
 
 #menu div:hover {
   background: white;
-  color: #45dbab;
+  color: #1DA590;
 }
 
 #menu #current-user {
@@ -90,7 +90,7 @@
   border-radius: 6px;
   font-size: 18px;
   background: white;
-  color: #45dbab;
+  color: #1DA590;
 }
 
 #menu a {

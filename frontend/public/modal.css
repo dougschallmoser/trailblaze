@@ -73,7 +73,7 @@
 .signup-input input[type="password"]:hover,
 .signup-input select:hover,
 .signup-input textarea:hover {
-  border: 1px solid #45dbab;
+  border: 1px solid#1DA590;
 }
 
 .signup-input input[type="text"]:focus,
@@ -84,7 +84,7 @@
   background: white;
   outline-style: solid;
   outline-width: 2px;
-  outline-color: #45dbab;
+  outline-color:#1DA590;
 }
 
 .signup-input select {
@@ -104,20 +104,20 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   background: white;
-  color: #45dbab;
+  color:#1DA590;
   transition: background 0.2s, border 0.2s, color 0.2s;
 }
 
 .user-submit:hover {
   background: #d4f0e8;
-  border: 1px solid #45dbab;
+  border: 1px solid#1DA590;
   color: #24745a;
 }
 
 .user-submit:focus {
   outline-style: solid;
   outline-width: 2px;
-  outline-color: #45dbab;
+  outline-color:#1DA590;
 }
 
 .submit-container {
@@ -133,7 +133,7 @@
   border: none;
   border-radius: 5px;
   background: white;
-  color: #45dbab;
+  color:#1DA590;
   transition: background 0.2s, color 0.2s;
 }
 
@@ -145,12 +145,12 @@
 .close-button-user:focus {
   outline-style: solid;
   outline-width: 2px;
-  outline-color: #45dbab;
+  outline-color:#1DA590;
 }
 
 .message-sent {
   font-size: 24px;
-  color: #45dbab;
+  color:#1DA590;
   margin-top: 30px;
   margin-bottom: 30px;
   text-align: center;

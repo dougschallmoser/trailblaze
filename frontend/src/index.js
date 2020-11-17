@@ -18,3 +18,7 @@ ReactDOM.render(
   </Provider>, 
   document.querySelector('#root')
 );
+
+/* color: #45dbab; */
+// #2BB88B
+// #1DA590

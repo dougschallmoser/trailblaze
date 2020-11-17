@@ -12,7 +12,7 @@
 }
 
 .main-color {
-  color: #45dbab;
+  color:#1DA590;
 }
 
 .root-page {
@@ -91,12 +91,12 @@ a.nav-logo {
   margin-left: 50px;
   margin-right: 20px;
   font-family: 'Big Shoulders Stencil Text', cursive;
-  color: #45dbab;
+  color:#2BB88B;
   font-size: 34px;
 }
 
 a.nav-logo span {
-  color: #0ab89a;
+  color: #1DA590;
   font-family: 'Big Shoulders Stencil Text', cursive;
 }
 
@@ -118,13 +118,13 @@ a.nav-logo span {
 }
 
 .search-bar:hover {
-  border: 1px solid #45dbab;
+  border: 1px solid#1DA590;
 }
 
 .search-bar:focus {
   outline-style: solid;
   outline-width: 2px;
-  outline-color: #45dbab;
+  outline-color:#1DA590;
 }
 
 .search-bar::placeholder {
@@ -180,7 +180,7 @@ a.nav-logo span {
 }
 
 .suggestion-item--active {
-  background: #45dbab;
+  background:#1DA590;
   cursor: pointer;
 }
 
@@ -221,13 +221,13 @@ a.nav-logo span {
   height: 24px;
   width: 24px;
   border-radius: 24px;
-  background: #45dbab;
+  background:#2BB88B;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .slider::-webkit-slider-thumb:active {
-  background: #38bb91;
+  background: #1DA590;
 }
 
 .slider:hover {
@@ -279,7 +279,7 @@ a.nav-logo span {
 }
 
 .dropdown-content-bottom {
-  background: #45dbab;
+  background:#1DA590;
   margin-top: 20px;
   width: 100%;
   height: 50px;
@@ -296,7 +296,7 @@ a.nav-logo span {
 }
 
 .age-input-field:hover, select:hover {
-  border: 1px solid #45dbab;
+  border: 1px solid#1DA590;
 }
 
 
@@ -304,7 +304,7 @@ a.nav-logo span {
   background: white;
   outline-style: solid;
   outline-width: 2px;
-  outline-color: #45dbab;
+  outline-color:#1DA590;
 }
 
 select {
@@ -314,7 +314,7 @@ select {
 select:focus {
   outline-style: solid;
   outline-width: 2px;
-  outline-color: #45dbab;
+  outline-color:#1DA590;
 }
 
 .filter-button {
@@ -332,22 +332,22 @@ select:focus {
 .filter-button:hover {
   background: #d4f0e8;
   color: #24745a;
-  border: 1px solid #45dbab;
+  border: 1px solid#1DA590;
 }
 
 .filter-button:focus {
   outline-style: solid;
   outline-width: 2px;
-  outline-color: #45dbab;
+  outline-color:#1DA590;
 }
 
 .filter-button.applied {
   background: #d4f0e8;
-  border: 1px solid #45dbab;
+  border: 1px solid#1DA590;
 }
 
 .filter-button.clicked {
-  background: #45dbab;
+  background:#1DA590;
   color: white;
 }
 
@@ -361,7 +361,7 @@ select:focus {
   border: none;
   border-radius: 5px;
   background: white;
-  color: #45dbab;
+  color:#1DA590;
   transition: background 0.2s, color 0.2s;
 }
 
@@ -373,7 +373,7 @@ select:focus {
 .close-button:focus {
   outline-style: solid;
   outline-width: 2px;
-  outline-color: #45dbab;
+  outline-color:#1DA590;
 }
 
 #result-city {
@@ -424,7 +424,7 @@ select:focus {
 .item {
   background: white;
   position: relative;
-  border-bottom: 5px solid #45dbab;
+  border-bottom: 5px solid#1DA590;
   box-shadow: 0.3px 0.3px 4px 0px #ccc, -0.3px -0.3px 4px 0px #ccc;
 }
 
@@ -478,13 +478,13 @@ select:focus {
 .message-button:hover {
   background: #d4f0e8;
   color: #24745a;
-  border: 1px solid #45dbab;
+  border: 1px solid#1DA590;
 }
 
 .message-button:focus {
   outline-style: solid;
   outline-width: 2px;
-  outline-color: #45dbab;
+  outline-color:#1DA590;
 }
 
 .google-map {
@@ -504,7 +504,7 @@ select:focus {
 
 #trail-city {
   font-size: 20px;
-  color: #45dbab;
+  color:#1DA590;
   margin-bottom: 10px;
 }
 
