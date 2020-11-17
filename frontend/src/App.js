@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import NavBar from './components/NavBar';
 import SearchContainer from './containers/SearchContainer';
+import RootContainer from './containers/RootContainer';
 import ResultsContainer from './containers/ResultsContainer';
 import ChatConversationsList from './components/ChatConversationsList';
 import { getUserProfile } from './actions'
@@ -24,7 +25,7 @@ const App = () => {
           <ChatConversationsList />
         </Route>
         <Route path="/" exact>
-          <SearchContainer />
+          <RootContainer />
         </Route>
         <Route path="/search" exact>
           <SearchContainer />
