@@ -73,7 +73,8 @@
   text-align: center;
   align-items: center;
   z-index: 2;
-  border-bottom: 1px solid #ccc;
+  /* border-bottom: 1px solid #ccc; */
+  box-shadow: 0 7px 8px -12px #333;
 }
 
 .navbar a {
@@ -103,7 +104,7 @@ a.nav-logo span {
 .search-bar {
   margin-left: 5px;
   width: 340px;
-  padding: 18px 28px;
+  padding: 14px 24px;
   font-size: 16px;
   font-weight: 400;
   border-radius: 4px;
@@ -134,6 +135,7 @@ a.nav-logo span {
 .search-container {
   position: relative;
   z-index: 7;
+  margin-left: 10px;
 }
 
 .search-splash-container {
@@ -163,7 +165,7 @@ a.nav-logo span {
 
 .search-icon {
   position: absolute;
-  margin-top: 11px;
+  margin-top: 7px;
   left: 345px;
   cursor: pointer;
   height: 36px;
@@ -197,7 +199,7 @@ a.nav-logo span {
 .miles-display {
   margin-top: 8px;
   vertical-align: middle;
-  font-size: 14px;
+  font-size: 13px;
   padding-bottom: 10px;
 }
 
@@ -487,7 +489,7 @@ select:focus {
 }
 
 .google-map {
-  margin-top: 76px;
+  margin-top: 75px;
   width: 55%;
 }
 
