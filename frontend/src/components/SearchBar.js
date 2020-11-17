@@ -46,14 +46,14 @@ const SearchBar = (props) => {
       searchOptions={options}
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-        <div className="search-container">
+        <div className={props.splashContainer || "search-container"}>
             <input
               {...getInputProps({
                 placeholder: 'Enter a city to find other trailblazers...',
-                className: 'location-search-input search-bar',
+                className: `location-search-input search-bar ${props.splash}`,
               })}
             />
-            <Link to="/search"><img onClick={handleSubmit} alt="search icon" className="search-icon" src="./search_icon.png" /></Link>
+            <Link to="/search"><img onClick={handleSubmit} alt="search icon" className={props.splashIcon || "search-icon"} src="./search_icon.png" /></Link>
           <div className="autocomplete-dropdown-container">
             {loading && <div>Loading...</div>}
             {suggestions.map(suggestion => {
