@@ -63,7 +63,7 @@ const ChatNewConversation = ({ user, currentUser }) => {
               </div>
           </form>
         </>
-        )
+      )
     }
   }
 
@@ -84,7 +84,6 @@ const ChatNewConversation = ({ user, currentUser }) => {
         </div>
       </Modal>
     </>
-
   )
 }
 

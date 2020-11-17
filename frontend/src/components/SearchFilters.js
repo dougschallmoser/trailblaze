@@ -1,8 +1,6 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateQuery } from '../actions';
-import { getUsers } from '../actions';
+import { updateQuery, getUsers } from '../actions';
 
 const SearchFilters = () => {
 

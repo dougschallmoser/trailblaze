@@ -8,15 +8,10 @@ Modal.setAppElement("#root");
 
 const UserLogout = () => {
   
-  const [isOpen, setIsOpen] = useState(false);
-  const dispatch = useDispatch();
-  const handleLogout = () => {
-    dispatch(logoutUser())
-  }
-
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  }
+  const [isOpen, setIsOpen] = useState(false)
+  const dispatch = useDispatch()
+  const handleLogout = () => {dispatch(logoutUser())}
+  const toggleModal = () => {setIsOpen(!isOpen)}
 
   return (
     <>
@@ -38,7 +33,6 @@ const UserLogout = () => {
         </div>
       </Modal>
     </>
-
   )
 }
 

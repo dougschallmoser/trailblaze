@@ -5,7 +5,6 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { ActionCableProvider } from '@thrash-industries/react-actioncable-provider';
 import { API_WS_ROOT } from './constants';
-
 import rootReducer from './reducers';
 import App from './App';
 

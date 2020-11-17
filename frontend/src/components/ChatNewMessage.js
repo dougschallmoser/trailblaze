@@ -23,7 +23,7 @@ const ChatNewMessage = ({ conversationId, currentUserId }) => {
 
   const handleChange = (e) => {
     setMessage({ ...message, text: e.target.value })
-  };
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,27 +31,25 @@ const ChatNewMessage = ({ conversationId, currentUserId }) => {
       method: 'POST',
       headers: HEADERS,
       body: JSON.stringify(message)
-    });
+    })
     setMessage({ ...message, text: '', conversation_id: conversationId })
-  };
+  }
 
   return (
     <div className="newMessageForm" ref={messageInput}>
       <form onSubmit={handleSubmit}>
-        
           <input
             type="text"
             value={message.text}
             onChange={handleChange}
             className="message-input"
           />
-        
         <div className="submit-container">
           <input type="submit" value="&#8593;" className="message-submit" />
         </div>
       </form>
     </div>
-  );
+  )
 }
 
 export default ChatNewMessage;

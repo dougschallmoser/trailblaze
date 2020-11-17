@@ -2,9 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getUsers } from '../actions';
-import { getTrails } from '../actions';
-import { updateQuery } from '../actions';
+import { getUsers, getTrails, updateQuery } from '../actions';
 import { GoogleApiWrapper } from 'google-maps-react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { Link } from 'react-router-dom';
@@ -17,7 +15,7 @@ const SearchBar = (props) => {
  
   const handleChange = input => {
     setAddress(input)
-  };
+  }
 
   const handleSelect = async selection => {
     setAddress(selection)

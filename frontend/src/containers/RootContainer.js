@@ -1,12 +1,12 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar';
-const RootContainer = () => {
 
+const RootContainer = () => {
   return (
     <div className="root-page">
       <div className="centered">
         <div className="splash-message">Trailblaze together</div>
-        <div className="splash-submessage">Find friendships for your next adventure</div>
+        <div className="splash-submessage">Find friends for your next adventure</div>
         <SearchBar
           splash="splash"
           splashContainer="search-splash-container"

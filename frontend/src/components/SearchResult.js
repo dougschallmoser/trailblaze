@@ -1,6 +1,6 @@
 import React from 'react';
-import ChatNewConversation from './ChatNewConversation';
 import { useSelector } from 'react-redux';
+import ChatNewConversation from './ChatNewConversation';
 import faker from 'faker';
 
 const SearchResult = ({ user }) => {
@@ -15,7 +15,7 @@ const SearchResult = ({ user }) => {
     const birthDate = new Date(user.dob)
     const difference = Date.now() - birthDate.getTime()
     const age = new Date(difference)
-    return Math.abs(age.getUTCFullYear() - 1970);
+    return Math.abs(age.getUTCFullYear() - 1970)
   }
 
   const renderItem = () => {
@@ -35,7 +35,7 @@ const SearchResult = ({ user }) => {
     }
   }
 
-  return renderItem();
+  return renderItem()
 }
 
 export default SearchResult

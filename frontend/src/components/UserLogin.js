@@ -25,10 +25,7 @@ const UserSignup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(loginUser(loginData))
-    setLoginData({
-      email: '',
-      password: ''
-    })
+    setLoginData({ email: '', password: '' })
   }
 
   const toggleModal = () => {
@@ -77,7 +74,6 @@ const UserSignup = () => {
         </div>
       </Modal>
     </>
-
   )
 }
 

@@ -5,7 +5,7 @@ import { updateQuery } from '../actions';
 const SearchRadius = () => {
 
   const radius = useSelector(state => state.search.query.radius)
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const handleOnChange = (event) => {
     dispatch(updateQuery({ radius: event.currentTarget.value }))

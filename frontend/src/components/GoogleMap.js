@@ -4,38 +4,18 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 
 const GoogleMap = (props) => {
 
-  const query = useSelector(state => state.search.query);
-  const trails = useSelector(state => state.search.trails);
+  const query = useSelector(state => state.search.query)
+  const trails = useSelector(state => state.search.trails)
   const [markerInfo, setMarkerInfo] = useState({ showInfo: false, activeMarker: {}, selected: {} })
 
-  // const [location, setLocation] = useState({
-  //   lat: null,
-  //   long: null,
-  //   error: ''
-  // })
-
-  // useEffect(() => {
-  //   window.navigator.geolocation.getCurrentPosition(
-  //     position => setLocation({
-  //       lat: position.coords.latitude, 
-  //       long: position.coords.longitude
-  //     }),
-  //     err => setLocation({ error: err.message })
-  //   )
-  // }, [])
-
   const onMarkerClick = (props, marker) => {
-    setMarkerInfo({
-      selected: props,
-      activeMarker: marker,
-      showInfo: true
-    })
+    setMarkerInfo({selected: props, activeMarker: marker, showInfo: true})
   }
 
   const mapStyles = {
     width: '55%',
     height: '82.5%'
-  };
+  }
 
   const containerStyle = {
     position: 'fixed'

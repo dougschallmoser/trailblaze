@@ -1,48 +1,48 @@
 import React from 'react';
-import { ActionCableConsumer } from '@thrash-industries/react-actioncable-provider';
-import { API_ROOT } from '../constants';
 import { connect } from 'react-redux';
+import { API_ROOT } from '../constants';
+import { ActionCableConsumer } from '@thrash-industries/react-actioncable-provider';
+import ChatCable from './ChatCable';
 import ChatMessagesList from './ChatMessagesList';
 import ChatConversation from './ChatConversation';
-import ChatCable from './ChatCable';
 
 class ChatConversationsList extends React.Component {
   state = {
     conversations: [],
-    activeConversation: null,
-    currentUserId: null
-  };
+    currentUserId: null,
+    activeConversation: null
+  }
 
   componentDidMount = () => {
     fetch(`${API_ROOT}/conversations`)
       .then(res => res.json())
       .then(conversations => {
-        const userConvos = conversations.filter(convo => convo.author.id === this.props.currentUser || convo.receiver.id === this.props.currentUser)
+        const userConvos = conversations.filter(convo => convo.author.id === this.props.currentUser || 
+          convo.receiver.id === this.props.currentUser)
         this.setState({ ...this.state, conversations: userConvos })
-      }
-      );
-  };
+      })
+  }
 
   handleClick = (id) => {
-    this.setState({ activeConversation: id });
-  };
+    this.setState({ activeConversation: id })
+  }
 
   handleReceivedConversation = response => {
     const { conversation } = response;
     this.setState({
       conversations: [...this.state.conversations, conversation]
-    });
-  };
+    })
+  }
 
   handleReceivedMessage = response => {
     const { message } = response;
-    const conversations = [...this.state.conversations];
+    const conversations = [...this.state.conversations]
     const conversation = conversations.find(
       conversation => conversation.id === message.conversation_id
     );
-    conversation.messages = [...conversation.messages, message];
-    this.setState({ conversations });
-  };
+    conversation.messages = [...conversation.messages, message]
+    this.setState({ conversations })
+  }
 
   handleAcceptConvo = updatedConvo => {
     const oldConversations = [...this.state.conversations]
@@ -90,15 +90,15 @@ class ChatConversationsList extends React.Component {
           ) : null}
         </div>
       </>
-    );
-  };
+    )
+  }
 }
 
 const findActiveConversation = (conversations, activeConversation) => {
   return conversations.find(
     conversation => conversation.id === activeConversation
-  );
-};
+  )
+}
 
 const mapConversations = (conversations, handleClick, currentUserId, handleAcceptConvo, handleRejectConvo, activeConversation) => {
   return conversations.map(conversation => {
@@ -133,7 +133,7 @@ const mapConversations = (conversations, handleClick, currentUserId, handleAccep
         )
       }
     }
-    return renderConvo();
+    return renderConvo()
   })
 }
 

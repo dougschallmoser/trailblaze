@@ -42,9 +42,7 @@ const UserSignup = () => {
     })
   }
 
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  }
+  const toggleModal = () => {setIsOpen(!isOpen)}
 
   return (
     <>
@@ -138,7 +136,6 @@ const UserSignup = () => {
         </div>
       </Modal>
     </>
-
   )
 }
 
