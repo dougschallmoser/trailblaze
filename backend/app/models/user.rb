@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   validates :email, uniqueness: true
   validates :name, :email, :bio, :gender, :dob, :avatar, :lat, :lng, presence: true
+  before_save { name.capitalize() }
   acts_as_mappable
 
   def age
