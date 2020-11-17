@@ -23,10 +23,11 @@ const SearchBar = (props) => {
     setAddress(selection)
     const response = await geocodeByAddress(selection)
     const results = await getLatLng(response[0])
-    dispatch(updateQuery({ ...results, city: selection }))
+    dispatch(updateQuery({ ...results }))
   }
 
   const handleSubmit = () => {
+    dispatch(updateQuery({ city: address }))
     dispatch(getUsers(queryData))
     dispatch(getTrails(queryData))
   }
