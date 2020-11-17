@@ -67,8 +67,8 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
           </span>
           <span>{displayOtherUserName()}</span><br/>
           <p>{conversation.title} </p>
-          <button className="user-submit" onClick={handleAccept}>Accept</button>
-          <button className="user-submit" onClick={handleReject}>Reject</button>
+          <button className="message-accept" onClick={handleReject}>Reject</button>
+          <button className="message-accept" onClick={handleAccept}>Accept</button>
         </>
       )
     } else if (!conversation.accepted && conversation.author.id === currentUserId) {
