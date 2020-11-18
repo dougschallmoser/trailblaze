@@ -56,7 +56,14 @@ const SearchBar = (props) => {
                 className: `location-search-input search-bar ${props.splash}`,
               })}
             />
-            <Link to="/search"><img onClick={handleSubmit} alt="search icon" className={props.splashIcon || "search-icon"} src="./search_icon.png" /></Link>
+            {/* `/search?lat=${queryData.lat}&lng=${queryData.lng}&radius=${queryData.radius}&agemin=${queryData.agemin}&agemax=${queryData.agemax}&gender=${queryData.gender}` */}
+            <Link to="/search">
+              <img
+                onClick={handleSubmit}
+                alt="search icon"
+                className={props.splashIcon || "search-icon"}
+                src="./search_icon.png" />
+            </Link>
           <div className="autocomplete-dropdown-container">
             {loading && <div>Loading...</div>}
             {suggestions.map(suggestion => {
