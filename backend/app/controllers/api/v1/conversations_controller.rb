@@ -1,5 +1,4 @@
 class Api::V1::ConversationsController < ApplicationController
-  skip_before_action :authorized, only: [:create, :index, :update, :destroy]
 
   def index
     conversations = Conversation.all

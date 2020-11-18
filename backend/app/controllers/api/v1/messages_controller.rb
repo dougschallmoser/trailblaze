@@ -1,5 +1,4 @@
 class Api::V1::MessagesController < ApplicationController
-  skip_before_action :authorized, only: [:create]
 
   def create
     message = Message.new(message_params)
