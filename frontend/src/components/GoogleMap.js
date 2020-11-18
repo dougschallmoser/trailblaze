@@ -21,9 +21,20 @@ const GoogleMap = (props) => {
     position: 'fixed'
   }
 
+  const onMapClicked = () => {
+    if (markerInfo.showInfo) {
+      setMarkerInfo({
+        ...markerInfo,
+        showInfo: false,
+        activeMarker: null
+      })
+    }
+  };
+
   return (
     <Map
       google={props.google}
+      onClick={onMapClicked}
       zoom={9}
       containerStyle={containerStyle}
       style={mapStyles}
