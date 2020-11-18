@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { getUserProfile } from './actions'
 import NavBar from './components/NavBar';
+import Error from './components/Error';
 import SearchContainer from './containers/SearchContainer';
 import RootContainer from './containers/RootContainer';
 import ChatConversationsList from './components/ChatConversationsList';
@@ -17,6 +18,7 @@ const App = () => {
 
   return (
     <Router>
+      <Error />
       <NavBar />
       <div className="main-container">
         <Route path="/messages" exact>
