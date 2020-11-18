@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import UserInputField from './UserInputField';
+import UserSubmitButton from './UserSubmitButton';
 import { loginUser } from '../actions';
 import Modal from "react-modal";
 
@@ -47,29 +49,21 @@ const UserSignup = () => {
           <button className="close-button-user" onClick={toggleModal}>x</button><br/>
           <div className="get-started">WELCOME BACK!</div>
           <form onSubmit={handleSubmit}>
-            <div className="signup-input">
-              <label>Email:</label>
-              <input 
-                type="text"
-                name='email'
-                value={loginData.email}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="signup-input">
-              <label>Password:</label>
-              <input 
-                type="password"
-                name='password'
-                value={loginData.password}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="submit-container">
-              <input type="submit" className="user-submit" />
-              </div>
+            <UserInputField
+              label="Email:"
+              type="text"
+              name="email"
+              value={loginData.email}
+              onChange={handleChange}
+            />
+            <UserInputField
+              label="Password:"
+              type="password"
+              name="password"
+              value={loginData.password}
+              onChange={handleChange}
+            />            
+            <UserSubmitButton />
           </form>
         </div>
       </Modal>

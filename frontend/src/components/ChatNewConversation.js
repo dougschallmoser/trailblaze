@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Modal from "react-modal";
+import UserSubmitButton from './UserSubmitButton';
+import UserInputField from './UserInputField';
 import { API_ROOT } from '../constants';
 
 Modal.setAppElement("#root");
@@ -47,9 +49,7 @@ const ChatNewConversation = ({ user, currentUser }) => {
   const renderContent = () => {
     if (sent) {
       return (
-        <>
-          <div className="message-sent">Message Sent!</div>
-        </>
+        <div className="message-sent">Message Sent!</div>
       )
     } else {
       return (
@@ -58,18 +58,13 @@ const ChatNewConversation = ({ user, currentUser }) => {
             Reach out to <span className="main-color">{user.name}</span> ...
           </div>
           <form onSubmit={handleSubmit}>
-            <div className="signup-input">
-              <input 
-                type="text"
-                name='title'
-                value={convoData.title}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="submit-container">
-              <input type="submit" className="user-submit" />
-              </div>
+            <UserInputField
+              type="text"
+              name="title"
+              value={convoData.title}
+              onChange={handleChange}
+            />  
+            <UserSubmitButton />
           </form>
         </>
       )

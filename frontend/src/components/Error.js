@@ -21,6 +21,14 @@ const Error = () => {
     setIsOpen(!isOpen);
   }
 
+  const renderError = (error) => {
+    return (
+      <div key={error} className="error-modal">
+        {error}
+      </div>
+    )
+  }
+
   return (
     <>
       <Modal
@@ -28,12 +36,12 @@ const Error = () => {
         onRequestClose={toggleModal}
         contentLabel="My dialog"
         className="user-modal"
-        overlayClassName="user-modal-overlay"
+        overlayClassName="user-modal-overlay-error"
         closeTimeoutMS={0}
       >
         <div className="modal-container">
           <button className="close-button-user" onClick={toggleModal}>x</button><br/>
-          {isOpen ? errors.map((error, i) => <div key={i} className="get-started main-color">{error}</div>) : null }
+          {isOpen ? errors.map(error => renderError(error)) : null}
         </div>
       </Modal>
     </>

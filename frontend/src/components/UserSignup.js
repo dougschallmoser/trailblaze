@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../actions';
+import UserInputField from './UserInputField';
+import UserSubmitButton from './UserSubmitButton';
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
@@ -59,45 +61,37 @@ const UserSignup = () => {
           <button className="close-button-user" onClick={toggleModal}>x</button><br/>
           <div className="get-started">GET STARTED</div>
           <form onSubmit={handleSubmit}>
-            <div className="signup-input">
-              <label>First Name:</label>
-              <input 
-                type="text"
-                name='name'
-                value={userData.name}
-                onChange={handleChange}
-              />
-            </div>
+            <UserInputField
+              label="First Name:"
+              type="text"
+              name="name"
+              value={userData.name}
+              onChange={handleChange}
+            />
 
-            <div className="signup-input">
-              <label>Email:</label>
-              <input 
-                type="text"
-                name='email'
-                value={userData.email}
-                onChange={handleChange}
-              />
-            </div>
+            <UserInputField
+              label="Email:"
+              type="text"
+              name="email"
+              value={userData.email}
+              onChange={handleChange}
+            />
 
-            <div className="signup-input">
-              <label>Password:</label>
-              <input 
-                type="password"
-                name='password'
-                value={userData.password}
-                onChange={handleChange}
-              />
-            </div>
+            <UserInputField
+              label="Password:"
+              type="password"
+              name="password"
+              value={userData.password}
+              onChange={handleChange}
+            />
 
-            <div className="signup-input">
-              <label>Birthdate:</label>
-              <input 
-                type="date"
-                name='dob'
-                value={userData.dob}
-                onChange={handleChange}
-              />
-            </div>
+            <UserInputField
+              label="Birthdate:"
+              type="date"
+              name="dob"
+              value={userData.dob}
+              onChange={handleChange}
+            />
 
             <div className="signup-input">
               <label>Gender:</label>
@@ -118,20 +112,16 @@ const UserSignup = () => {
                 onChange={handleChange}
               />
             </div>
-            
-            <div className="signup-input">
-              <label>Avatar:</label>
-              <input 
-                type="text"
-                name='avatar'
-                value={userData.avatar}
-                onChange={handleChange}
-              />
-            </div>
 
-            <div className="submit-container">
-              <input type="submit" className="user-submit" />
-            </div>
+            <UserInputField
+              label="Avatar:"
+              type="text"
+              name="avatar"
+              value={userData.avatar}
+              onChange={handleChange}
+            />
+
+            <UserSubmitButton />
           </form>
         </div>
       </Modal>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import faker from 'faker';
 import Moment from 'react-moment';
+import ChatRenderDropdown from './ChatRenderDropdown';
 import { API_ROOT } from '../constants';
 
 const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConvo, selected }) => {
@@ -59,20 +60,6 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
     }
   }
 
-  const renderDropdown = 
-    <div className="dropdown-menu-chat">
-      <div className="dropdown-content-chat">
-        <div className="dropdown-content-padding">
-          <div className="dropdown-content-item">
-            <button onClick={handleReject} className="user-submit">Delete Conversation</button>
-          </div>
-        </div>
-        <div className="dropdown-content-bottom">
-          <button className="close-button" onClick={handleClick}>Close</button>
-        </div>
-      </div>
-    </div>
-
   const renderConversation = () => {
     if (conversation.accepted) {
       return (
@@ -88,7 +75,7 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
           <span id="chat-user">{displayOtherUserName()}</span><br/>
           <p id="chat-preview">{(recentMessage() && recentMessage().text) || conversation.title} </p>
           {selected ? <div onClick={handleClick} className="three-dots">&#8230;</div> : null}
-          {clicked ? renderDropdown : null}
+          {clicked ? <ChatRenderDropdown handleReject={handleReject} handleClick={handleClick} /> : null}
         </>
       )
     } else if (!conversation.accepted && conversation.receiver.id === currentUserId) {

@@ -25,7 +25,7 @@ const SearchResult = ({ user }) => {
           <img src={faker.image.avatar()} alt="avatar" />
           <span id="username-display">{user.name},</span>
           <span id="age-display">{userAge()}</span>
-          <span id="gender-display">{user.gender}</span>
+          <span id="gender-display">{user.gender === "nondisclose" ? null : user.gender}</span>
           <p id="bio-display">{user.bio}</p><br/>
           {loggedIn() && <ChatNewConversation user={user} currentUser={currentUser} />}
         </div>
