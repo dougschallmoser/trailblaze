@@ -3,7 +3,7 @@ require 'faker'
 # Users
 
 User.create(
-  name: "doug",
+  name: "Doug",
   email: "doug@gmail.com",
   password: "monkey",
   bio: Faker::Hipster.sentence(word_count: 15),
@@ -15,7 +15,7 @@ User.create(
 )
 
 User.create(
-  name: "erin",
+  name: "Erin",
   email: "erin@gmail.com",
   password: "monkey",
   bio: Faker::Hipster.sentence(word_count: 15),
@@ -27,7 +27,7 @@ User.create(
 )
 
 User.create(
-  name: "noah",
+  name: "Noah",
   email: "noah@gmail.com",
   password: "monkey",
   bio: Faker::Hipster.sentence(word_count: 15),
