@@ -16,7 +16,7 @@ const SearchRadius = () => {
       <input
         type="range"
         min="10"
-        max="100"
+        max="50"
         step="10"
         value={radius}
         onChange={handleOnChange}
