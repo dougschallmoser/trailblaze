@@ -488,13 +488,17 @@ select:focus {
 }
 
 .google-map {
+  position: relative;
   margin-top: 75px;
   width: 55%;
 }
 
 .trail-info {
   font-family: 'Rubik', sans-serif;
+  background: #eafaf6;
+  padding: 14px;
   display: block;
+  border-radius: 4px;
   height: 100%;
 }
 
@@ -514,6 +518,19 @@ select:focus {
 
 .left-column {
   flex: 1;
+}
+
+.trail-overlay {
+  background: #1DA590;
+  padding: 8px 30px;
+  color: white;
+  z-index: 5;
+  top: 155px;
+  border-radius: 4px;
+  font-weight: 300;
+  position: fixed;
+  right: 50%;
+  margin-right: -385px;
 }
 
 @media only screen and (max-width: 1130px) {
