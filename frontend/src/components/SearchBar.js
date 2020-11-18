@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getUsers, getTrails, updateQuery } from '../actions';
 import { GoogleApiWrapper } from 'google-maps-react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
-import { Link } from 'react-router-dom';
 
 const SearchBar = (props) => {
 

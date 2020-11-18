@@ -35,7 +35,7 @@ const GoogleMap = (props) => {
     <Map
       google={props.google}
       onClick={onMapClicked}
-      zoom={9}
+      zoom={9.5}
       containerStyle={containerStyle}
       style={mapStyles}
       initialCenter={{ lat: 47.444, lng: -122.176 }}
