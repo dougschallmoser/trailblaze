@@ -3,7 +3,7 @@ const initialState = {
   query: {
     lat: 47.444,
     lng: -122.176,
-    radius: 30,
+    radius: 10,
     agemin: '',
     agemax: '',
     gender: 'any'
