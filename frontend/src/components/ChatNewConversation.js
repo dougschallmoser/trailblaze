@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from "react-modal";
-import { API_ROOT, HEADERS } from '../constants';
+import { API_ROOT } from '../constants';
 
 Modal.setAppElement("#root");
 
@@ -24,13 +24,20 @@ const ChatNewConversation = ({ user, currentUser }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`${API_ROOT}/conversations`, {
-      method: 'POST',
-      headers: HEADERS,
-      body: JSON.stringify({ conversation: convoData })
-    });
-    setConvoData({ ...convoData, title: '' })
-    setSent(true)
+    const token = localStorage.token
+    if (token) {
+      fetch(`${API_ROOT}/conversations`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ conversation: convoData })
+      });
+      setConvoData({ ...convoData, title: '' })
+      setSent(true)
+    }
   }
 
   const toggleModal = () => {

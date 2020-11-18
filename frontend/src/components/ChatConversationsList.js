@@ -15,13 +15,23 @@ class ChatConversationsList extends React.Component {
   }
 
   componentDidMount = () => {
-    fetch(`${API_ROOT}/conversations`)
-      .then(res => res.json())
-      .then(conversations => {
-        const userConvos = conversations.filter(convo => convo.author.id === this.props.currentUser || 
-          convo.receiver.id === this.props.currentUser)
-        this.setState({ ...this.state, conversations: userConvos })
+    const token = localStorage.token
+    if (token) {
+      fetch(`${API_ROOT}/conversations`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
       })
+        .then(res => res.json())
+        .then(conversations => {
+          const userConvos = conversations.filter(convo => convo.author.id === this.props.currentUser || 
+            convo.receiver.id === this.props.currentUser)
+          this.setState({ ...this.state, conversations: userConvos })
+        })
+    }
   }
 
   handleClick = (id) => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import faker from 'faker';
 import Moment from 'react-moment';
-import { API_ROOT, HEADERS } from '../constants';
+import { API_ROOT } from '../constants';
 
 const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConvo, selected }) => {
 
@@ -29,20 +29,34 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
   }
 
   const handleAccept = () => {
-    fetch(`${API_ROOT}/conversations/${conversation.id}`, {
-      method: 'PATCH',
-      headers: HEADERS,
-      body: JSON.stringify({ conversation: {accepted: true} })
-    }).then(response => response.json())
-    .then(conversation => acceptConvo(conversation))
+    const token = localStorage.token
+    if (token) {
+      fetch(`${API_ROOT}/conversations/${conversation.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ conversation: {accepted: true} })
+      }).then(response => response.json())
+      .then(conversation => acceptConvo(conversation))
+    }
   }
 
   const handleReject = () => {
-    fetch(`${API_ROOT}/conversations/${conversation.id}`, {
-      method: 'DELETE',
-      headers: HEADERS
-    });
-    rejectConvo(conversation)
+    const token = localStorage.token
+    if (token) {
+      fetch(`${API_ROOT}/conversations/${conversation.id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+      })
+      rejectConvo(conversation)
+    }
   }
 
   const renderDropdown = 

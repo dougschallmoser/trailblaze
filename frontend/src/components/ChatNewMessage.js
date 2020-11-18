@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { API_ROOT, HEADERS } from '../constants';
+import { API_ROOT } from '../constants';
 
 const ChatNewMessage = ({ conversationId, currentUserId }) => {
 
@@ -26,13 +26,20 @@ const ChatNewMessage = ({ conversationId, currentUserId }) => {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch(`${API_ROOT}/messages`, {
-      method: 'POST',
-      headers: HEADERS,
-      body: JSON.stringify(message)
-    })
-    setMessage({ ...message, text: '', conversation_id: conversationId })
+    const token = localStorage.token
+    if (token) {
+      e.preventDefault();
+      fetch(`${API_ROOT}/messages`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(message)
+      })
+      setMessage({ ...message, text: '', conversation_id: conversationId })
+    }
   }
 
   return (
