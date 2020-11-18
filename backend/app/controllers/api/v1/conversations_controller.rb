@@ -13,13 +13,18 @@ class Api::V1::ConversationsController < ApplicationController
       ).serializable_hash
       ActionCable.server.broadcast 'conversations_channel', serialized_data
       head :ok
+    else 
+      render json: { error: conversation.errors.full_messages }, status: :not_acceptable
     end
   end
 
   def update
     conversation = Conversation.find_by(id: params[:id])
-    conversation.update(conversation_params)   
-    render json: conversation 
+    if conversation.update(conversation_params)   
+      render json: conversation 
+    else 
+      render json: { error: conversation.errors.full_messages }, status: :not_acceptable
+    end
   end
 
   def destroy

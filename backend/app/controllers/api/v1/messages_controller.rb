@@ -9,6 +9,8 @@ class Api::V1::MessagesController < ApplicationController
       ).serializable_hash
       MessagesChannel.broadcast_to conversation, serialized_data
       head :ok
+    else 
+      render json: { error: message.errors.full_messages }, status: :not_acceptable
     end
   end
 
