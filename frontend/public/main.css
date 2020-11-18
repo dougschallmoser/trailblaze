@@ -164,10 +164,10 @@ a.nav-logo span {
 
 .search-icon {
   position: absolute;
-  margin-top: 7px;
-  left: 345px;
+  margin-top: 10px;
+  left: 348px;
   cursor: pointer;
-  height: 36px;
+  height: 30px;
   display: inline-block;
   vertical-align: middle;
 }
