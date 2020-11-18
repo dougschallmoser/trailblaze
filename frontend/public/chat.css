@@ -3,10 +3,10 @@
   width: 475px;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -10px;
   top: 0;
   margin-top: 70px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   overflow-y: scroll;
   text-align: center;
   background:#eafaf6;
@@ -17,7 +17,7 @@
   width: 100%;
   font-size: 32px;
   font-weight: 500;
-  margin: 16px 0 20px 0;
+  margin: 20px 0 20px 0;
 }
 
 .conversation-item {
