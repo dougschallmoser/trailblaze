@@ -10,7 +10,7 @@ export const loginUser = userData => {
     });
     const data = await response.json();
     if (data.message) {
-      // add error handling
+      dispatch({ type: 'ADD_ERROR', payload: data.message })
     } else {
       localStorage.setItem('token', data.jwt)
       dispatch({ type: 'LOGIN_USER', payload: data.user })
@@ -37,7 +37,7 @@ export const addUser = userData => {
     });
     const data = await response.json();
     if (data.error) {
-      // add error handling
+      dispatch({ type: 'ADD_ERROR', payload: data.error })
     } else {
       localStorage.setItem('token', data.jwt)
       dispatch({ type: 'LOGIN_USER', payload: data.user })
@@ -59,7 +59,7 @@ export const getUserProfile = () => {
       })
       const data = await response.json();
       if (data.message) {
-        // add error handling
+        dispatch({ type: 'ADD_ERROR', payload: data.message })
         localStorage.removeItem("token")
       } else {
         dispatch({ type: 'LOGIN_USER', payload: data.user })
