@@ -31,7 +31,7 @@ const SearchContainer = () => {
         </div>
         <div className="google-map">
           <GoogleMap />
-          <div className="trail-overlay">{trails.length} nearby trails</div>
+          <div className="trail-overlay">{trails.length} trails nearby</div>
         </div>
       </div>
     </>
