@@ -261,7 +261,7 @@ a.nav-logo span {
   background-color: white;
   min-width: 300px;
   box-shadow: 0.1px 0.1px 6px 0px #ccc, -0.1px -0.1px 6px 0px #ccc;
-  z-index: 1;
+  z-index: 6;
 }
 
 .dropdown-content-header {
@@ -524,7 +524,7 @@ select:focus {
   background: #1DA590;
   padding: 8px 30px;
   color: white;
-  z-index: 5;
+  z-index: 4;
   top: 155px;
   border-radius: 4px;
   font-weight: 300;
@@ -536,5 +536,28 @@ select:focus {
 @media only screen and (max-width: 1130px) {
   .items {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .google-map {
+    display: none;
+  }
+
+  .items-container {
+    width: 100%;
+  }
+
+  .search-bar {
+    width: 40%;
+  }
+
+  .radius-slider {
+    width: 40%;
+    margin-left: 0px;
+  }
+
+  .filter-button {
+    margin-left: 0px;
   }
 }
