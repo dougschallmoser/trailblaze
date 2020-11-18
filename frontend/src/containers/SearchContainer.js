@@ -10,6 +10,7 @@ const SearchContainer = () => {
 
   const results = useSelector(state => state.search.results)
   const city = useSelector(state => state.search.query.city)
+  const trails = useSelector(state => state.search.trails)
 
   return (
     <>
@@ -30,6 +31,7 @@ const SearchContainer = () => {
         </div>
         <div className="google-map">
           <GoogleMap />
+          <div className="trail-overlay">{trails.length} nearby trails</div>
         </div>
       </div>
     </>
