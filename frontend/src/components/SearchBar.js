@@ -30,7 +30,7 @@ const SearchBar = (props) => {
     dispatch(getTrails(queryData))
   }, [queryData, dispatch])
   
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
     dispatch(updateQuery({ ...latlng }))
     dispatch(updateQuery({ city: address }))
   }
