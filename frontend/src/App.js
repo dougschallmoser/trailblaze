@@ -5,7 +5,6 @@ import { getUserProfile } from './actions'
 import NavBar from './components/NavBar';
 import SearchContainer from './containers/SearchContainer';
 import RootContainer from './containers/RootContainer';
-import ResultsContainer from './containers/ResultsContainer';
 import ChatConversationsList from './components/ChatConversationsList';
 
 const App = () => {
@@ -26,9 +25,8 @@ const App = () => {
         <Route path="/" exact>
           <RootContainer />
         </Route>
-        <Route path="/search" exact>
+        <Route path="/search">
           <SearchContainer />
-          <ResultsContainer />
         </Route>
       </div>
     </Router>
