@@ -10,7 +10,8 @@ class ChatConversationsList extends React.Component {
   state = {
     conversations: [],
     currentUserId: null,
-    activeConversation: null
+    activeConversation: null,
+    clicked: false
   }
 
   componentDidMount = () => {
@@ -24,7 +25,11 @@ class ChatConversationsList extends React.Component {
   }
 
   handleClick = (id) => {
-    this.setState({ activeConversation: id })
+    if (!this.state.clicked) {
+      this.setState({ activeConversation: id, clicked: true })
+    } else {
+      this.setState({ activeConversation: null, clicked: false })
+    }
   }
 
   handleReceivedConversation = response => {
@@ -128,7 +133,9 @@ const mapConversations = (conversations, handleClick, currentUserId, handleAccep
           >
             <ChatConversation
               conversation={conversation}
+              selected={selected()}
               currentUserId={currentUserId}
+              rejectConvo={handleRejectConvo}
             />
           </div>
         )
