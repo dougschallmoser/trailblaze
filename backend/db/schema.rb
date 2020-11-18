@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_183743) do
     t.boolean "accepted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id", "receiver_id"], name: "index_conversations_on_author_id_and_receiver_id", unique: true
   end
 
   create_table "messages", force: :cascade do |t|
