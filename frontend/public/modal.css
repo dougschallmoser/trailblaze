@@ -21,6 +21,25 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+.user-modal-overlay-error {
+  z-index: 12;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.error-modal {
+  color: #1DA590;
+  font-size: 26px;
+  font-weight: 500;
+  text-align: left;
+  padding-bottom: 40px;
+  padding-left: 35px;
+}
+
 .get-started {
   font-size: 26px;
   font-weight: 500;
