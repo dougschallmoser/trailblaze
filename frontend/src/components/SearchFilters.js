@@ -18,7 +18,6 @@ const SearchFilters = () => {
   }
 
   const renderDropdown = 
-  <>
     <div className="dropdown-content">
       <div className="dropdown-content-padding">
         <div className="dropdown-content-item">
@@ -54,7 +53,6 @@ const SearchFilters = () => {
         <button className="close-button" onClick={handleClick}>Close</button>
       </div>
     </div>
-    </>
 
   return (
     <div className="dropdown-menu">
