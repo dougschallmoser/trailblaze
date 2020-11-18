@@ -21,11 +21,11 @@ const App = () => {
       <Error />
       <NavBar />
       <div className="main-container">
-        <Route path="/messages" exact>
-          <ChatConversationsList />
-        </Route>
         <Route path="/" exact>
           <RootContainer />
+        </Route>
+        <Route path="/messages" exact>
+          <ChatConversationsList />
         </Route>
         <Route path="/search">
           <SearchContainer />
