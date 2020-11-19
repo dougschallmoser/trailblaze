@@ -7,7 +7,7 @@ import Error from './components/Error';
 import SearchContainer from './containers/SearchContainer';
 import RootContainer from './containers/RootContainer';
 import ChatConversationsList from './components/ChatConversationsList';
-import Favorites from './components/Favorites';
+import FavoritesList from './components/FavoritesList';
 
 const App = () => {
 
@@ -32,7 +32,7 @@ const App = () => {
           <ChatConversationsList />
         </Route>
         <Route path="/favorites" exact>
-          <Favorites />
+          <FavoritesList />
         </Route>
       </div>
     </Router>
