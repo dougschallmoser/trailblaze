@@ -14,10 +14,10 @@ class ChatConversationsList extends React.Component {
     clicked: false
   }
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     const token = localStorage.token
     if (token) {
-      fetch(`${API_ROOT}/conversations`, {
+      const response = await fetch(`${API_ROOT}/conversations`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -25,12 +25,11 @@ class ChatConversationsList extends React.Component {
           'Authorization': `Bearer ${token}`
         }
       })
-        .then(res => res.json())
-        .then(conversations => {
-          const userConvos = conversations.filter(convo => convo.author.id === this.props.currentUser || 
-            convo.receiver.id === this.props.currentUser)
-          this.setState({ ...this.state, conversations: userConvos })
-        })
+      const conversations = await response.json();
+      const userConvos = conversations.filter(convo => 
+        convo.author.id === this.props.currentUser || 
+        convo.receiver.id === this.props.currentUser)
+      this.setState({ ...this.state, conversations: userConvos })
     }
   }
 

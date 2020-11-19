@@ -12,22 +12,25 @@ const FavoritesList = () => {
   const [clicked, setClicked] = useState(false)
   
   useEffect(() => {
-    const token = localStorage.token
-    if (token) {
-      fetch(`${API_ROOT}/favorites`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
-      })
-        .then(res => res.json())
-        .then(favorites => {
-          const userFavs = favorites.filter(fav => fav.user_id === currentUser.id)
-          setFavorites(userFavs)
+    const getFavorites = async () => {
+      const token = localStorage.token
+      if (token) {
+        const response = await fetch(`${API_ROOT}/favorites`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
         })
+        const favorites = await response.json();
+        const userFavs = favorites.filter(fav => fav.user_id === currentUser.id)
+        setFavorites(userFavs)
+      }
     }
+
+    getFavorites();
+
   }, [currentUser.id])
   
   const handleClick = (id) => {

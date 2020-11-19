@@ -29,10 +29,10 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
     setClicked(prevState => !prevState)
   }
 
-  const handleAccept = () => {
+  const handleAccept = async () => {
     const token = localStorage.token
     if (token) {
-      fetch(`${API_ROOT}/conversations/${conversation.id}`, {
+      const response = await fetch(`${API_ROOT}/conversations/${conversation.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -40,8 +40,9 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ conversation: {accepted: true} })
-      }).then(response => response.json())
-      .then(conversation => acceptConvo(conversation))
+      })
+      const newConversation = await response.json();
+      acceptConvo(newConversation)
     }
   }
 
