@@ -15,7 +15,7 @@ const SearchContainer = () => {
   return (
     <>
       <div className="search">
-        <SearchBar />
+        <SearchBar currentCity={city} />
         <SearchRadius />
         <SearchFilters />
       </div>
