@@ -533,6 +533,10 @@ select:focus {
   margin-right: -385px;
 }
 
+.left-align {
+  text-align: left;
+}
+
 @media only screen and (max-width: 1130px) {
   .items {
     grid-template-columns: repeat(1, 1fr);
