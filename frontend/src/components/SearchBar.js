@@ -7,8 +7,8 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 
 const SearchBar = (props) => {
 
-  const [address, setAddress] = useState('')
-  const [latlng, setLatlng] = useState({lat: '', lng: ''})
+  const [address, setAddress] = useState(props.currentCity ? props.currentCity : '')
+  const [latlng, setLatlng] = useState({ lat: '', lng: '' })
   const queryData = useSelector(state => state.search.query);
   const dispatch = useDispatch();
  
