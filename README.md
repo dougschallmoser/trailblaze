@@ -1,9 +1,9 @@
-![Trailblaze]()
+![Trailblaze](https://user-images.githubusercontent.com/65590878/99626023-35fe3080-29e6-11eb-9495-46ccc00ae981.png)
 
 
 # Trailblaze
 
-Trailblaze your way to a new trail friend. This is a single page application React/Redux application with a Rails API backend.
+Trailblaze your way to a new trail friend. This is a geosocial single page application built with React/Redux/Rails. Find new friends in your area, communicate, explore trails and go on outdoor adventures.
 
 
 ## Installation
@@ -18,14 +18,16 @@ To run this application in your local environment, please follow these steps:
 5. Run 'rails db:migrate'
 6. Run 'rails db:seed'
 7. Run 'rails s'
-8. Open the 'index.html' file in your browser
+8. Open up a new terminal tab.
+9. Change directory to backend
+10. Run 'npm start'
 ```
-
+To experience all features, please sign-up.
 
 ## Contributing
 
 Bug reports and pull requests are welcome on Github at:
-https://github.com/dougschallmoser/gastropoda-js-app
+https://github.com/dougschallmoser/trailblaze-react-app
 
 This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
  
@@ -42,4 +44,4 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 ## Acknowledgments
 
-I would like to acknowledge The Hiking Project for the API.
+I would like to acknowledge The Hiking Project for providing great information via their API. And of course, Google.
