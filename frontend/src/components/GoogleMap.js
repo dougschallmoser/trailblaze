@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from "react-dom";
 import { useSelector } from 'react-redux';
+import Swal from 'sweetalert2'
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import { API_ROOT } from '../constants';
 
@@ -66,7 +67,14 @@ const GoogleMap = (props) => {
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ favorite: trailObj })
-      });
+      })
+      Swal.fire({
+        icon: 'success',
+        text: 'Trail has been added to your Favorites',
+        confirmButtonColor: '#1DA590',
+        iconColor: '#1DA590'
+      })
+      
     }
 
     setMarkerInfo(prev => {

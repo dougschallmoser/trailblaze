@@ -113,7 +113,11 @@ const UserSignup = () => {
                 name='bio'
                 value={userData.bio}
                 onChange={handleChange}
+                maxLength={150}
               />
+              <div id="char-remaining">
+                {150 - userData.bio.length} characters remaining
+              </div>
             </div>
 
             <UserInputField

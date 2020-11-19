@@ -1,4 +1,5 @@
 import { API_ROOT } from '../constants';
+import Swal from 'sweetalert2'
 
 export const loginUser = userData => {
   return async dispatch => {
@@ -12,10 +13,21 @@ export const loginUser = userData => {
     });
     const data = await response.json();
     if (data.message) {
-      dispatch({ type: 'ADD_ERROR', payload: data.message })
+      Swal.fire({
+        icon: 'error',
+        text: 'Invalid credentials. Please try again.',
+        confirmButtonColor: '#1DA590',
+        iconColor: '#B22222'
+      })
     } else {
       localStorage.setItem('token', data.jwt)
       dispatch({ type: 'LOGIN_USER', payload: data.user })
+      Swal.fire({
+        icon: 'success',
+        text: 'You have successfully logged in!',
+        confirmButtonColor: '#1DA590',
+        iconColor: '#1DA590'
+      })
     }
   }
 }
@@ -39,10 +51,22 @@ export const addUser = userData => {
     });
     const data = await response.json();
     if (data.error) {
-      dispatch({ type: 'ADD_ERROR', payload: data.error })
+      Swal.fire({
+        icon: 'error',
+        text: `${data.error.map(error => error)}`,
+        confirmButtonColor: '#1DA590',
+        iconColor: '#B22222'
+      })
     } else {
       localStorage.setItem('token', data.jwt)
       dispatch({ type: 'LOGIN_USER', payload: data.user })
+      Swal.fire({
+        icon: 'success',
+        title: 'Account created...',
+        text: 'You are now logged in!',
+        confirmButtonColor: '#1DA590',
+        iconColor: '#1DA590'
+      })
     }
   }
 }

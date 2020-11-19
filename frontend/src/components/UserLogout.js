@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../actions';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2'
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
@@ -10,7 +11,15 @@ const UserLogout = () => {
   
   const [isOpen, setIsOpen] = useState(false)
   const dispatch = useDispatch()
-  const handleLogout = () => {dispatch(logoutUser())}
+  const handleLogout = () => {
+    dispatch(logoutUser())
+    Swal.fire({
+      icon: 'success',
+      text: 'You have successfully logged out!',
+      confirmButtonColor: '#1DA590',
+      iconColor: '#1DA590'
+    })
+  }
   const toggleModal = () => {setIsOpen(!isOpen)}
 
   return (
