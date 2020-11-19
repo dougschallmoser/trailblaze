@@ -1,6 +1,6 @@
 import React from 'react';
-import ChatNewMessage from './ChatNewMessage';
 import { useSelector } from 'react-redux';
+import ChatNewMessage from './ChatNewMessage';
 
 const ChatMessagesList = ({ conversation: { id, author, receiver, title, messages } }) => {
   const currentUser = useSelector(state => state.currentUser);
@@ -24,14 +24,18 @@ const ChatMessagesList = ({ conversation: { id, author, receiver, title, message
     )
     return sortedMessages.map(message => {
       return (
-      <li key={message.id} className={myMsg(message) ? "me" : "them"}>{message.text}</li>
+      <li key={message.id} className={myMsg(message) ? "me" : "them"}>
+        {message.text}
+      </li>
       )
     })
   }
 
   return (
     <>
-      <h3>Chatting with <span className="main-color">{displayOtherUserName()}</span></h3>
+      <h3>
+        Chatting with <span className="main-color">{displayOtherUserName()}</span>
+      </h3>
       <ul>
         <li className={author.id === currentUser.id ? "me" : "them"}>{title}</li>
         {orderedMessages(messages)}

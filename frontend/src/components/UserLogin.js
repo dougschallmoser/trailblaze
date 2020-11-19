@@ -46,7 +46,12 @@ const UserSignup = () => {
         closeTimeoutMS={0}
       >
         <div className="modal-container">
-          <button className="close-button-user" onClick={toggleModal}>x</button><br/>
+          <button
+            className="close-button-user"
+            onClick={toggleModal}
+          >
+            x
+          </button><br/>
           <div className="get-started">WELCOME BACK!</div>
           <form onSubmit={handleSubmit}>
             <UserInputField

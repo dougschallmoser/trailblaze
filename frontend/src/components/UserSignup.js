@@ -12,17 +12,18 @@ const UserSignup = () => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const [userData, setUserData] = useState({
-    email: '', name: '', password: '', dob: '', bio: '', gender: 1, avatar: '', lat: null, lng: null
+    email: '', name: '', password: '', dob: '',
+    bio: '', gender: 1, avatar: '', lat: null, lng: null
   })
 
   useEffect(() => {
     if (isOpen) {
       window.navigator.geolocation.getCurrentPosition(
-      position => setUserData(prevUserData => {
-        return {
-          ...prevUserData, lat: position.coords.latitude, lng: position.coords.longitude
-        }
-      })
+        position => setUserData(prevUserData => {
+          return {
+            ...prevUserData, lat: position.coords.latitude, lng: position.coords.longitude
+          }
+        })
       )
     }
 
@@ -44,7 +45,9 @@ const UserSignup = () => {
     })
   }
 
-  const toggleModal = () => {setIsOpen(!isOpen)}
+  const toggleModal = () => {
+    setIsOpen(!isOpen)
+  }
 
   return (
     <>

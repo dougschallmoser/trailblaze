@@ -35,7 +35,7 @@ const SearchResult = ({ user }) => {
     }
   }
 
-  return renderItem()
+  return renderItem();
 }
 
 export default SearchResult

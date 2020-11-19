@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import faker from 'faker';
 import Moment from 'react-moment';
-import ChatRenderDropdown from './ChatRenderDropdown';
+import faker from 'faker';
 import { API_ROOT } from '../constants';
+import ChatRenderDropdown from './ChatRenderDropdown';
 
 const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConvo, selected }) => {
 
@@ -74,9 +74,17 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
             </Moment>
           </span>
           <span id="chat-user">{displayOtherUserName()}</span><br/>
-          <p id="chat-preview">{(recentMessage() && recentMessage().text) || conversation.title} </p>
-          {selected ? <div onClick={handleClick} className="three-dots">&#8230;</div> : null}
-          {clicked ? <ChatRenderDropdown handleReject={handleReject} handleClick={handleClick} /> : null}
+          <p id="chat-preview">
+            {(recentMessage() && recentMessage().text) || conversation.title}
+          </p>
+          {selected ? 
+            <div onClick={handleClick} className="three-dots">&#8230;</div> 
+            : null
+          }
+          {clicked ? 
+            <ChatRenderDropdown handleReject={handleReject} handleClick={handleClick} /> 
+            : null
+          }
         </>
       )
     } else if (!conversation.accepted && conversation.receiver.id === currentUserId) {
@@ -109,7 +117,9 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
           </span>
           <span>{displayOtherUserName()}</span><br/>
           <p id="chat-preview">{conversation.title}</p>
-          <div className="pending-conversation">Pending acceptance from {displayOtherUserName()}</div>
+          <div className="pending-conversation">
+            Pending acceptance from {displayOtherUserName()}
+          </div>
         </>
       )
     }

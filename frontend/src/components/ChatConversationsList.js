@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { API_ROOT } from '../constants';
 import { ActionCableConsumer } from '@thrash-industries/react-actioncable-provider';
+import { API_ROOT } from '../constants';
 import ChatCable from './ChatCable';
 import ChatMessagesList from './ChatMessagesList';
 import ChatConversation from './ChatConversation';

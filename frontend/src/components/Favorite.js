@@ -35,11 +35,20 @@ const Favorite = ({ favorite, setActive, activeFavorite, deleteFavorite }) => {
       onClick={() => setActive(favorite.id)}
       className={selected() ? "favorite-item selected-fav" : "favorite-item"}
     >
-      {favorite.imgsmall ? <img src={favorite.imgsmall} alt={favorite.name} /> : <div className="no-photo">No Photo Available</div>}
+      {favorite.imgsmall ? 
+        <img src={favorite.imgsmall} alt={favorite.name} /> 
+        : <div className="no-photo">No Photo Available</div>
+      }
       <div>{favorite.name}</div>
-      {selected() ? <div onClick={handleClick} className="three-dots-fav">&#8230;</div> : null}
+      {selected() ? 
+        <div onClick={handleClick} className="three-dots-fav">&#8230;</div> 
+        : null
+      }
       <div className="main-color">{favorite.location}</div>
-      {clicked ? <FavoriteDropdown handleDelete={handleDelete} handleClick={handleClick} /> : null}
+      {clicked ? 
+        <FavoriteDropdown handleDelete={handleDelete} handleClick={handleClick} />
+        : null
+      }
     </div>
   )
 }

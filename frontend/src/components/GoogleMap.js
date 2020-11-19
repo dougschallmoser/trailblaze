@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import ReactDOM from "react-dom";
 import { useSelector } from 'react-redux';
-import { API_ROOT } from '../constants';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
+import { API_ROOT } from '../constants';
 
 const GoogleMap = (props) => {
 

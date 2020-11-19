@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import UserSignup from './UserSignup';
 import { Link } from 'react-router-dom';
+import UserSignup from './UserSignup';
 import UserLogin from './UserLogin';
 import UserLogout from './UserLogout';
 
