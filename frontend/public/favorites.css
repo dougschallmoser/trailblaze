@@ -1,0 +1,127 @@
+.favoritesList {
+  position: fixed;
+  width: 475px;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  top: 0;
+  margin-top: 70px;
+  padding-bottom: 20px;
+  overflow-y: scroll;
+  text-align: center;
+  background:#eafaf6;
+  box-shadow: 7px 0 8px -8px #333;
+}
+
+.favoritesList h2 {
+  width: 100%;
+  font-size: 32px;
+  font-weight: 500;
+  margin: 20px 0 20px 0;
+}
+
+.favorite-item {
+  background: white;
+  width: 425px;
+  height: 200px;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 16px;
+  padding: 10px 15px;
+  margin: 0 0 8px 10px;
+  box-shadow: 0.3px 0.3px 4px -1px #ccc, -0.3px -0.3px 4px -1px #ccc;
+}
+
+.favorite-item img {
+  object-fit: cover;
+  width: 100%;
+  height: 160px;
+  border-radius: 4px;
+}
+
+.favorite-item:hover {
+  background:#d7fdf4;
+}
+
+.favorite-item span {
+  font-size: 24px;
+}
+
+
+.favorites {
+  margin: 0 0 0 475px;
+  color: black;
+  overflow-y: scroll;
+  width: 650px;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  padding: 100px 25px 40px 25px;
+}
+
+.favorites h3 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+
+.favorites h4 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.favorites p {
+  font-size: 18px;
+}
+
+.favorite-trail-details {
+  margin-top: 25px;
+  font-size: 18px;
+}
+
+.favorites img {
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+.selected-fav {
+  background:#1DA590;
+}
+
+.selected-fav:hover {
+  background:#1DA590;
+}
+
+
+.selected-fav div {
+  color: white;
+}
+
+.three-dots-fav {
+  margin-top: -25px;
+  float: right;
+  font-size: 40px;
+  cursor: pointer;
+  color: white;
+}
+
+.three-dots-fav:hover {
+  color: #d4f0e8;
+}
+
+.no-photo {
+  font-size: 24px;
+}
+
+.dropdown-content-chat-fav {
+  top: -5px;
+  left: 0;
+  cursor: auto;
+  border-radius: 3px;
+  align-items: center;
+  position: absolute;
+  background-color: white;
+  min-width: 300px;
+  box-shadow: 0.1px 0.1px 6px 0px #ccc, -0.1px -0.1px 6px 0px #ccc;
+}
