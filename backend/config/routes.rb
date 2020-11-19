@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :users, only: [:create]
       resources :conversations, only: [:index, :create, :update, :destroy]
       resources :messages, only: [:create]
+      resources :favorites, only: [:create]
       post '/search', to: 'users#search'
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
