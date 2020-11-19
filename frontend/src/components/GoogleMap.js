@@ -37,20 +37,7 @@ const GoogleMap = (props) => {
         activeMarker: null
       })
     }
-  };
-
-  // t.string :name
-  // t.string :location
-  // t.string :length
-  // t.string :ascent
-  // t.integer :low
-  // t.integer :high
-  // t.string :url
-  // t.string :summary
-  // t.string :imgmed
-  // t.string :imgsmall
-  // t.float :latitude
-  // t.float :longitude
+  }
 
   const handleClickTrail = () => {
     const trailObj = {
@@ -81,6 +68,12 @@ const GoogleMap = (props) => {
         body: JSON.stringify({ favorite: trailObj })
       });
     }
+
+    setMarkerInfo(prev => {
+      return {
+        ...prev, showInfo: false
+      }
+    })
   }
 
   const onInfoWindowOpen = () => {
