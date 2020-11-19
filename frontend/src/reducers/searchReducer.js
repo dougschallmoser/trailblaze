@@ -1,8 +1,8 @@
 const initialState = {
   results: [],
   query: {
-    lat: 47.444,
-    lng: -122.176,
+    lat: '',
+    lng: '',
     radius: 10,
     agemin: '',
     agemax: '',
