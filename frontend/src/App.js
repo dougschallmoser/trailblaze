@@ -7,6 +7,7 @@ import Error from './components/Error';
 import SearchContainer from './containers/SearchContainer';
 import RootContainer from './containers/RootContainer';
 import ChatConversationsList from './components/ChatConversationsList';
+import Favorites from './components/Favorites';
 
 const App = () => {
 
@@ -24,11 +25,14 @@ const App = () => {
         <Route path="/" exact>
           <RootContainer />
         </Route>
+        <Route path="/search">
+          <SearchContainer />
+        </Route>
         <Route path="/messages" exact>
           <ChatConversationsList />
         </Route>
-        <Route path="/search">
-          <SearchContainer />
+        <Route path="/favorites" exact>
+          <Favorites />
         </Route>
       </div>
     </Router>
