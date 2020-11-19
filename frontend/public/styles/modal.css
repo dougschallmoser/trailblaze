@@ -114,6 +114,10 @@
   resize: none;
 }
 
+#char-remaining {
+  font-size: 12px;
+}
+
 .user-submit {
   margin-top: 10px;
   margin-right: 10px;
