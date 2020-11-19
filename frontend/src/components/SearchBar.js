@@ -26,9 +26,11 @@ const SearchBar = (props) => {
   }
 
   useEffect(() => {
-    dispatch(getUsers(queryData))
-    dispatch(getTrails(queryData))
-  }, [queryData, dispatch])
+    if (props.currentCity) {
+      dispatch(getUsers(queryData))
+      dispatch(getTrails(queryData))
+    }
+  }, [queryData, dispatch, props.currentCity])
   
   const handleSubmit = () => {
     dispatch(updateQuery({ ...latlng }))
