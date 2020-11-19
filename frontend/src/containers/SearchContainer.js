@@ -31,7 +31,9 @@ const SearchContainer = () => {
         </div>
         <div className="google-map">
           <GoogleMap />
-          <div className="trail-overlay">{trails.length} trails nearby</div>
+          <div className="trail-overlay">
+            {trails.length === 100 ? `${trails.length}+` : trails.length} trails nearby
+          </div>
         </div>
       </div>
     </>
