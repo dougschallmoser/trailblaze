@@ -3,7 +3,7 @@
 
 # Trailblaze
 
-Trailblaze your way to a new trail friend. This is a geosocial single page application built with React/Redux/Rails. Find new friends in your area, communicate, explore trails and go on outdoor adventures.
+Trailblaze your way to new outdoor friends. Trailblaze is a geosocial single page application built with React/Redux/Rails. Find new friends in your area, communicate, explore trails and go on outdoor adventures.
 
 
 ## Installation
@@ -18,11 +18,11 @@ To run this application in your local environment, please follow these steps:
 5. Run 'rails db:migrate'
 6. Run 'rails db:seed'
 7. Run 'rails s'
-8. Open up a new terminal tab.
+8. Open up a new terminal tab
 9. Change directory to backend
 10. Run 'npm start'
 ```
-To experience all features, please sign-up.
+To experience all features of the application, please sign-up for an account.
 
 ## Contributing
 
@@ -44,4 +44,4 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 ## Acknowledgments
 
-I would like to acknowledge The Hiking Project for providing great information via their API. And of course, Google.
+I would like to acknowledge The Hiking Project for providing great information via their API. And of course, all things Google.
