@@ -1,3 +1,5 @@
+import { API_ROOT } from '../constants';
+
 export const updateQuery = (query) => {
   return (dispatch) => {
     dispatch({ type: 'UPDATE_QUERY', payload: query })
@@ -6,7 +8,7 @@ export const updateQuery = (query) => {
 
 export const getUsers = queryData => {
   return async dispatch => {
-    const response = await fetch('http://localhost:3001/api/v1/search', {
+    const response = await fetch(`${API_ROOT}/search`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

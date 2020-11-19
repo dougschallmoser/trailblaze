@@ -1,6 +1,8 @@
+import { API_ROOT } from '../constants';
+
 export const loginUser = userData => {
   return async dispatch => {
-    const response = await fetch('http://localhost:3001/api/v1/login', {
+    const response = await fetch(`${API_ROOT}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +29,7 @@ export const logoutUser = () => {
 
 export const addUser = userData => {
   return async dispatch => {
-    const response = await fetch('http://localhost:3001/api/v1/users', {
+    const response = await fetch(`${API_ROOT}/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -49,7 +51,7 @@ export const getUserProfile = () => {
   return async dispatch => {
     const token = localStorage.token;
     if (token) {
-      const response = await fetch('http://localhost:3001/api/v1/profile', {
+      const response = await fetch(`${API_ROOT}/profile`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
