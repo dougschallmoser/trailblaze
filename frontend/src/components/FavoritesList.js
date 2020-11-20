@@ -60,7 +60,7 @@ const FavoritesList = () => {
   return (
     <>
       <div className="favoritesList">
-        <h2>Favorite Trails</h2>
+        <h2>FAVORITE TRAILS</h2>
         {favorites.length === 0 ? <div>No favorites.</div> : null}
         {favorites.map(favorite =>
           <Favorite

@@ -90,7 +90,7 @@ class ChatConversationsList extends React.Component {
               handleReceivedMessage={this.handleReceivedMessage}
             />
           ) : null}
-          <h2>Messages</h2>
+          <h2>MESSAGES</h2>
           {conversations.length === 0 ? <div>No messages.</div> : null}
           {mapConversations(conversations, this.handleClick, this.props.currentUser, this.handleAcceptConvo, this.handleRejectConvo, this.state.activeConversation)}
         </div>
