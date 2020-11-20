@@ -39,7 +39,7 @@ const Favorite = ({ favorite, setActive, activeFavorite, deleteFavorite }) => {
         <img src={favorite.imgsmall} alt={favorite.name} /> 
         : <div className="no-photo">No Photo Available</div>
       }
-      <div>{favorite.name}</div>
+      <div className="weight-500">{favorite.name}</div>
       {selected() ? 
         <div onClick={handleClick} className="three-dots-fav">&#8230;</div> 
         : null
