@@ -14,13 +14,14 @@ To run this application in your local environment, please follow these steps:
 1. Clone this repository
 2. Change directory to backend
 3. Run 'bundle install'
-4. Run 'rails db:create'
-5. Run 'rails db:migrate'
-6. Run 'rails db:seed'
-7. Run 'rails s'
-8. Open up a new terminal tab
-9. Change directory to backend
-10. Run 'npm start'
+4. If backend database does not exist:
+  -Run 'rails db:create'
+  -Run 'rails db:migrate'
+  -Run 'rails db:seed'
+5. Run 'rails s'
+6. Open a new terminal tab
+7. Change directory to frontend
+8. Run 'npm start'
 ```
 To experience all features of the application, please sign-up for an account.
 
