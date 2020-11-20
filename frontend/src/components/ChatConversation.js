@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Moment from 'react-moment';
-import faker from 'faker';
 import { API_ROOT } from '../constants';
 import ChatRenderDropdown from './ChatRenderDropdown';
 
@@ -14,6 +13,15 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
     }
     else if (currentUserId === conversation.receiver.id) {
       return conversation.author.name
+    }
+  }
+
+  const displayAvatar = () => {
+    if (currentUserId === conversation.author.id) {
+      return conversation.receiver.avatar
+    }
+    else if (currentUserId === conversation.receiver.id) {
+      return conversation.author.avatar
     }
   }
 
@@ -66,7 +74,7 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
       return (
         <>
           <div className="circular-portrait">
-            <img src={faker.image.avatar()} alt={displayOtherUserName()} />
+            <img src={displayAvatar()} alt={displayOtherUserName()} />
           </div>
           <span id="chat-time">
             <Moment format="h:mm a on MM/DD/YYYY">
@@ -91,7 +99,7 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
       return (
         <>
           <div className="circular-portrait">
-            <img src={faker.image.avatar()} alt={displayOtherUserName()} />
+            <img src={displayAvatar()} alt={displayOtherUserName()} />
           </div>
           <span id="chat-time">
             <Moment format="h:mm a on MM/DD/YYYY">
@@ -108,7 +116,7 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
       return (
         <>
           <div className="circular-portrait">
-            <img src={faker.image.avatar()} alt={displayOtherUserName()} />
+            <img src={displayAvatar()} alt={displayOtherUserName()} />
           </div>
           <span id="chat-time">
             <Moment format="h:mm a on MM/DD/YYYY">

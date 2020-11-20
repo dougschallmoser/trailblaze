@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ChatNewConversation from './ChatNewConversation';
-import faker from 'faker';
 
 const SearchResult = ({ user }) => {
 
@@ -22,7 +21,7 @@ const SearchResult = ({ user }) => {
     if (user.id !== currentUser.id) {
       return (
         <div className="item">
-          <img src={faker.image.avatar()} alt="avatar" />
+          <img src={user.avatar} alt="avatar" />
           <span id="username-display">{user.name},</span>
           <span id="age-display">{userAge()}</span>
           <span id="gender-display">{user.gender === "nondisclose" ? null : user.gender}</span>
