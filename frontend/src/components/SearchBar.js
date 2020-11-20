@@ -35,8 +35,7 @@ const SearchBar = (props) => {
   
   const handleSubmit = () => {
     history.push('/search')
-    dispatch(updateQuery({ ...latlng }))
-    dispatch(updateQuery({ city: address }))
+    dispatch(updateQuery({ ...latlng, city: address }))
   }
 
   const options = {
