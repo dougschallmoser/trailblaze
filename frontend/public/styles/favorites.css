@@ -54,7 +54,6 @@
   overflow-y: scroll;
   width: 650px;
   position: fixed;
-  bottom: 0;
   top: 0;
   padding: 100px 25px 40px 25px;
 }
@@ -112,6 +111,7 @@
 
 .no-photo {
   font-size: 24px;
+  padding-bottom: 135px;
 }
 
 .dropdown-content-chat-fav {
