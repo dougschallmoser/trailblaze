@@ -8,8 +8,8 @@ import ChatConversation from './ChatConversation';
 
 class ChatConversationsList extends React.Component {
   state = {
-    conversations: [],
     currentUserId: null,
+    conversations: [],
     activeConversation: null,
     clicked: false
   }
@@ -77,6 +77,7 @@ class ChatConversationsList extends React.Component {
 
   render = () => {
     const { conversations, activeConversation } = this.state;
+
     return (
       <>
         <div className="conversationsList">
@@ -92,7 +93,9 @@ class ChatConversationsList extends React.Component {
           ) : null}
           <h2>MESSAGES</h2>
           {conversations.length === 0 ? <div>No messages.</div> : null}
-          {mapConversations(conversations, this.handleClick, this.props.currentUser, this.handleAcceptConvo, this.handleRejectConvo, this.state.activeConversation)}
+          {showConversations(conversations, this.handleClick, this.props.currentUser,
+            this.handleAcceptConvo, this.handleRejectConvo, this.state.activeConversation)
+          }
         </div>
         <div className="messages">
           {activeConversation ? (
@@ -115,8 +118,9 @@ const findActiveConversation = (conversations, activeConversation) => {
   )
 }
 
-const mapConversations = (conversations, handleClick, currentUserId, handleAcceptConvo, handleRejectConvo, activeConversation) => {
+const showConversations = (conversations, handleClick, currentUserId, handleAcceptConvo, handleRejectConvo, activeConversation) => {
   return conversations.map(conversation => {
+
     const selected = () => {
       return activeConversation === conversation.id
     }
@@ -150,7 +154,7 @@ const mapConversations = (conversations, handleClick, currentUserId, handleAccep
         )
       }
     }
-    return renderConvo()
+    return renderConvo();
   })
 }
 
