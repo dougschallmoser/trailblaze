@@ -37,6 +37,7 @@ const SearchBar = (props) => {
     dispatch(updateQuery({ ...latlng, city: address }))
     if (window.location.pathname !== '/search') {
       history.push('/search')
+      /* `/search?lat=${queryData.lat}&lng=${queryData.lng}&radius=${queryData.radius}&agemin=${queryData.agemin}&agemax=${queryData.agemax}&gender=${queryData.gender}` */
     }
   }
 
@@ -63,7 +64,6 @@ const SearchBar = (props) => {
                 className: `location-search-input search-bar ${props.splash}`,
               })}
             />
-            {/* `/search?lat=${queryData.lat}&lng=${queryData.lng}&radius=${queryData.radius}&agemin=${queryData.agemin}&agemax=${queryData.agemax}&gender=${queryData.gender}` */}
               <img
                 onClick={handleSubmit}
                 alt="search icon"
