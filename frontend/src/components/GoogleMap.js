@@ -84,7 +84,7 @@ const GoogleMap = (props) => {
     })
   }
 
-  const onInfoWindowOpen = () => {
+  const renderButtonInfoWindow = () => {
     if (loggedIn()) {
       const div = (
         <button onClick={handleClickTrail} className="user-submit">
@@ -136,7 +136,7 @@ const GoogleMap = (props) => {
       <InfoWindow
         marker={markerInfo.activeMarker}
         visible={markerInfo.showInfo}
-        onOpen={e => {onInfoWindowOpen()}}
+        onOpen={e => {renderButtonInfoWindow()}}
       >
         <div className="trail-info">
           <img src={`${markerInfo.selected.image}`} alt="trail" /><br/>
