@@ -9,11 +9,12 @@ class Api::V1::UsersController < ApplicationController
     agemax = params[:query][:agemax]
     gender = params[:query][:gender]
     users = User.within(radius, :origin => [lat, long])
-    if gender == 'male'
+    case gender 
+    when 'male'
       users = users.where(gender: 'male')
-    elsif gender == 'female'
+    when 'female'
       users = users.where(gender: 'female')
-    elsif gender== 'nonbinary'
+    when 'nonbinary'
       users = users.where(gender: 'nonbinary')
     end
 
