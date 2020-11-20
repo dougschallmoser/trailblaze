@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { getUsers, getTrails, updateQuery } from '../actions';
 import { GoogleApiWrapper } from 'google-maps-react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
@@ -8,6 +8,7 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 const SearchBar = (props) => {
 
   const dispatch = useDispatch();
+  const history = useHistory();
   const queryData = useSelector(state => state.search.query);
   const [address, setAddress] = useState(props.currentCity || '')
   const [latlng, setLatlng] = useState({
@@ -33,6 +34,7 @@ const SearchBar = (props) => {
   }, [queryData, dispatch, props.currentCity])
   
   const handleSubmit = () => {
+    history.push('/search')
     dispatch(updateQuery({ ...latlng }))
     dispatch(updateQuery({ city: address }))
   }
@@ -45,6 +47,8 @@ const SearchBar = (props) => {
   return (
     <PlacesAutocomplete
       debounce={500}
+      highlightFirstSuggestion={true}
+      shouldFetchSuggestions={address.length > 1}
       value={address}
       onChange={handleChange}
       onSelect={handleSelect}
@@ -59,13 +63,12 @@ const SearchBar = (props) => {
               })}
             />
             {/* `/search?lat=${queryData.lat}&lng=${queryData.lng}&radius=${queryData.radius}&agemin=${queryData.agemin}&agemax=${queryData.agemax}&gender=${queryData.gender}` */}
-            <Link to="/search">
               <img
                 onClick={handleSubmit}
                 alt="search icon"
                 className={props.splashIcon || "search-icon"}
-                src="./search_icon.png" />
-            </Link>
+                src="./search_icon.png"
+              />
           <div className="autocomplete-dropdown-container">
             {loading && <div>Loading...</div>}
             {suggestions.map(suggestion => {

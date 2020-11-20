@@ -53,7 +53,7 @@ export const addUser = userData => {
     if (data.error) {
       Swal.fire({
         icon: 'error',
-        text: `${data.error.map(error => error)}`,
+        text: data.error.map(err => err),
         confirmButtonColor: '#1DA590',
         iconColor: '#B22222'
       })
