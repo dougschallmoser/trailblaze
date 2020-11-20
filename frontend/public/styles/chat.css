@@ -5,19 +5,22 @@
   right: 0;
   bottom: -10px;
   top: 0;
-  margin-top: 70px;
+  margin-top: 60px;
   padding-bottom: 20px;
   overflow-y: scroll;
   text-align: center;
-  background:#eafaf6;
+  background:#d7fdf4;
   box-shadow: 7px 0 8px -8px #333;
 }
 
 .conversationsList h2 {
   width: 100%;
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 500;
-  margin: 20px 0 20px 0;
+  background: #1DA590;
+  color: white;
+  padding: 15px 0;
+  margin: 20px 0;
 }
 
 .conversation-item {
@@ -37,7 +40,7 @@
 }
 
 .conversation-item:hover {
-  background:#d7fdf4;
+  background:#b3ebde;
 }
 
 .conversation-item span {
