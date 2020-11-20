@@ -8,7 +8,7 @@ User.create(
   password: "monkey",
   bio: Faker::Hipster.sentence(word_count: 15),
   gender: "male",
-  avatar: Faker::Avatar.image(size: "100x100"),
+  avatar: 'https://github.com/dougschallmoser.png',
   lat: 48.752230399999995,
   lng: -122.49006080000001,
   dob: "1987-10-14"
@@ -20,7 +20,7 @@ User.create(
   password: "monkey",
   bio: Faker::Hipster.sentence(word_count: 15),
   gender: "female",
-  avatar: Faker::Avatar.image(size: "100x100"),
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/amandabuzard/128.jpg',
   lat: 47.261058,
   lng: -122.167780,
   dob: "1985-12-04"
@@ -32,7 +32,7 @@ User.create(
   password: "monkey",
   bio: Faker::Hipster.sentence(word_count: 15),
   gender: "male",
-  avatar: Faker::Avatar.image(size: "100x100"),
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/fabbianz/128.jpg',
   lat: 47.261058,
   lng: -122.167780,
   dob: "1997-10-16"
@@ -40,72 +40,428 @@ User.create(
 
 # BELLINGHAM
 
-userss_list = []
-genders = ["male", "female", "nonbinary"]
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/mactopus/128.jpg',
+  lat: 48.769768,
+  lng: -122.485886,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
 
-10.times do
-  name = Faker::Name.first_name
-  email = Faker::Internet.email
-  password = Faker::Internet.password(min_length: 8)
-  bio = Faker::Hipster.sentence(word_count: 15)
-  gender = genders.sample
-  avatar = Faker::Avatar.image(size: "100x100")
-  dob = Faker::Date.birthday(min_age: 18, max_age: 65)
-  lat = 48.762696
-  lng = -122.436228
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/adrienths/128.jpg',
+  lat: 48.769768,
+  lng: -122.485886,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
 
-  userss_list << [name, email, password, bio, gender, avatar, lat, lng, dob]
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/benefritz/128.jpg',
+  lat: 48.769768,
+  lng: -122.485886,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
 
-end
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "nonbinary",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/raquelwilson/128.jpg',
+  lat: 48.769768,
+  lng: -122.485886,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
 
-userss_list.each do |name, email, password, bio, gender, avatar, lat, lng, dob|
-  User.create(name: name, email: email, password: password, bio: bio, gender: gender, avatar: avatar, lat: lat, lng: lng, dob: dob)
-end
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/panghal0/128.jpg',
+  lat: 48.769768,
+  lng: -122.485886,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/xtopherpaul/128.jpg',
+  lat: 48.769768,
+  lng: -122.485886,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/jimmuirhead/128.jpg',
+  lat: 48.769768,
+  lng: -122.485886,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/curiousonaut/128.jpg',
+  lat: 48.769768,
+  lng: -122.485886,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg',
+  lat: 48.769768,
+  lng: -122.485886,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/amywebbb/128.jpg',
+  lat: 48.769768,
+  lng: -122.485886,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/lepetitogre/128.jpg',
+  lat: 48.769768,
+  lng: -122.485886,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "nonbinary",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/stefvdham/128.jpg',
+  lat: 48.769768,
+  lng: -122.485886,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
 
 
 # SEATTLE
 
-user_list = []
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/longlivemyword/128.jpg',
+  lat: 47.6062095,
+  lng: -122.3320708,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
 
-10.times do
-  name = Faker::Name.first_name
-  email = Faker::Internet.email
-  password = Faker::Internet.password(min_length: 8)
-  bio = Faker::Hipster.sentence(word_count: 15)
-  gender = genders.sample
-  avatar = Faker::Avatar.image(size: "100x100")
-  dob = Faker::Date.birthday(min_age: 18, max_age: 65)
-  lat = 47.607957
-  lng = -122.322040
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/eitarafa/128.jpg',
+  lat: 47.6062095,
+  lng: -122.3320708,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
 
-  user_list << [name, email, password, bio, gender, avatar, lat, lng, dob]
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/findingjenny/128.jpg',
+  lat: 47.6062095,
+  lng: -122.3320708,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
 
-end
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/artem_kostenko/128.jpg',
+  lat: 47.6062095,
+  lng: -122.3320708,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
 
-user_list.each do |name, email, password, bio, gender, avatar, lat, lng, dob|
-  User.create(name: name, email: email, password: password, bio: bio, gender: gender, avatar: avatar, lat: lat, lng: lng, dob: dob)
-end
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/andyisonline/128.jpg',
+  lat: 47.6062095,
+  lng: -122.3320708,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/commadelimited/128.jpg',
+  lat: 47.6062095,
+  lng: -122.3320708,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/kkusaa/128.jpg',
+  lat: 47.6062095,
+  lng: -122.3320708,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/al_li/128.jpg',
+  lat: 47.6062095,
+  lng: -122.3320708,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/jehnglynn/128.jpg',
+  lat: 47.6062095,
+  lng: -122.3320708,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/ganserene/128.jpg',
+  lat: 47.6062095,
+  lng: -122.3320708,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "nonbinary",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/madcampos/128.jpg',
+  lat: 47.6062095,
+  lng: -122.3320708,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "nonbinary",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/garand/128.jpg',
+  lat: 47.6062095,
+  lng: -122.3320708,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
 
 
 # PORTLAND
 
-users_list = []
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/alagoon/128.jpg',
+  lat: 45.523064,
+  lng: -122.676483,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
 
-10.times do
-  name = Faker::Name.first_name
-  email = Faker::Internet.email
-  password = Faker::Internet.password(min_length: 8)
-  bio = Faker::Hipster.sentence(word_count: 15)
-  gender = genders.sample
-  avatar = Faker::Avatar.image(size: "100x100")
-  dob = Faker::Date.birthday(min_age: 18, max_age: 65)
-  lat = 45.460522
-  lng = -122.611955
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/mrjamesnoble/128.jpg',
+  lat: 45.523064,
+  lng: -122.676483,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
 
-  users_list << [name, email, password, bio, gender, avatar, lat, lng, dob]
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/divya/128.jpg',
+  lat: 45.523064,
+  lng: -122.676483,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
 
-end
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "nonbinary",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/wintopia/128.jpg',
+  lat: 45.523064,
+  lng: -122.676483,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
 
-users_list.each do |name, email, password, bio, gender, avatar, lat, lng, dob|
-  User.create(name: name, email: email, password: password, bio: bio, gender: gender, avatar: avatar, lat: lat, lng: lng, dob: dob)
-end
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/dicesales/128.jpg',
+  lat: 45.523064,
+  lng: -122.676483,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "male",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/motionthinks/128.jpg',
+  lat: 45.523064,
+  lng: -122.676483,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/madysondesigns/128.jpg',
+  lat: 45.523064,
+  lng: -122.676483,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/snowwrite/128.jpg',
+  lat: 45.523064,
+  lng: -122.676483,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/dutchnadia/128.jpg',
+  lat: 45.523064,
+  lng: -122.676483,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "female",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/sandywoodruff/128.jpg',
+  lat: 45.523064,
+  lng: -122.676483,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
+
+User.create(
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password(min_length: 8),
+  bio: Faker::Hipster.sentence(word_count: 15),
+  gender: "nonbinary",
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/craigrcoles/128.jpg',
+  lat: 45.523064,
+  lng: -122.676483,
+  dob: Faker::Date.birthday(min_age: 18, max_age: 65)
+)
