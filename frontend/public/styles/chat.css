@@ -9,7 +9,7 @@
   padding-bottom: 20px;
   overflow-y: scroll;
   text-align: center;
-  background:#f7fffd;
+  background:#fafffc;
   box-shadow: 7px 0 8px -8px #333;
 }
 
@@ -29,10 +29,10 @@
   height: 80px;
   align-items: center;
   cursor: pointer;
-  border-radius: 16px;
   padding: 10px 15px;
   margin: 0 0 8px 10px;
-  box-shadow: 0.3px 0.3px 4px -1px #ccc, -0.3px -0.3px 4px -1px #ccc;
+  border-bottom: 5px solid#2BB88B;
+  box-shadow: 0.3px 0.3px 3px -1px #ccc, -0.3px -0.3px 3px -1px #ccc;
 }
 
 .conversation-item img {
@@ -51,7 +51,7 @@
 }
 
 .selected-convo {
-  background:#1DA590;
+  background:#2BB88B;
 }
 
 .selected-convo #chat-time time,
@@ -61,6 +61,10 @@
 
 .selected-convo span {
   color: white;
+}
+
+.reach-out {
+  text-align: center;
 }
 
 #chat-preview {
@@ -110,7 +114,7 @@ ul li {
 
 .me {
   float: right;
-  background:#1DA590;
+  background:#2BB88B;
   color: #fff;
 }
 
@@ -208,7 +212,6 @@ ul li {
   font-weight: 500;
   margin-bottom: 25px;
 }
-
 
 .three-dots {
   margin-top: -15px;

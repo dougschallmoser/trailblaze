@@ -70,7 +70,7 @@ const GoogleMap = (props) => {
       })
       Swal.fire({
         icon: 'success',
-        text: 'Trail has been added to your Favorites',
+        text: `${markerInfo.selected.name} has been added to your Favorites`,
         confirmButtonColor: '#1DA590',
         iconColor: '#1DA590'
       })

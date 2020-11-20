@@ -61,75 +61,77 @@ const UserSignup = () => {
         closeTimeoutMS={0}
       >
         <div className="modal-container">
-          <button className="close-button-user" onClick={toggleModal}>x</button><br/>
-          <div className="get-started">GET STARTED</div>
-          <form onSubmit={handleSubmit}>
-            <UserInputField
-              label="First Name:"
-              type="text"
-              name="name"
-              value={userData.name}
-              onChange={handleChange}
-            />
-
-            <UserInputField
-              label="Email:"
-              type="text"
-              name="email"
-              value={userData.email}
-              onChange={handleChange}
-            />
-
-            <UserInputField
-              label="Password:"
-              type="password"
-              name="password"
-              value={userData.password}
-              onChange={handleChange}
-            />
-
-            <UserInputField
-              label="Birthdate:"
-              type="date"
-              name="dob"
-              value={userData.dob}
-              onChange={handleChange}
-            />
-
-            <div className="signup-input">
-              <label>Gender:</label>
-              <select value={userData.gender} onChange={handleChange} name="gender">
-                <option value='1' disabled>Select</option>
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-                <option value="nonbinary">Non-binary</option>
-                <option value="nondisclose">Prefer not to say</option>
-              </select>
-            </div>
-
-            <div className="signup-input">
-              <label>Bio:</label>
-              <textarea 
-                name='bio'
-                value={userData.bio}
+          <div className="user-form-div">
+            <button className="close-button-user" onClick={toggleModal}>x</button><br/>
+            <div className="get-started">GET STARTED</div>
+            <form onSubmit={handleSubmit}>
+              <UserInputField
+                label="First Name:"
+                type="text"
+                name="name"
+                value={userData.name}
                 onChange={handleChange}
-                maxLength={150}
               />
-              <div id="char-remaining">
-                {150 - userData.bio.length} characters remaining
+
+              <UserInputField
+                label="Email:"
+                type="text"
+                name="email"
+                value={userData.email}
+                onChange={handleChange}
+              />
+
+              <UserInputField
+                label="Password:"
+                type="password"
+                name="password"
+                value={userData.password}
+                onChange={handleChange}
+              />
+
+              <UserInputField
+                label="Birthdate:"
+                type="date"
+                name="dob"
+                value={userData.dob}
+                onChange={handleChange}
+              />
+
+              <div className="signup-input">
+                <label>Gender:</label>
+                <select value={userData.gender} onChange={handleChange} name="gender">
+                  <option value='1' disabled>Select</option>
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                  <option value="nonbinary">Non-binary</option>
+                  <option value="nondisclose">Prefer not to say</option>
+                </select>
               </div>
-            </div>
 
-            <UserInputField
-              label="Avatar:"
-              type="text"
-              name="avatar"
-              value={userData.avatar}
-              onChange={handleChange}
-            />
+              <div className="signup-input">
+                <label>Bio:</label>
+                <textarea 
+                  name='bio'
+                  value={userData.bio}
+                  onChange={handleChange}
+                  maxLength={150}
+                />
+                <div id="char-remaining">
+                  {150 - userData.bio.length} characters remaining
+                </div>
+              </div>
 
-            <UserSubmitButton />
-          </form>
+              <UserInputField
+                label="Avatar:"
+                type="text"
+                name="avatar"
+                value={userData.avatar}
+                onChange={handleChange}
+              />
+
+              <UserSubmitButton />
+            </form>
+          </div>
         </div>
       </Modal>
     </>

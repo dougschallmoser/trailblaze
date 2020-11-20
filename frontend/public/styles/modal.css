@@ -18,7 +18,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .user-modal-overlay-error {
@@ -44,7 +44,7 @@
   font-size: 26px;
   font-weight: 500;
   display: block;
-  margin-top: 40px;
+  margin-top: 30px;
   text-align: center;
   padding-bottom: 40px;
 }
@@ -60,11 +60,14 @@
 
 .modal-container {
   position: relative;
-  align-items: center;
+}
+
+.user-form-div {
+  margin-left: 25px;
 }
 
 .signup-input {
-  padding: 0 10px 14px 30px;
+  padding: 0 10px 14px 10px;
 }
 
 .signup-input label {
@@ -72,6 +75,8 @@
   font-size: 14px;
   font-weight: 500;
 }
+
+.signup-input input[type="text"],
 
 .signup-input input[type="text"],
 .signup-input input[type="date"],
@@ -122,8 +127,7 @@
 }
 
 .user-submit {
-  margin-top: 10px;
-  margin-right: 10px;
+  margin: 10px 10px 5px 0;
   font-size: 20px;
   cursor: pointer;
   padding: 9px 15px;

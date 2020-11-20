@@ -46,30 +46,32 @@ const UserSignup = () => {
         closeTimeoutMS={0}
       >
         <div className="modal-container">
-          <button
-            className="close-button-user"
-            onClick={toggleModal}
-          >
-            x
-          </button><br/>
-          <div className="get-started">WELCOME BACK!</div>
-          <form onSubmit={handleSubmit}>
-            <UserInputField
-              label="Email:"
-              type="text"
-              name="email"
-              value={loginData.email}
-              onChange={handleChange}
-            />
-            <UserInputField
-              label="Password:"
-              type="password"
-              name="password"
-              value={loginData.password}
-              onChange={handleChange}
-            />            
-            <UserSubmitButton />
-          </form>
+          <div className="user-form-div">
+            <button
+              className="close-button-user"
+              onClick={toggleModal}
+            >
+              x
+            </button><br/>
+            <div className="get-started">WELCOME BACK!</div>
+            <form onSubmit={handleSubmit}>
+              <UserInputField
+                label="Email:"
+                type="text"
+                name="email"
+                value={loginData.email}
+                onChange={handleChange}
+              />
+              <UserInputField
+                label="Password:"
+                type="password"
+                name="password"
+                value={loginData.password}
+                onChange={handleChange}
+              />            
+              <UserSubmitButton />
+            </form>
+          </div>
         </div>
       </Modal>
     </>

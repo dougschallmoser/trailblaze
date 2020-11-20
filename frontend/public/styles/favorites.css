@@ -9,7 +9,7 @@
   padding-bottom: 20px;
   overflow-y: scroll;
   text-align: center;
-  background:#f7fffd;
+  background:#fafffc;
   box-shadow: 7px 0 8px -8px #333;
 }
 
@@ -29,18 +29,16 @@
   height: 215px;
   align-items: center;
   cursor: pointer;
-  border-radius: 8px;
   margin: 0 0 10px 14px;
-  box-shadow: 0.3px 0.3px 4px -1px #ccc, -0.3px -0.3px 4px -1px #ccc;
+  border-bottom: 5px solid#2BB88B;
+  box-shadow: 0.3px 0.3px 2px -1px #ccc, -0.3px -0.3px 2px -1px #ccc;
 }
 
 .favorite-item img {
-  /* padding-top: 5px; */
   padding-bottom: 5px;
   object-fit: cover;
   width: 100%;
   height: 160px;
-  border-radius: 8px;
 }
 
 .favorite-item span {
@@ -86,11 +84,15 @@
   margin-top: 20px;
   border-radius: 4px;
   width: 500px;
-  box-shadow: 0.3px 0.3px 4px 0px #ccc, -0.3px -0.3px 4px 0px #ccc;
+  box-shadow: 0.3px 0.3px 3px 0px #ccc, -0.3px -0.3px 3px 0px #ccc;
 }
 
 .selected-fav {
-  background:#1DA590;
+  background:#2BB88B;
+}
+
+.selected-fav img {
+  opacity: 0.5;
 }
 
 .selected-fav div {
