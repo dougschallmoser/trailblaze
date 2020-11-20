@@ -144,7 +144,7 @@ a.nav-logo span {
 
 .autocomplete-dropdown-container {
   position: absolute;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-top: none;
   border-bottom: none;
   z-index: 6;
@@ -404,7 +404,7 @@ select:focus {
 }
 
 .items-container {
-  background:#eafaf6;
+  background:#f7fffd;
   min-height: 100vh;
   padding-bottom: 15px;
   width: 45%;

@@ -9,13 +9,13 @@
   padding-bottom: 20px;
   overflow-y: scroll;
   text-align: center;
-  background:#d7fdf4;
+  background:#f7fffd;
   box-shadow: 7px 0 8px -8px #333;
 }
 
 .conversationsList h2 {
   width: 100%;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 500;
   background: #1DA590;
   color: white;
@@ -39,10 +39,6 @@
   float: left;
 }
 
-.conversation-item:hover {
-  background:#b3ebde;
-}
-
 .conversation-item span {
   font-size: 24px;
 }
@@ -55,10 +51,6 @@
 }
 
 .selected-convo {
-  background:#1DA590;
-}
-
-.selected-convo:hover {
   background:#1DA590;
 }
 

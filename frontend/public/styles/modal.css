@@ -43,14 +43,17 @@
 .get-started {
   font-size: 26px;
   font-weight: 500;
+  display: block;
+  margin-top: 40px;
   text-align: center;
   padding-bottom: 40px;
-  padding-left: 55px;
 }
 
 .logout-confirmation {
-  font-size: 26px;
-  font-weight: 500;
+  font-size: 22px;
+  display: block;
+  margin-top: 50px;
+  font-weight: 400;
   text-align: center;
   padding-bottom: 40px;
 }
@@ -123,24 +126,22 @@
   margin-right: 10px;
   font-size: 20px;
   cursor: pointer;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
+  padding: 9px 15px;
+  border: none;
   border-radius: 5px;
-  background: white;
-  color:#1DA590;
+  background: #1DA590;
+  color:white;
   transition: background 0.2s, border 0.2s, color 0.2s;
 }
 
 .user-submit:hover {
-  background: #d4f0e8;
-  border: 1px solid#1DA590;
-  color: #24745a;
+  background: #207a5e;
 }
 
 .user-submit:focus {
   outline-style: solid;
-  outline-width: 2px;
-  outline-color:#1DA590;
+  outline-width: 3px;
+  outline-color:#ccc;
 }
 
 .submit-container {
