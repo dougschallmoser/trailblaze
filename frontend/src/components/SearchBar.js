@@ -34,8 +34,10 @@ const SearchBar = (props) => {
   }, [queryData, dispatch, props.currentCity])
   
   const handleSubmit = () => {
-    history.push('/search')
     dispatch(updateQuery({ ...latlng, city: address }))
+    if (window.location.pathname !== '/search') {
+      history.push('/search')
+    }
   }
 
   const options = {
