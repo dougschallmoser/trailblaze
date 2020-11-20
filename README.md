@@ -47,4 +47,6 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 I would like to acknowledge The Hiking Project for providing great information via their API. And of course, all things Google including their wonderful APIs.
 
-Thank you to [Jack Howa](https://github.com/JackHowa/react-actioncable-provider) for implementing React 17 support for react-actioncable-provider.
+Special thanks to [Jack Howa](https://github.com/JackHowa/react-actioncable-provider) for implementing React 17 support for react-actioncable-provider.
+
+Special thanks to [Dakota Lillie](https://github.com/dakotalillie) for his great Medium article "Using Action Cable With React".
