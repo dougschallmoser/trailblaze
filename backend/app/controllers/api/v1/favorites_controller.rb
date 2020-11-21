@@ -12,6 +12,8 @@ class Api::V1::FavoritesController < ApplicationController
     favorite = Favorite.new(favorite_params)
     if favorite.save
       render json: favorite
+    else 
+      render json: { error: favorite.errors.full_messages }
     end
   end
 
