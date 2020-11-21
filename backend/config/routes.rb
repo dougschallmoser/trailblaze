@@ -7,9 +7,9 @@ Rails.application.routes.draw do
       mount ActionCable.server => '/cable'
       resources :users, only: [:create] do 
         resources :conversations, shallow: true
+        resources :favorites, shallow: true
       end
       resources :messages, only: [:create]
-      resources :favorites, only: [:index, :create, :destroy]
     end
   end
 end
