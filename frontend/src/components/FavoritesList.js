@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import Swal from 'sweetalert2'
+import RenderModal from './RenderModal';
 import { API_ROOT } from '../constants';
 import FavoriteDisplay from './FavoriteDisplay';
 import Favorite from './Favorite';
@@ -27,22 +27,12 @@ const FavoritesList = (props) => {
         const userFavorites = await response.json();
         if (userFavorites.error) {
           props.history.push('/')
-          Swal.fire({
-            icon: 'error',
-            text: userFavorites.error,
-            confirmButtonColor: '#1DA590',
-            iconColor: '#B22222'
-          })
+          RenderModal('error', userFavorites.error)
         } else {
           setFavorites(userFavorites)
         }
       } else {
-        Swal.fire({
-          icon: 'error',
-          text: `You must be logged in to view that content`,
-          confirmButtonColor: '#1DA590',
-          iconColor: '#B22222'
-        })
+        RenderModal('error', 'You must be logged in to view that content')
       }
     }
 

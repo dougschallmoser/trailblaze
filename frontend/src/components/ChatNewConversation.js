@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from "react-modal";
-import Swal from 'sweetalert2'
+import RenderModal from './RenderModal';
 import UserSubmitButton from './UserSubmitButton';
 import UserInputField from './UserInputField';
 import { API_ROOT } from '../constants';
@@ -39,12 +39,7 @@ const ChatNewConversation = ({ user, currentUser }) => {
       });
       setConvoData({ ...convoData, title: '' })
       toggleModal();
-      Swal.fire({
-        icon: 'success',
-        text: 'Message sent!',
-        confirmButtonColor: '#1DA590',
-        iconColor: '#1DA590'
-      })
+      RenderModal('success', 'Message sent!')
     }
   }
 

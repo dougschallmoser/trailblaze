@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from "react-dom";
 import { useSelector } from 'react-redux';
-import Swal from 'sweetalert2'
+import RenderModal from './RenderModal';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import { API_ROOT } from '../constants';
 
@@ -40,7 +40,7 @@ const GoogleMap = (props) => {
     }
   }
 
-  const handleClickTrail = () => {
+  const handleClickTrail = async () => {
     const trailObj = {
       user_id: currentUser.id,
       name: markerInfo.selected.name,
@@ -59,7 +59,7 @@ const GoogleMap = (props) => {
 
     const token = localStorage.token
     if (token) {
-      fetch(`${API_ROOT}/users/${currentUser.id}/favorites`, {
+      const response = await fetch(`${API_ROOT}/users/${currentUser.id}/favorites`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,20 +68,18 @@ const GoogleMap = (props) => {
         },
         body: JSON.stringify({ favorite: trailObj })
       })
-      Swal.fire({
-        icon: 'success',
-        text: `${markerInfo.selected.name} has been added to your Favorites`,
-        confirmButtonColor: '#1DA590',
-        iconColor: '#1DA590'
-      })
-      
-    }
-
-    setMarkerInfo(prev => {
-      return {
-        ...prev, showInfo: false
+      const newFav = await response.json();
+      if (newFav.error) {
+        RenderModal('error', newFav.error)
+      } else {
+        RenderModal('success', `${markerInfo.selected.name} has been added to your Favorites`)
+        setMarkerInfo(prev => {
+          return {
+            ...prev, showInfo: false
+          }
+        })
       }
-    })
+    }
   }
 
   const renderButtonInfoWindow = () => {
