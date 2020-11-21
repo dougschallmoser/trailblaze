@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Swal from 'sweetalert2'
 import { ActionCableConsumer } from '@thrash-industries/react-actioncable-provider';
 import { API_ROOT } from '../constants';
 import ChatCable from './ChatCable';
@@ -25,10 +26,27 @@ class ChatConversationsList extends React.Component {
         }
       })
       const userConvos = await response.json();
-      this.setState({ ...this.state, conversations: userConvos })
+      if (userConvos.error) {
+        this.props.history.push('/')
+        Swal.fire({
+          icon: 'error',
+          text: userConvos.error,
+          confirmButtonColor: '#1DA590',
+          iconColor: '#B22222'
+        })
+      } else {
+        this.setState({ ...this.state, conversations: userConvos })
+      }
+    } else {
+      Swal.fire({
+        icon: 'error',
+        text: `You must be logged in to view that content`,
+        confirmButtonColor: '#1DA590',
+        iconColor: '#B22222'
+      })
     }
   }
-
+  
   handleClick = (id) => {
     if (!this.state.clicked) {
       this.setState({ activeConversation: id, clicked: true })

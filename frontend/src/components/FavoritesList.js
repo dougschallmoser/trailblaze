@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import Swal from 'sweetalert2'
 import { API_ROOT } from '../constants';
 import FavoriteDisplay from './FavoriteDisplay';
 import Favorite from './Favorite';
@@ -26,6 +27,13 @@ const FavoritesList = () => {
         const favorites = await response.json();
         const userFavs = favorites.filter(fav => fav.user_id === currentUser.id)
         setFavorites(userFavs)
+      } else {
+        Swal.fire({
+          icon: 'error',
+          text: `You must be logged in to view that content`,
+          confirmButtonColor: '#1DA590',
+          iconColor: '#B22222'
+        })
       }
     }
 
