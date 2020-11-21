@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../actions';
 import UserInputField from './UserInputField';
@@ -16,19 +16,6 @@ const UserSignup = () => {
     bio: '', gender: 1, avatar: '', lat: null, lng: null
   })
 
-  useEffect(() => {
-    if (isOpen) {
-      window.navigator.geolocation.getCurrentPosition(
-        position => setUserData(prevUserData => {
-          return {
-            ...prevUserData, lat: position.coords.latitude, lng: position.coords.longitude
-          }
-        })
-      )
-    }
-
-  }, [isOpen])
-
   const handleChange = (event) => {
     setUserData(prevUserData => {
       return {
@@ -43,6 +30,16 @@ const UserSignup = () => {
     setUserData({
       email: '', name: '', password: '', dob: '', bio: '', gender: 1, avatar: '', lat: null, lng: null
     })
+  }
+
+  const getLocation = () => {
+    window.navigator.geolocation.getCurrentPosition(
+      position => setUserData(prevUserData => {
+        return {
+          ...prevUserData, lat: position.coords.latitude, lng: position.coords.longitude
+        }
+      })
+    )
   }
 
   const toggleModal = () => {
@@ -63,7 +60,16 @@ const UserSignup = () => {
         <div className="modal-container">
           <div className="user-form-div">
             <button className="close-button-user" onClick={toggleModal}>x</button><br/>
-            <div className="get-started">GET STARTED</div>
+            <div className="get-started">
+              {userData.lat ? <div className="main-color">Location received</div> 
+                : "Your location is required to signup"
+              }
+              <div className="submit-container">
+                {!userData.lat && 
+                  <button onClick={getLocation} className="user-submit">GET MY LOCATION</button>
+                }
+              </div>
+            </div>
             <form onSubmit={handleSubmit}>
               <UserInputField
                 label="First Name:"
