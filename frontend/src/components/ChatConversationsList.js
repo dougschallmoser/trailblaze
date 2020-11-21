@@ -8,7 +8,6 @@ import ChatConversation from './ChatConversation';
 
 class ChatConversationsList extends React.Component {
   state = {
-    currentUserId: null,
     conversations: [],
     activeConversation: null,
     clicked: false
@@ -17,7 +16,7 @@ class ChatConversationsList extends React.Component {
   componentDidMount = async () => {
     const token = localStorage.token
     if (token) {
-      const response = await fetch(`${API_ROOT}/conversations`, {
+      const response = await fetch(`${API_ROOT}/users/${this.props.match.params.id}/conversations`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -25,10 +24,7 @@ class ChatConversationsList extends React.Component {
           'Authorization': `Bearer ${token}`
         }
       })
-      const conversations = await response.json();
-      const userConvos = conversations.filter(convo => 
-        convo.author.id === this.props.currentUser || 
-        convo.receiver.id === this.props.currentUser)
+      const userConvos = await response.json();
       this.setState({ ...this.state, conversations: userConvos })
     }
   }
