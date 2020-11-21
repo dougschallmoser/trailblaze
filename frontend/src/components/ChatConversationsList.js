@@ -168,4 +168,10 @@ const mapStateToProps = state => {
   }
 }
 
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     addUser: data => dispatch(addUser(data))
+//   }
+// }
+
 export default connect(mapStateToProps)(ChatConversationsList);

@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { BrowserRouter as Switch, Route, Redirect } from 'react-router-dom';
 import { getUserProfile } from './actions'
 import NavBar from './components/NavBar';
-import Error from './components/Error';
 import SearchContainer from './containers/SearchContainer';
 import RootContainer from './containers/RootContainer';
 import ChatConversationsList from './components/ChatConversationsList';
@@ -19,7 +18,6 @@ const App = () => {
 
   return (
     <Switch>
-      <Error />
       <NavBar />
       <div className="main-container">
         <Route exact path="/">

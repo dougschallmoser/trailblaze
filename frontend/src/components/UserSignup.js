@@ -10,6 +10,7 @@ Modal.setAppElement("#root");
 const UserSignup = () => {
   
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false)
   const [isOpen, setIsOpen] = useState(false);
   const [userData, setUserData] = useState({
     email: '', name: '', password: '', dob: '',
@@ -27,12 +28,10 @@ const UserSignup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(addUser(userData))
-    setUserData({
-      email: '', name: '', password: '', dob: '', bio: '', gender: 1, avatar: '', lat: null, lng: null
-    })
   }
 
   const getLocation = () => {
+    setLoading(true)
     window.navigator.geolocation.getCurrentPosition(
       position => setUserData(prevUserData => {
         return {
@@ -44,6 +43,21 @@ const UserSignup = () => {
 
   const toggleModal = () => {
     setIsOpen(!isOpen)
+  }
+
+  const spinner = 
+    <div className="spinner">
+      <div className="double-bounce1 black"></div>
+      <div className="double-bounce2 black"></div>
+    </div>
+
+  const renderLocationButton = () => {
+    return (
+      loading ? spinner : 
+      <button onClick={getLocation} className="user-submit">
+        GET MY LOCATION
+      </button>
+    )
   }
 
   return (
@@ -65,9 +79,7 @@ const UserSignup = () => {
                 : "Your location is required to create an account"
               }
               <div className="submit-container">
-                {!userData.lat && 
-                  <button onClick={getLocation} className="user-submit">GET MY LOCATION</button>
-                }
+                {!userData.lat && renderLocationButton()}
               </div>
             </div>
             <form onSubmit={handleSubmit}>
@@ -143,12 +155,5 @@ const UserSignup = () => {
     </>
   )
 }
-
-// Alternative to useDispatch hook:
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     addUser: data => dispatch(addUser(data))
-//   }
-// }
 
 export default UserSignup;

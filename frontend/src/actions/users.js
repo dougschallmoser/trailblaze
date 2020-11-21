@@ -64,7 +64,7 @@ export const getUserProfile = () => {
       })
       const data = await response.json();
       if (data.message) {
-        dispatch({ type: 'ADD_ERROR', payload: data.message })
+        RenderModal('error', data.message)
         localStorage.removeItem("token")
       } else {
         dispatch({ type: 'LOGIN_USER', payload: data.user })

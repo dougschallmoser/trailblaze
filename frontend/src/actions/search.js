@@ -1,4 +1,5 @@
 import { API_ROOT } from '../constants';
+import RenderModal from '../components/RenderModal';
 
 export const updateQuery = (query) => {
   return (dispatch) => {
@@ -18,7 +19,7 @@ export const getUsers = queryData => {
     });
     const data = await response.json();
     if (data.error) {
-      dispatch({ type: 'ADD_ERROR', payload: data.error })
+      RenderModal('error', data.error)
     } else {
       dispatch({ type: 'SEARCH_RESULTS', payload: data })
     }
@@ -31,7 +32,7 @@ export const getTrails = queryData => {
     // const response = await fetch(`https://www.doesntwork.com`)
     const data = await response.json();
     if (data.error) {
-      dispatch({ type: 'ADD_ERROR', payload: data.error })
+      RenderModal('error', data.error)
     } else {
       dispatch({ type: 'GET_TRAILS', payload: data.trails })
     }
