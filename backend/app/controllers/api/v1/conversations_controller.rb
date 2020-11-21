@@ -1,7 +1,7 @@
 class Api::V1::ConversationsController < ApplicationController
 
   def index
-    conversations = Conversation.all
+    conversations = Conversation.by_user(params[:user_id])
     render json: conversations
   end
 
