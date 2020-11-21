@@ -29,9 +29,7 @@ const App = () => {
           <SearchContainer />
         </Route>
         <Route exact path="/users/:id/messages" render={(props) => <ChatConversationsList {...props} />} />
-        <Route exact path="/favorites">
-          <FavoritesList />
-        </Route>
+        <Route exact path="/users/:id/favorites" render={(props) => <FavoritesList {...props} />} />
         <Route render={() => <Redirect to="/" />} />
       </div>
     </Switch>

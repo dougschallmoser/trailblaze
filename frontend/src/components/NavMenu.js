@@ -27,7 +27,7 @@ const NavMenu = () => {
         {!loggedIn() && <UserSignup />}
         {!loggedIn() && <UserLogin />}
         {loggedIn() && <Link to={`/users/${currentUser.id}/messages`}><div>MESSAGES</div></Link>}
-        {loggedIn() && <Link to="/favorites"><div>FAVORITES</div></Link>}
+        {loggedIn() && <Link to={`/users/${currentUser.id}/favorites`}><div>FAVORITES</div></Link>}
         {loggedIn() && <UserLogout />}
       </div>
     </div>
