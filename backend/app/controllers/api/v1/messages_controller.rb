@@ -1,4 +1,5 @@
 class Api::V1::MessagesController < ApplicationController
+  before_action :require_login
 
   def create
     message = Message.new(message_params)

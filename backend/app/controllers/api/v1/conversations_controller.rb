@@ -1,4 +1,7 @@
 class Api::V1::ConversationsController < ApplicationController
+  before_action :require_login
+  before_action :set_user, only: [:index]
+  before_action :authorize, only: [:index]
 
   def index
     conversations = Conversation.by_user(params[:user_id])
@@ -33,6 +36,10 @@ class Api::V1::ConversationsController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = User.find_by(id: params[:user_id])
+  end
 
   def conversation_params
     params.require(:conversation).permit(:title, :author_id, :receiver_id, :accepted)

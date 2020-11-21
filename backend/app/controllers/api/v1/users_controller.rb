@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :require_login, only: [:create, :search]
+  before_action :require_login, except: [:create, :search]
 
   def search
     lat = params[:query][:lat]

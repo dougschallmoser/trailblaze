@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::API
-  before_action :require_login
 
   def encode_token(payload)
     JWT.encode(payload, 'trailblaze_app')
@@ -32,6 +31,10 @@ class ApplicationController < ActionController::API
   end
 
   def require_login
-    render json: { message: 'Log in to continue' }, status: :unauthorized unless logged_in?
+    render json: { error: 'Log in to continue' }, status: :unauthorized unless logged_in?
+  end
+
+  def authorize
+    render json: { error: 'You are not authorized to view that page' } unless @user == current_user
   end
 end
