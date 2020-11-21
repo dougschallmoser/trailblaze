@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Switch, Route, Redirect } from 'react-router-dom';
 import { getUserProfile } from './actions'
 import NavBar from './components/NavBar';
 import Error from './components/Error';
@@ -18,24 +18,23 @@ const App = () => {
   })
 
   return (
-    <Router>
+    <Switch>
       <Error />
       <NavBar />
       <div className="main-container">
-        <Route path="/" exact>
+        <Route exact path="/">
           <RootContainer />
         </Route>
-        <Route path="/search">
+        <Route exact path="/search">
           <SearchContainer />
         </Route>
-        <Route path="/messages" exact>
-          <ChatConversationsList />
-        </Route>
-        <Route path="/favorites" exact>
+        <Route exact path="/users/:id/messages" render={(props) => <ChatConversationsList {...props} />} />
+        <Route exact path="/favorites">
           <FavoritesList />
         </Route>
+        <Route render={() => <Redirect to="/" />} />
       </div>
-    </Router>
+    </Switch>
   )
 }
 
