@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from "react-modal";
+import Swal from 'sweetalert2'
 import UserSubmitButton from './UserSubmitButton';
 import UserInputField from './UserInputField';
 import { API_ROOT } from '../constants';
@@ -9,7 +10,6 @@ Modal.setAppElement("#root");
 const ChatNewConversation = ({ user, currentUser }) => {
   
   const [isOpen, setIsOpen] = useState(false);
-  const [sent, setSent] = useState(false)
   const [convoData, setConvoData] = useState({
     title: '',
     author_id: currentUser.id,
@@ -28,7 +28,7 @@ const ChatNewConversation = ({ user, currentUser }) => {
     event.preventDefault();
     const token = localStorage.token
     if (token) {
-      fetch(`${API_ROOT}/conversations`, {
+      fetch(`${API_ROOT}/users/${currentUser.id}/conversations`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,7 +38,13 @@ const ChatNewConversation = ({ user, currentUser }) => {
         body: JSON.stringify({ conversation: convoData })
       });
       setConvoData({ ...convoData, title: '' })
-      setSent(true)
+      toggleModal();
+      Swal.fire({
+        icon: 'success',
+        text: 'Message sent!',
+        confirmButtonColor: '#1DA590',
+        iconColor: '#1DA590'
+      })
     }
   }
 
@@ -47,28 +53,22 @@ const ChatNewConversation = ({ user, currentUser }) => {
   }
 
   const renderContent = () => {
-    if (sent) {
-      return (
-        <div className="message-sent">Message Sent!</div>
-      )
-    } else {
-      return (
-        <>
-          <div className="get-started">
-            Reach out to <span className="main-color">{user.name}</span> ...
-          </div>
-          <form onSubmit={handleSubmit}>
-            <UserInputField
-              type="text"
-              name="title"
-              value={convoData.title}
-              onChange={handleChange}
-            />  
-            <UserSubmitButton />
-          </form>
-        </>
-      )
-    }
+    return (
+      <>
+        <div className="get-started">
+          Reach out to <span className="main-color">{user.name}</span> ...
+        </div>
+        <form onSubmit={handleSubmit}>
+          <UserInputField
+            type="text"
+            name="title"
+            value={convoData.title}
+            onChange={handleChange}
+          />  
+          <UserSubmitButton />
+        </form>
+      </>
+    )
   }
 
   return (
