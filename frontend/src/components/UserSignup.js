@@ -62,7 +62,7 @@ const UserSignup = () => {
             <button className="close-button-user" onClick={toggleModal}>x</button><br/>
             <div className="get-started">
               {userData.lat ? <div className="main-color">Location received</div> 
-                : "Your location is required to signup"
+                : "Your location is required to create an account"
               }
               <div className="submit-container">
                 {!userData.lat && 
