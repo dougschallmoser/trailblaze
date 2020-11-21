@@ -5,7 +5,7 @@ import { API_ROOT } from '../constants';
 import FavoriteDisplay from './FavoriteDisplay';
 import Favorite from './Favorite';
 
-const FavoritesList = () => {
+const FavoritesList = (props) => {
 
   const currentUser = useSelector(state => state.currentUser);
   const [favorites, setFavorites] = useState([])
@@ -16,7 +16,7 @@ const FavoritesList = () => {
     const getFavorites = async () => {
       const token = localStorage.token
       if (token) {
-        const response = await fetch(`${API_ROOT}/favorites`, {
+        const response = await fetch(`${API_ROOT}/users/${props.match.params.id}/favorites`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -24,9 +24,18 @@ const FavoritesList = () => {
             'Authorization': `Bearer ${token}`
           }
         })
-        const favorites = await response.json();
-        const userFavs = favorites.filter(fav => fav.user_id === currentUser.id)
-        setFavorites(userFavs)
+        const userFavorites = await response.json();
+        if (userFavorites.error) {
+          props.history.push('/')
+          Swal.fire({
+            icon: 'error',
+            text: userFavorites.error,
+            confirmButtonColor: '#1DA590',
+            iconColor: '#B22222'
+          })
+        } else {
+          setFavorites(userFavorites)
+        }
       } else {
         Swal.fire({
           icon: 'error',
@@ -39,7 +48,7 @@ const FavoritesList = () => {
 
     getFavorites();
 
-  }, [currentUser.id])
+  }, [currentUser.id, props.match.params.id, props.history])
   
   const handleClick = (id) => {
     if (!clicked) {

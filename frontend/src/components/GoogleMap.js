@@ -59,7 +59,7 @@ const GoogleMap = (props) => {
 
     const token = localStorage.token
     if (token) {
-      fetch(`${API_ROOT}/favorites`, {
+      fetch(`${API_ROOT}/users/${currentUser.id}/favorites`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
