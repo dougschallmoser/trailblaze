@@ -27,7 +27,7 @@ const SearchBar = (props) => {
   }
 
   useEffect(() => {
-    if (props.currentCity) {
+    if (props.currentCity || queryData.lat) {
       dispatch(getUsers(queryData))
       dispatch(getTrails(queryData))
     }
