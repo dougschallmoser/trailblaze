@@ -1,6 +1,7 @@
 const initialState = {
   results: [],
   query: {
+    city: '',
     lat: '',
     lng: '',
     radius: 10,
