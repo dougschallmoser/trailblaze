@@ -7,7 +7,8 @@ import { API_ROOT } from '../constants';
 
 const GoogleMap = (props) => {
 
-  const query = useSelector(state => state.search.query)
+  const lat = useSelector(state => state.search.query.lat)
+  const lng = useSelector(state => state.search.query.lng)
   const trails = useSelector(state => state.search.trails)
   const currentUser = useSelector(state => state.currentUser);
 
@@ -105,7 +106,7 @@ const GoogleMap = (props) => {
       containerStyle={containerStyle}
       style={mapStyles}
       initialCenter={{ lat: 47.444, lng: -122.176 }}
-      center={{ lat: query.lat, lng: query.lng }}>
+      center={{ lat: lat, lng: lng }}>
       
       {trails.map(trail => {
         return (
