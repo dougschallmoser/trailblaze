@@ -7,7 +7,7 @@ const RenderModal = (type, message) => {
       return (
         Swal.fire({
           icon: 'success',
-          text: message || 'You have successfully logged in!',
+          text: message || 'Success!',
           confirmButtonColor: '#1DA590',
           iconColor: '#1DA590'
         })
@@ -16,7 +16,7 @@ const RenderModal = (type, message) => {
       return (
         Swal.fire({
           icon: 'error',
-          text: message || 'Invalid credentials. Please try again.',
+          text: message || 'An error has occured',
           confirmButtonColor: '#1DA590',
           iconColor: '#B22222'
         })
