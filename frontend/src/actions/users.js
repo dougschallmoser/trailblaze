@@ -53,7 +53,7 @@ export const addUser = userData => {
 export const getUserProfile = () => {
   return async dispatch => {
     const token = localStorage.token;
-    if (token !== "undefined") {
+    if (token) {
       const response = await fetch(`${API_ROOT}/profile`, {
         method: 'GET',
         headers: {
