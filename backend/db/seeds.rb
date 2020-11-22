@@ -20,7 +20,7 @@ User.create(
   password: "monkey",
   bio: Faker::Hipster.sentence(word_count: 15),
   gender: "female",
-  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/amandabuzard/128.jpg',
+  avatar: 'https://images.unsplash.com/photo-1526080652727-5b77f74eacd2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ',
   lat: 47.261058,
   lng: -122.167780,
   dob: "1985-12-04"
@@ -32,7 +32,7 @@ User.create(
   password: "monkey",
   bio: Faker::Hipster.sentence(word_count: 15),
   gender: "male",
-  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/fabbianz/128.jpg',
+  avatar: 'https://images.unsplash.com/photo-1543246239-7ae3ded686ec?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ',
   lat: 47.261058,
   lng: -122.167780,
   dob: "1997-10-16"
@@ -46,7 +46,7 @@ User.create(
   password: Faker::Internet.password(min_length: 8),
   bio: Faker::Hipster.sentence(word_count: 15),
   gender: "female",
-  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/mactopus/128.jpg',
+  avatar: 'https://images.unsplash.com/photo-1546967191-fdfb13ed6b1e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ',
   lat: 48.769768,
   lng: -122.485886,
   dob: Faker::Date.birthday(min_age: 18, max_age: 65)
