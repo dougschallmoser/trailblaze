@@ -13,11 +13,11 @@ export const loginUser = userData => {
     });
     const data = await response.json();
     if (data.message) {
-      RenderModal('error')
+      RenderModal('error', data.message)
     } else {
       localStorage.setItem('token', data.jwt)
       dispatch({ type: 'LOGIN_USER', payload: data.user })
-      RenderModal('success')
+      RenderModal('success', 'You have successfully logged in!')
     }
   }
 }
@@ -53,7 +53,7 @@ export const addUser = userData => {
 export const getUserProfile = () => {
   return async dispatch => {
     const token = localStorage.token;
-    if (token) {
+    if (token !== "undefined") {
       const response = await fetch(`${API_ROOT}/profile`, {
         method: 'GET',
         headers: {
