@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Moment from 'react-moment';
 import ChatNewMessage from './ChatNewMessage';
 
 const ChatMessagesList = ({ conversation: { id, author, receiver, title, messages } }) => {
@@ -18,15 +19,28 @@ const ChatMessagesList = ({ conversation: { id, author, receiver, title, message
     }
   }
 
+  const formatDate = (message) => {
+    return (
+      <Moment format="h:mm a on MM/DD/YYYY">
+        {message.created_at}
+      </Moment>
+    )
+  }
+
   const orderedMessages = messages => {
     const sortedMessages = messages.sort(
       (a, b) => new Date(a.created_at) - new Date(b.created_at)
     )
     return sortedMessages.map(message => {
       return (
-      <li key={message.id} className={myMsg(message) ? "me" : "them"}>
-        {message.text}
-      </li>
+        <div key={message.id}>
+          <li className={myMsg(message) ? "chat-date-me" : "chat-date-them"}>
+            {formatDate(message)}
+          </li>
+          <li className={myMsg(message) ? "me" : "them"}>
+            {message.text}
+          </li>
+        </div>
       )
     })
   }
