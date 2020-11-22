@@ -351,6 +351,11 @@ select:focus {
   color: white;
 }
 
+.border-highlight {
+  border: 1px solid#1DA590;
+  color: #1DA590;
+}
+
 .close-button {
   float: right;
   margin-top: 10px;
