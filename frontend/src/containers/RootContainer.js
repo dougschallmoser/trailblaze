@@ -39,8 +39,12 @@ const RootContainer = () => {
   return (
     <div className="root-page">
       <div className="centered">
-        <div className="splash-message">Trailblaze together</div>
-        <div className="splash-submessage">Find friends for your next adventure</div>
+        <div className="splash-message">
+          Trailblaze together
+        </div>
+        <div className="splash-submessage">
+          Find friends for your next adventure
+        </div>
         <SearchBar
           splash="splash"
           splashContainer="search-splash-container"
@@ -48,7 +52,9 @@ const RootContainer = () => {
         />
         <div className="submit-container">
           {loading ? spinner : 
-            <button onClick={getLocation} className="user-submit">USE MY LOCATION</button>
+            <button onClick={getLocation} className="user-submit">
+              GET CURRENT LOCATION
+            </button>
           }
         </div>
       </div>
