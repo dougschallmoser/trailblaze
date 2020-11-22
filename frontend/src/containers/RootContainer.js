@@ -45,11 +45,6 @@ const RootContainer = () => {
         <div className="splash-submessage">
           Find friends for your next adventure
         </div>
-        <SearchBar
-          splash="splash"
-          splashContainer="search-splash-container"
-          splashIcon="search-icon-splash"
-        />
         <div className="submit-container">
           {loading ? spinner : 
             <button onClick={getLocation} className="user-submit">
@@ -57,6 +52,11 @@ const RootContainer = () => {
             </button>
           }
         </div>
+        <SearchBar
+          splash="splash"
+          splashContainer="search-splash-container"
+          splashIcon="search-icon-splash"
+        />
       </div>
     </div>
   )
