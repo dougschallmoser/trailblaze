@@ -48,7 +48,7 @@ const ChatMessagesList = ({ conversation: { id, author, receiver, title, message
   return (
     <>
       <h3>
-        Chatting with <span className="main-color">{displayOtherUserName()}</span>
+        Chatting with <span className="secondary-color">{displayOtherUserName()}</span>
       </h3>
       <ul>
         <li className={author.id === currentUser.id ? "me" : "them"}>{title}</li>

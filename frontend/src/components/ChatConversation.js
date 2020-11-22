@@ -32,6 +32,13 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
     return conversation.messages[conversation.messages.length - 1]
   }
 
+  const msgPreview = (msg) => {
+    if (msg.length > 80) {
+      return msg.substring(0, 80) + ' ...'
+    }
+    return msg
+  }
+
   const handleClick = (event) => {
     event.stopPropagation();
     setClicked(prevState => !prevState)
@@ -83,7 +90,7 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
           </span>
           <span id="chat-user">{displayOtherUserName()}</span><br/>
           <p id="chat-preview">
-            {(recentMessage() && recentMessage().text) || conversation.title}
+            {(recentMessage() && msgPreview(recentMessage().text)) || msgPreview(conversation.title)}
           </p>
           {selected ? 
             <div onClick={handleClick} className="three-dots">&#8230;</div> 
@@ -107,7 +114,7 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
             </Moment>
           </span>
           <span>{displayOtherUserName()}</span><br/>
-          <p id="chat-preview">{conversation.title} </p>
+          <p id="chat-preview">{msgPreview(conversation.title)} </p>
           <button className="message-accept" onClick={handleReject}>Reject</button>
           <button className="message-accept" onClick={handleAccept}>Accept</button>
         </>
@@ -124,7 +131,7 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
             </Moment>
           </span>
           <span>{displayOtherUserName()}</span><br/>
-          <p id="chat-preview">{conversation.title}</p>
+          <p id="chat-preview">{msgPreview(conversation.title)}</p>
           <div className="pending-conversation">
             Pending acceptance from {displayOtherUserName()}
           </div>
