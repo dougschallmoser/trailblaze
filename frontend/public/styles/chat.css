@@ -114,7 +114,7 @@ ul li {
 
 .me {
   float: right;
-  background:#2BB88B;
+  background:#1DA590;
   color: #fff;
 }
 
@@ -235,7 +235,7 @@ ul li {
 }
 
 .three-dots {
-  margin-top: -15px;
+  margin-top: -25px;
   float: right;
   font-size: 40px;
   cursor: pointer;

@@ -31,7 +31,7 @@
   cursor: pointer;
   margin: 0 0 10px 14px;
   border-bottom: 5px solid#2BB88B;
-  box-shadow: 0.3px 0.3px 2px -1px #ccc, -0.3px -0.3px 2px -1px #ccc;
+  box-shadow: 0.3px 0.3px 3px -1px #ccc, -0.3px -0.3px 3px -1px #ccc;
 }
 
 .favorite-item img {
