@@ -36,7 +36,11 @@ const UserLogout = () => {
           <button className="close-button-user" onClick={toggleModal}>x</button><br/>
           <div className="logout-confirmation">Are you sure you want to logout?</div>
           <div className="submit-container">
-            <Link to="/"><button className="user-submit" onClick={handleLogout}>Yes, log me out</button></Link>
+            <Link to="/">
+              <button className="user-submit" onClick={handleLogout}>
+                Logout
+              </button>
+            </Link>
           </div>
         </div>
       </Modal>
