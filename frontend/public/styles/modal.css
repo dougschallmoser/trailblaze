@@ -49,6 +49,14 @@
   padding-bottom: 30px;
 }
 
+.get-location {
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+}
+
 .logout-confirmation {
   font-size: 22px;
   display: block;
