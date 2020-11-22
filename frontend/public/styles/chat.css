@@ -102,8 +102,8 @@ ul {
 ul li {
   display: inline-block;
   clear: both;
-  padding: 8px 18px;
-  border-radius: 30px;
+  padding: 8px 10px;
+  border-radius: 5px;
   margin-bottom: 4px;
 }
 
@@ -116,6 +116,27 @@ ul li {
   float: right;
   background:#2BB88B;
   color: #fff;
+}
+
+.chat-date-me {
+  margin-bottom: 1px;
+  padding-bottom: 0px;
+  font-size: 10px;
+  float: right;
+  background: #fff;
+}
+
+.chat-date-them {
+  margin-bottom: 1px;
+  padding-bottom: 0px;
+  font-size: 10px;
+  background: #fff;
+  float: left;
+}
+
+.chat-date-me time,
+.chat-date-them time {
+  color: #767676;
 }
 
 .newMessageForm {
