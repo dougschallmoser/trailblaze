@@ -18,10 +18,24 @@ const SearchFilters = () => {
     dispatch(getUsers({...query, [event.target.name]: event.target.value}))
   }
 
+  const displayFilterCount = () => {
+    if ((query.agemax && (query.gender !== 'any')) || 
+      (query.agemin && (query.gender !== 'any'))) {
+      return "Filter: 2"
+    } else if (query.agemin || query.agemax || (query.gender !== 'any')) {
+      return "Filter: 1"
+    } else {
+      return 'Filter'
+    }
+  }
+
   return (
     <div className="dropdown-menu">
-      <button className={clicked ? "filter-button clicked" : "filter-button"} onClick={handleClick}>
-        Filter
+      <button
+        className={clicked ? 'filter-button clicked' 
+          : `filter-button ${query.agemin || query.agemax || (query.gender !== 'any') 
+          ? "border-highlight" : null}`} onClick={handleClick}>
+        {displayFilterCount()}
       </button>
       {clicked ? <div className="arrow-up"></div> : null}
       {clicked ?
