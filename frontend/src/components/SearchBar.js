@@ -11,19 +11,23 @@ const SearchBar = (props) => {
   const history = useHistory();
   const queryData = useSelector(state => state.search.query);
   const [address, setAddress] = useState(props.currentCity || '')
-  const [latlng, setLatlng] = useState({
-    lat: queryData.lat || '', lng: queryData.lng || ''
-  })
  
   const handleChange = input => {
     setAddress(input)
   }
 
-  const handleSelect = async selection => {
+  const handleSelect = async (selection, placeId) => {
+    if (!placeId) {
+      return null
+    }
     setAddress(selection)
     const response = await geocodeByAddress(selection)
     const results = await getLatLng(response[0])
-    setLatlng({ ...results })
+    dispatch(updateQuery({ ...results, city: selection }))
+    if (window.location.pathname !== '/search') {
+      history.push('/search')
+      /* `/search?lat=${queryData.lat}&lng=${queryData.lng}&radius=${queryData.radius}&agemin=${queryData.agemin}&agemax=${queryData.agemax}&gender=${queryData.gender}` */
+    }
   }
 
   useEffect(() => {
@@ -32,14 +36,6 @@ const SearchBar = (props) => {
       dispatch(getTrails(queryData))
     }
   }, [queryData, dispatch, props.currentCity])
-  
-  const handleSubmit = () => {
-    dispatch(updateQuery({ ...latlng, city: address }))
-    if (window.location.pathname !== '/search') {
-      history.push('/search')
-      /* `/search?lat=${queryData.lat}&lng=${queryData.lng}&radius=${queryData.radius}&agemin=${queryData.agemin}&agemax=${queryData.agemax}&gender=${queryData.gender}` */
-    }
-  }
 
   const options = {
     types: ['(cities)'],
@@ -65,7 +61,6 @@ const SearchBar = (props) => {
               })}
             />
               <img
-                onClick={handleSubmit}
                 alt="search icon"
                 className={props.splashIcon || "search-icon"}
                 src="./search_icon.png"
