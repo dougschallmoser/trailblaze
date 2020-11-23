@@ -127,7 +127,7 @@ const GoogleMap = (props) => {
             url={trail.url}
             position={{lat: trail.latitude, lng: trail.longitude}}
             onClick={onMarkerClick}
-            icon={{url: "http://maps.google.com/mapfiles/ms/micons/ltblue-dot.png"}}
+            icon={{url: "./marker.png"}}
           />
         )
       })}
