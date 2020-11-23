@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Moment from 'react-moment';
 import ChatNewMessage from './ChatNewMessage';
 
-const ChatMessagesList = ({ conversation: { id, author, receiver, title, messages } }) => {
+const ChatMessagesList = ({ conversation: { id, author, receiver, title, messages, created_at } }) => {
   const currentUser = useSelector(state => state.currentUser);
 
   const myMsg = (message) => {
@@ -22,7 +22,7 @@ const ChatMessagesList = ({ conversation: { id, author, receiver, title, message
   const formatDate = (message) => {
     return (
       <Moment format="h:mm a on MM/DD/YYYY">
-        {message.created_at}
+        {message.created_at || message}
       </Moment>
     )
   }
@@ -51,6 +51,9 @@ const ChatMessagesList = ({ conversation: { id, author, receiver, title, message
         Chatting with <span className="secondary-color">{displayOtherUserName()}</span>
       </h3>
       <ul>
+        <li className={author.idd === currentUser.id ? "chat-date-me" : "chat-date-them"}>
+          {formatDate(created_at)}
+        </li>
         <li className={author.id === currentUser.id ? "me" : "them"}>{title}</li>
         {orderedMessages(messages)}
       </ul>
