@@ -38,7 +38,7 @@
 }
 
 .splash-message {
-  margin-top: 155px;
+  margin-top: 100px;
   font-size: 60px;
   color: white;
   font-weight: 500;
@@ -116,7 +116,7 @@ a.nav-logo span {
 }
 
 .search-bar.splash {
-  margin-top: 40px;
+  margin-top: 30px;
   width: 500px;
   padding: 24px 28px;
   font-size: 22px;
@@ -159,9 +159,8 @@ a.nav-logo span {
 
 .search-icon-splash {
   position: absolute;
-  margin-top: 63px;
+  margin-top: 53px;
   left: 505px;
-  cursor: pointer;
   height: 36px;
   display: inline-block;
   vertical-align: middle;
@@ -171,7 +170,6 @@ a.nav-logo span {
   position: absolute;
   margin-top: 10px;
   left: 348px;
-  cursor: pointer;
   height: 30px;
   display: inline-block;
   vertical-align: middle;
