@@ -94,12 +94,10 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
           </p>
           {selected ? 
             <div onClick={handleClick} className="three-dots">&#8230;</div> 
-            : null
-          }
+          : null}
           {clicked ? 
             <ChatRenderDropdown handleReject={handleReject} handleClick={handleClick} /> 
-            : null
-          }
+          : null}
         </>
       )
     } else if (!conversation.accepted && conversation.receiver.id === currentUserId) {
@@ -143,7 +141,7 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
     }
   }
 
-  return renderConversation()
+  return renderConversation();
 }
 
 export default ChatConversation;

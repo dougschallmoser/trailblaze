@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import RenderModal from './RenderModal';
 import { ActionCableConsumer } from '@thrash-industries/react-actioncable-provider';
 import { API_ROOT } from '../constants';
+import RenderModal from './RenderModal';
 import ChatCable from './ChatCable';
 import ChatMessagesList from './ChatMessagesList';
 import ChatConversation from './ChatConversation';
@@ -80,7 +80,7 @@ class ChatConversationsList extends React.Component {
   }
 
   render = () => {
-    const { conversations, activeConversation } = this.state;
+    const { conversations, activeConversation } = this.state
 
     return (
       <>
@@ -104,12 +104,9 @@ class ChatConversationsList extends React.Component {
         <div className="messages">
           {activeConversation ? (
             <ChatMessagesList
-              conversation={findActiveConversation(
-                conversations,
-                activeConversation
-              )}
-            />
-          ) : null}
+              conversation={findActiveConversation(conversations, activeConversation)}
+            /> ) 
+          : null}
         </div>
       </>
     )
