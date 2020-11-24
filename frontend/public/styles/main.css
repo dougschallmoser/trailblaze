@@ -565,16 +565,52 @@ select:focus {
     width: 100%;
   }
 
+  .search-container {
+    width: 100%;
+  }
+
   .search-bar {
-    width: 40%;
+    width: 100px;
   }
 
   .radius-slider {
-    width: 40%;
-    margin-left: 0px;
+    width: 100px;
+    margin-left: 12px;
   }
 
   .filter-button {
-    margin-left: 0px;
+    margin-left: 12px;
+  }
+
+  .search-icon {
+    position: absolute;
+    margin-top: 13px;
+    left: 125px;
+    height: 25px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .splash-message {
+    margin-top: 50px;
+    font-size: 60px;
+    width: 100%;
+  }
+  
+  .splash-submessage {
+    margin-top: 30px;
+  }
+
+  .search-bar.splash {
+    width: 275px;
+  }
+
+  .search-icon-splash {
+    position: absolute;
+    margin-top: 53px;
+    left: 285px;
+    height: 36px;
+    display: inline-block;
+    vertical-align: middle;
   }
 }
