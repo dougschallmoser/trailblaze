@@ -83,7 +83,7 @@ class ChatConversationsList extends React.Component {
     const { conversations, activeConversation } = this.state
 
     return (
-      <>
+      <div className="main-container">
         <div className="conversationsList">
           <ActionCableConsumer
             channel={{ channel: 'ConversationsChannel' }}
@@ -108,7 +108,7 @@ class ChatConversationsList extends React.Component {
             /> ) 
           : null}
         </div>
-      </>
+      </div>
     )
   }
 }

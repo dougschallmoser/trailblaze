@@ -65,7 +65,7 @@ const FavoritesList = (props) => {
   }
 
   return (
-    <>
+    <div className="main-container">
       <div className="favoritesList">
         <h2>FAVORITE TRAILS</h2>
         {favorites.length === 0 ? <div>No favorites.</div> : null}
@@ -88,7 +88,7 @@ const FavoritesList = (props) => {
           ) : null}
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
