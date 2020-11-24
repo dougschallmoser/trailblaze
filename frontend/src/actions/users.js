@@ -45,7 +45,7 @@ export const addUser = userData => {
     } else {
       localStorage.setItem('token', data.jwt)
       dispatch({ type: 'LOGIN_USER', payload: data.user })
-      RenderModal('success', 'You are now logged in!')
+      RenderModal('success', 'Account successfully created. You are now logged in.')
     }
   }
 }
