@@ -30,11 +30,12 @@ const SearchBar = ({ city, lat, lng, radius, gender, agemin, agemax, splashConta
       if (queryData.lat !== lat) {
         dispatch(updateQuery({ lat, lng, radius, gender, agemin, agemax, city  }))
       } else {
-        dispatch(getUsers(queryData))
-        dispatch(getTrails(queryData))
-        if (city) {
-          history.push(`/search?city=${city}&lat=${lat}&lng=${lng}&radius=${queryData.radius}&agemin=${queryData.agemin}&agemax=${queryData.agemax}&gender=${queryData.gender}`)
+        if (queryData.radius === radius && queryData.gender === gender 
+          && queryData.agemin === agemin && queryData.agemax === agemax) {
+            dispatch(getUsers(queryData))
+            dispatch(getTrails(queryData))
         }
+        history.push(`/search?city=${city}&lat=${lat}&lng=${lng}&radius=${queryData.radius}&agemin=${queryData.agemin}&agemax=${queryData.agemax}&gender=${queryData.gender}`)
       }
     }
   }, [queryData, dispatch, history, city, lat, lng, radius, gender, agemin, agemax])
