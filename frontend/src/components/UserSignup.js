@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../actions';
+import RenderModal from './RenderModal'
 import UserInputField from './UserInputField';
 import UserSubmitButton from './UserSubmitButton';
 import Modal from "react-modal";
@@ -33,11 +34,16 @@ const UserSignup = () => {
   const getLocation = () => {
     setLoading(true)
     window.navigator.geolocation.getCurrentPosition(
-      position => setUserData(prevUserData => {
+      success => setUserData(prevUserData => {
         return {
-          ...prevUserData, lat: position.coords.latitude, lng: position.coords.longitude
+          ...prevUserData, lat: success.coords.latitude, lng: success.coords.longitude
         }
-      })
+      }),
+      failure => {
+        RenderModal('error', failure.message)
+        setLoading(false)
+      },
+    {timeout: 10000}
     )
   }
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import RenderModal from '../components/RenderModal'
 import SearchBar from '../components/SearchBar';
 
 const RootContainer = () => {
@@ -11,11 +12,16 @@ const RootContainer = () => {
   const getLocation = () => {
     setLoading(true)
     window.navigator.geolocation.getCurrentPosition(
-      position => setLocation(prevState => {
+      success => setLocation(prevState => {
         return {
-          ...prevState, lat: position.coords.latitude, lng: position.coords.longitude
+          ...prevState, lat: success.coords.latitude, lng: success.coords.longitude
         }
-      })
+      }),
+      failure => {
+        RenderModal('error', failure.message)
+        setLoading(false)
+      },
+    {timeout: 10000}
     )
   }
 
