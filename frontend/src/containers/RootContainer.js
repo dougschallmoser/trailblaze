@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { updateQuery } from '../actions';
 import SearchBar from '../components/SearchBar';
 
 const RootContainer = () => {
 
   const [location, setLocation] = useState({lat: '', lng: '', city: ''})
   const [loading, setLoading] = useState(false)
-
-  const dispatch = useDispatch();
   const history = useHistory();
 
   const getLocation = () => {
@@ -25,10 +21,9 @@ const RootContainer = () => {
 
   useEffect(() => {
     if (location.lat) {
-      dispatch(updateQuery({ ...location }))
-      history.push('/search')
+      history.push(`/search?city=&lat=${location.lat.toFixed(5)}&lng=${location.lng.toFixed(5)}&radius=10&agemin=&agemax=&gender=any`)
     }
-  }, [dispatch, history, location])
+  }, [history, location])
 
   const spinner = 
     <div className="spinner">

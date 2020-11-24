@@ -23,12 +23,12 @@ const App = () => {
         <Route exact path="/">
           <RootContainer />
         </Route>
-        <Route exact path="/search">
+        <Route path="/search">
           <SearchContainer />
         </Route>
         <Route exact path="/users/:id/messages" render={(props) => <ChatConversationsList {...props} />} />
         <Route exact path="/users/:id/favorites" render={(props) => <FavoritesList {...props} />} />
-        <Route render={() => <Redirect to="/" />} />
+        {/* <Route render={() => <Redirect to="/" />} /> */}
       </div>
     </Switch>
   )

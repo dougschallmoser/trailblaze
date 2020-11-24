@@ -1,5 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import queryString from 'query-string';
 import SearchRadius from '../components/SearchRadius';
 import SearchBar from '../components/SearchBar';
 import SearchFilters from '../components/SearchFilters';
@@ -8,15 +10,26 @@ import SearchResult from '../components/SearchResult';
 
 const SearchContainer = () => {
 
+  const { search } = useLocation();
+  const { lat, lng, agemin, agemax, gender, radius, city } = queryString.parse(search);
   const results = useSelector(state => state.search.results)
-  const city = useSelector(state => state.search.query.city)
   const trails = useSelector(state => state.search.trails)
+  
 
   return (
     <>
       <div className="search">
-        <SearchBar currentCity={city} />
-        <SearchRadius />
+        <SearchBar 
+          currentCity={city} 
+          lat={lat}
+          lng={lng}
+          radius={radius}
+          gender={gender}
+          agemin={agemin}
+          agemax={agemax}
+          city={city}
+        />
+        <SearchRadius radius={radius} />
         <SearchFilters />
       </div>
       <div className="results">

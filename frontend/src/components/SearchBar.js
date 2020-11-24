@@ -5,37 +5,39 @@ import { getUsers, getTrails, updateQuery } from '../actions';
 import { GoogleApiWrapper } from 'google-maps-react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
-const SearchBar = (props) => {
+const SearchBar = ({ city, lat, lng, radius, gender, agemin, agemax, splashContainer, splash, splashIcon }) => {
 
   const dispatch = useDispatch();
   const history = useHistory();
   const queryData = useSelector(state => state.search.query);
-  const [address, setAddress] = useState(props.currentCity || '')
+  const [address, setAddress] = useState(city || '')
  
   const handleChange = input => {
     setAddress(input)
   }
 
   const handleSelect = async (selection, placeId) => {
-    if (!placeId) {
-      return null
-    }
+    if (!placeId) {return null}
     setAddress(selection)
+    
     const response = await geocodeByAddress(selection)
     const results = await getLatLng(response[0])
-    dispatch(updateQuery({ ...results, city: selection }))
-    if (window.location.pathname !== '/search') {
-      history.push('/search')
-      /* `/search?lat=${queryData.lat}&lng=${queryData.lng}&radius=${queryData.radius}&agemin=${queryData.agemin}&agemax=${queryData.agemax}&gender=${queryData.gender}` */
-    }
+    history.push(`/search?city=${selection}&lat=${results.lat.toFixed(5)}&lng=${results.lng.toFixed(5)}&radius=${queryData.radius}&agemin=${queryData.agemin}&agemax=${queryData.agemax}&gender=${queryData.gender}`)
   }
 
   useEffect(() => {
-    if (props.currentCity || queryData.lat) {
-      dispatch(getUsers(queryData))
-      dispatch(getTrails(queryData))
+    if (window.location.pathname.includes('/search')) {
+      if (queryData.lat !== lat) {
+        dispatch(updateQuery({ lat, lng, radius, gender, agemin, agemax, city  }))
+      } else {
+        dispatch(getUsers(queryData))
+        dispatch(getTrails(queryData))
+        if (city) {
+          history.push(`/search?city=${city}&lat=${lat}&lng=${lng}&radius=${queryData.radius}&agemin=${queryData.agemin}&agemax=${queryData.agemax}&gender=${queryData.gender}`)
+        }
+      }
     }
-  }, [queryData, dispatch, props.currentCity])
+  }, [queryData, dispatch, history, city, lat, lng, radius, gender, agemin, agemax])
 
   const options = {
     types: ['(cities)'],
@@ -53,16 +55,16 @@ const SearchBar = (props) => {
       searchOptions={options}
     >
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-        <div className={props.splashContainer || "search-container"}>
+        <div className={splashContainer || "search-container"}>
             <input
               {...getInputProps({
                 placeholder: 'Enter a city to find other trailblazers...',
-                className: `location-search-input search-bar ${props.splash}`,
+                className: `location-search-input search-bar ${splash}`,
               })}
             />
               <img
                 alt="search icon"
-                className={props.splashIcon || "search-icon"}
+                className={splashIcon || "search-icon"}
                 src="./search_icon.png"
               />
           <div className="autocomplete-dropdown-container">

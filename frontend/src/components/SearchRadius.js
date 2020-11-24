@@ -2,9 +2,9 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateQuery } from '../actions';
 
-const SearchRadius = () => {
+const SearchRadius = (props) => {
 
-  const radius = useSelector(state => state.search.query.radius);
+  const radius = useSelector(state => state.search.query.radius)
   const dispatch = useDispatch();
 
   const handleOnChange = (event) => {
@@ -18,7 +18,7 @@ const SearchRadius = () => {
         min="10"
         max="50"
         step="10"
-        value={radius}
+        value={props.radius || radius}
         onChange={handleOnChange}
         className="slider"
       />
