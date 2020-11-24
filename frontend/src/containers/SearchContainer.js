@@ -17,10 +17,9 @@ const SearchContainer = () => {
   
 
   return (
-    <>
+    <div className="main-container">
       <div className="search">
-        <SearchBar 
-          currentCity={city} 
+        <SearchBar
           lat={lat}
           lng={lng}
           radius={radius}
@@ -49,7 +48,7 @@ const SearchContainer = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
