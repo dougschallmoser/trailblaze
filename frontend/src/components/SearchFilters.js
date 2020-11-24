@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateQuery, getUsers } from '../actions';
+import { updateQuery } from '../actions';
 import SearchFiltersDropdown from './SearchFiltersDropdown';
 
 const SearchFilters = () => {
@@ -14,8 +14,7 @@ const SearchFilters = () => {
   }
 
   const handleChange = (event) => {
-    dispatch(updateQuery({...query, [event.target.name]: event.target.value}))
-    dispatch(getUsers({...query, [event.target.name]: event.target.value}))
+    dispatch(updateQuery({ [event.target.name]: event.target.value}))
   }
 
   const displayFilterCount = () => {
