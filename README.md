@@ -1,9 +1,11 @@
-![Trailblaze](https://user-images.githubusercontent.com/65590878/99851185-98187c00-2b33-11eb-96ec-b77fb7eed555.png)
+![Trailblaze](https://user-images.githubusercontent.com/65590878/100131829-66f0c200-2e39-11eb-8d2a-838605ac2a2d.png)
 
 
 # Trailblaze
 
 Trailblaze your way to new outdoor friends. Trailblaze is a geosocial single page application built with React/Redux/Rails. Find new friends in your area, communicate, explore trails and go on outdoor adventures.
+
+[Video Demo](https://youtu.be/L5GYWm-UfSk)
 
 
 ## Installation
