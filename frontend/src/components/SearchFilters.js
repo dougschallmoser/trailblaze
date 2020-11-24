@@ -7,6 +7,7 @@ const SearchFilters = () => {
 
   const query = useSelector(state => state.search.query)
   const [clicked, setClicked] = useState(false);
+  const [filters, setFilters] = useState({ agemin: '', agemax: '', gender: 'any'})
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -14,7 +15,16 @@ const SearchFilters = () => {
   }
 
   const handleChange = (event) => {
-    dispatch(updateQuery({ [event.target.name]: event.target.value}))
+    setFilters({ ...filters, [event.target.name]: event.target.value })
+    if (event.target.name === 'agemin' && filters.agemin > 1) {
+      dispatch(updateQuery({ [event.target.name]: event.target.value }))
+    }
+    if (event.target.name === 'agemax' && filters.agemax > 1) {
+      dispatch(updateQuery({ [event.target.name]: event.target.value }))
+    }
+    if (event.target.name === 'gender') {
+      dispatch(updateQuery({ [event.target.name]: event.target.value}))
+    }
   }
 
   const displayFilterCount = () => {
@@ -39,7 +49,7 @@ const SearchFilters = () => {
       {clicked ? <div className="arrow-up"></div> : null}
       {clicked ?
         <SearchFiltersDropdown
-          query={query}
+          filters={filters}
           handleChange={handleChange}
           handleClick={handleClick}
         />

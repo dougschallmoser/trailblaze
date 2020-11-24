@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchFiltersDropdown = ({ query, handleClick, handleChange }) => {
+const SearchFiltersDropdown = ({ filters, handleClick, handleChange }) => {
   return (
     <div className="dropdown-content">
       <div className="dropdown-content-padding">
@@ -9,23 +9,25 @@ const SearchFiltersDropdown = ({ query, handleClick, handleChange }) => {
           <input
             name="agemin"
             type="text"
-            value={query.agemin}
+            value={filters.agemin}
             className="age-input-field"
             onChange={handleChange}
+            maxLength={2}
             placeholder="Min"
           /> {' - '}
           <input
             name="agemax"
             type="text"
-            value={query.agemax}
+            value={filters.agemax}
             className="age-input-field"
             onChange={handleChange}
+            maxLength={2}
             placeholder="Max"
           />
         </div>
         <div className="dropdown-content-item gender">
           <span className="dropdown-content-header">Gender</span>
-          <select value={query.gender} onChange={handleChange} name="gender">
+          <select value={filters.gender} onChange={handleChange} name="gender">
             <option value="any">Any</option>
             <option value="female">Female</option>
             <option value="male">Male</option>
