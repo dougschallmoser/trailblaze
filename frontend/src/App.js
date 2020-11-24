@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { BrowserRouter as Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { getUserProfile } from './actions'
 import NavBar from './components/NavBar';
 import SearchContainer from './containers/SearchContainer';
@@ -17,20 +17,17 @@ const App = () => {
   })
 
   return (
-    <Switch>
+    <Router>
       <NavBar />
-      <div className="main-container">
-        <Route exact path="/">
-          <RootContainer />
-        </Route>
-        <Route path="/search">
-          <SearchContainer />
+      <Switch>
+        <Route exact path="/"><RootContainer /></Route>
+        <Route path="/search"><SearchContainer />
         </Route>
         <Route exact path="/users/:id/messages" render={(props) => <ChatConversationsList {...props} />} />
         <Route exact path="/users/:id/favorites" render={(props) => <FavoritesList {...props} />} />
-        {/* <Route render={() => <Redirect to="/" />} /> */}
-      </div>
-    </Switch>
+        <Route render={() => <Redirect to="/" />} />
+      </Switch>
+    </Router>
   )
 }
 
