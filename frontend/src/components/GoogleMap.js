@@ -16,7 +16,9 @@ const GoogleMap = (props) => {
     return Object.keys(currentUser).length > 0
   }
   
-  const [markerInfo, setMarkerInfo] = useState({ showInfo: false, activeMarker: {}, selected: {} })
+  const [markerInfo, setMarkerInfo] = useState({
+    showInfo: false, activeMarker: {}, selected: {} 
+  })
 
   const onMarkerClick = (props, marker) => {
     setMarkerInfo({selected: props, activeMarker: marker, showInfo: true})
@@ -31,13 +33,9 @@ const GoogleMap = (props) => {
     position: 'fixed'
   }
 
-  const onMapClicked = () => {
+  const handleMapClick = () => {
     if (markerInfo.showInfo) {
-      setMarkerInfo({
-        ...markerInfo,
-        showInfo: false,
-        activeMarker: null
-      })
+      setMarkerInfo({ ...markerInfo, showInfo: false, activeMarker: null })
     }
   }
 
@@ -101,7 +99,7 @@ const GoogleMap = (props) => {
   return (
     <Map
       google={props.google}
-      onClick={onMapClicked}
+      onClick={handleMapClick}
       zoom={9.5}
       containerStyle={containerStyle}
       style={mapStyles}
