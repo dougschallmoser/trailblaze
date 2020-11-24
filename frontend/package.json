@@ -9,6 +9,7 @@
     "@thrash-industries/react-actioncable-provider": "^2.0.6",
     "google-maps-react": "^2.0.6",
     "moment": "^2.29.1",
+    "query-string": "^6.13.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-modal": "^3.11.2",
