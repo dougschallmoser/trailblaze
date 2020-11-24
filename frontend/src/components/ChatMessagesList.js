@@ -51,7 +51,7 @@ const ChatMessagesList = ({ conversation: { id, author, receiver, title, message
         Chatting with <span className="secondary-color">{displayOtherUserName()}</span>
       </h3>
       <ul>
-        <li className={author.idd === currentUser.id ? "chat-date-me" : "chat-date-them"}>
+        <li className={author.id === currentUser.id ? "chat-date-me" : "chat-date-them"}>
           {formatDate(created_at)}
         </li>
         <li className={author.id === currentUser.id ? "me" : "them"}>{title}</li>
