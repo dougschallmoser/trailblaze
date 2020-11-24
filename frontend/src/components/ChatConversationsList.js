@@ -104,7 +104,7 @@ class ChatConversationsList extends React.Component {
         <div className="messages">
           {activeConversation ? (
             <ChatMessagesList
-              conversation={findActiveConversation(conversations, activeConversation)}
+              conversation={findActiveConvo(conversations, activeConversation)}
             /> ) 
           : null}
         </div>
@@ -113,7 +113,7 @@ class ChatConversationsList extends React.Component {
   }
 }
 
-const findActiveConversation = (conversations, activeConversation) => {
+const findActiveConvo = (conversations, activeConversation) => {
   return conversations.find(
     conversation => conversation.id === activeConversation
   )

@@ -52,9 +52,7 @@ const FavoritesList = (props) => {
 
   const handleDeleteFavorite = deleteFavorite => {
     const oldFavorites = [...favorites]
-    const updatedFavorites = oldFavorites.filter(
-      fav => fav.id !== deleteFavorite.id
-    )
+    const updatedFavorites = oldFavorites.filter(fav => fav.id !== deleteFavorite.id)
     setFavorites(updatedFavorites)
   }
 
@@ -75,15 +73,14 @@ const FavoritesList = (props) => {
             deleteFavorite={handleDeleteFavorite}
             activeFavorite={activeFavorite}
             setActive={handleClick}
-            key={favorite.id} />)}
+            key={favorite.id} 
+          />
+        )}
             
         <div className="favorites">
           {activeFavorite ? (
             <FavoriteDisplay
-              favorite={findActiveFavorite(
-                favorites,
-                activeFavorite
-              )}
+              favorite={findActiveFavorite(favorites, activeFavorite)}
             />
           ) : null}
         </div>

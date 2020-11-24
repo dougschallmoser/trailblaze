@@ -51,8 +51,7 @@ const UserSignup = () => {
               className="close-button-user"
               onClick={toggleModal}
             >
-              x
-            </button><br/>
+            x</button><br/>
             <div className="get-started">WELCOME BACK!</div>
             <form onSubmit={handleSubmit}>
               <UserInputField

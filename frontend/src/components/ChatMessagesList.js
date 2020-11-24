@@ -6,7 +6,7 @@ import ChatNewMessage from './ChatNewMessage';
 const ChatMessagesList = ({ conversation: { id, author, receiver, title, messages, created_at } }) => {
   const currentUser = useSelector(state => state.currentUser);
 
-  const myMsg = (message) => {
+  const myMsg = message => {
     return (currentUser.id === message.user.id)
   }
 
@@ -19,7 +19,7 @@ const ChatMessagesList = ({ conversation: { id, author, receiver, title, message
     }
   }
 
-  const formatDate = (message) => {
+  const formatDate = message => {
     return (
       <Moment format="h:mm a on MM/DD/YYYY">
         {message.created_at || message}
@@ -27,11 +27,12 @@ const ChatMessagesList = ({ conversation: { id, author, receiver, title, message
     )
   }
 
-  const orderedMessages = messages => {
-    const sortedMessages = messages.sort(
+  const renderMessages = messages => {
+    const sortMessages = messages.sort(
       (a, b) => new Date(a.created_at) - new Date(b.created_at)
     )
-    return sortedMessages.map(message => {
+
+    return sortMessages.map(message => {
       return (
         <div key={message.id}>
           <li className={myMsg(message) ? "chat-date-me" : "chat-date-them"}>
@@ -55,7 +56,7 @@ const ChatMessagesList = ({ conversation: { id, author, receiver, title, message
           {formatDate(created_at)}
         </li>
         <li className={author.id === currentUser.id ? "me" : "them"}>{title}</li>
-        {orderedMessages(messages)}
+        {renderMessages(messages)}
       </ul>
       <ChatNewMessage conversationId={id} currentUserId={currentUser.id} />
     </>

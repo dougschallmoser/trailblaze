@@ -11,9 +11,7 @@ const ChatNewMessage = ({ conversationId, currentUserId }) => {
 
   useEffect(() => {
     setMessage(message => {
-      return {
-        ...message, conversation_id: conversationId
-      }
+      return {...message, conversation_id: conversationId}
     })
   }, [conversationId])
 

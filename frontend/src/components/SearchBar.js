@@ -63,11 +63,11 @@ const SearchBar = ({ city, lat, lng, radius, gender, agemin, agemax, splashConta
                 className: `location-search-input search-bar ${splash}`,
               })}
             />
-              <img
-                alt="search icon"
-                className={splashIcon || "search-icon"}
-                src="./search_icon.png"
-              />
+            <img
+              alt="search icon"
+              className={splashIcon || "search-icon"}
+              src="./search_icon.png"
+            />
           <div className="autocomplete-dropdown-container">
             {loading && <div>Loading...</div>}
             {suggestions.map(suggestion => {
@@ -76,9 +76,7 @@ const SearchBar = ({ city, lat, lng, radius, gender, agemin, agemax, splashConta
                 : 'suggestion-item';
               return (
                 <div
-                  {...getSuggestionItemProps(suggestion, {
-                    className,
-                  })}
+                  {...getSuggestionItemProps(suggestion, {className})}
                   key={suggestion.placeId}
                 >
                   <span>{suggestion.description}</span>
