@@ -136,7 +136,9 @@
 
 .user-submit {
   margin: 10px 10px 5px 0;
+  text-decoration: none;
   font-size: 20px;
+  font-weight: 400;
   cursor: pointer;
   padding: 9px 15px;
   border: none;
@@ -154,6 +156,10 @@
   outline-style: solid;
   outline-width: 3px;
   outline-color:#ccc;
+}
+
+.sixteen-font {
+  font-size: 16px;
 }
 
 .submit-container {
