@@ -84,9 +84,16 @@ const GoogleMap = (props) => {
   const renderButtonInfoWindow = () => {
     if (loggedIn()) {
       const div = (
-        <button onClick={handleClickTrail} className="user-submit">
-          Add Favorite
-        </button>
+        <>
+          <a href={markerInfo.selected.url} rel="noreferrer"
+            target="_blank" className="user-submit sixteen-font"
+          >
+            Trail Details
+          </a>
+          <button onClick={handleClickTrail} className="user-submit sixteen-font">
+            Add Favorite
+          </button>
+        </>
       )
   
       ReactDOM.render(
