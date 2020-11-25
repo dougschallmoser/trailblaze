@@ -1,4 +1,4 @@
-![Trailblaze](https://user-images.githubusercontent.com/65590878/100131829-66f0c200-2e39-11eb-8d2a-838605ac2a2d.png)
+![Trailblaze](https://user-images.githubusercontent.com/65590878/100168511-44c96500-2e76-11eb-87e2-ed212c70afe2.png)
 
 
 # Trailblaze
