@@ -23,7 +23,8 @@ To run this application in your local environment, please follow these steps:
 5. Run 'rails s'
 6. Open a new terminal tab
 7. Change directory to frontend
-8. Run 'npm start'
+9. Run 'npm install'
+10. Run 'npm start'
 ```
 To experience all features of the application, please sign-up for an account.
 
