@@ -171,4 +171,7 @@ const mapStateToProps = state => {
 //   }
 // }
 
+// or 
+// export default connect(mapStateToProps, { addUser })(ChatConversationsList);
+
 export default connect(mapStateToProps)(ChatConversationsList);
