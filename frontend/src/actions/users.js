@@ -23,10 +23,8 @@ export const loginUser = userData => {
 }
 
 export const logoutUser = () => {
-  return (dispatch) => {
-    localStorage.removeItem("token")
-    dispatch({ type: 'LOGOUT_USER' })
-  }
+  localStorage.removeItem("token")
+  return { type: 'LOGOUT_USER' }
 }
 
 export const addUser = userData => {
