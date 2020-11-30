@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import RenderModal from './RenderModal';
 import FavoriteDropdown from './FavoriteDropdown';
 import { API_ROOT } from '../constants';
 
@@ -15,10 +16,10 @@ const Favorite = ({ favorite, setActive, activeFavorite, deleteFavorite }) => {
     setClicked(prevState => !prevState)
   }
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     const token = localStorage.token
     if (token) {
-      fetch(`${API_ROOT}/favorites/${favorite.id}`, {
+      const response = await fetch(`${API_ROOT}/favorites/${favorite.id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -26,7 +27,17 @@ const Favorite = ({ favorite, setActive, activeFavorite, deleteFavorite }) => {
           'Authorization': `Bearer ${token}`
         }
       })
-      deleteFavorite(favorite)
+      .catch(() => {
+        RenderModal('error', 'Server error. Please try again.')
+      })
+      if (!response) {return null}
+
+      const jsonResponse = await response.json();
+      if (jsonResponse.error) {
+        RenderModal('error', jsonResponse.error)
+      } else {
+        deleteFavorite(favorite)
+      }
     }
   }
 
