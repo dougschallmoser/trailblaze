@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Moment from 'react-moment';
+import RenderModal from './RenderModal';
 import { API_ROOT } from '../constants';
 import ChatRenderDropdown from './ChatRenderDropdown';
 
@@ -56,15 +57,26 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
         },
         body: JSON.stringify({ conversation: {accepted: true} })
       })
-      const newConversation = await response.json();
-      acceptConvo(newConversation)
+      .catch(() => {
+        RenderModal('error', 'Server error. Please try again.')
+      })
+      if (!response) {return null}
+
+      const updatedConversation = await response.json();
+      if (updatedConversation.error) {
+        RenderModal('error', updatedConversation.error)
+      } else {
+        acceptConvo(updatedConversation)
+      }
+    } else {
+      RenderModal('error', 'You must be logged in to view that content')
     }
   }
 
-  const handleReject = () => {
+  const handleReject = async () => {
     const token = localStorage.token
     if (token) {
-      fetch(`${API_ROOT}/conversations/${conversation.id}`, {
+      const response = await fetch(`${API_ROOT}/conversations/${conversation.id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +84,19 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
           'Authorization': `Bearer ${token}`
         }
       })
-      rejectConvo(conversation)
+      .catch(() => {
+        RenderModal('error', 'Server error. Please try again.')
+      })
+      if (!response) {return null}
+
+      const jsonResponse = await response.json();
+      if (jsonResponse.error) {
+        RenderModal('error', jsonResponse.error)
+      } else {
+        rejectConvo(conversation)
+      }
+    } else {
+      RenderModal('error', 'You must be logged in to view that content')
     }
   }
 

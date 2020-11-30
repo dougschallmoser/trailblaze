@@ -22,11 +22,11 @@ const ChatNewConversation = ({ user, currentUser }) => {
     })
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const token = localStorage.token
     if (token) {
-      fetch(`${API_ROOT}/users/${currentUser.id}/conversations`, {
+      const response = await fetch(`${API_ROOT}/users/${currentUser.id}/conversations`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +34,12 @@ const ChatNewConversation = ({ user, currentUser }) => {
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ conversation: convoData })
+      })
+      .catch(() => {
+        RenderModal('error', 'Server error. Please try again.')
       });
+      if (!response) {return null}
+      
       setConvoData({ ...convoData, title: '' })
       toggleModal();
       RenderModal('success', 'Message sent!')

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import RenderModal from './RenderModal';
 import { API_ROOT } from '../constants';
 
 const ChatNewMessage = ({ conversationId, currentUserId }) => {
@@ -23,11 +24,11 @@ const ChatNewMessage = ({ conversationId, currentUserId }) => {
     setMessage({ ...message, text: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     const token = localStorage.token
     if (token) {
       e.preventDefault();
-      fetch(`${API_ROOT}/messages`, {
+      const response = await fetch(`${API_ROOT}/messages`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -36,6 +37,11 @@ const ChatNewMessage = ({ conversationId, currentUserId }) => {
         },
         body: JSON.stringify(message)
       })
+      .catch(() => {
+        RenderModal('error', 'Server error. Please try again.')
+      });
+      if (!response) {return null}
+
       setMessage({ ...message, text: '', conversation_id: conversationId })
     }
   }
