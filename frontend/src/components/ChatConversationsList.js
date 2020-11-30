@@ -25,6 +25,11 @@ class ChatConversationsList extends React.Component {
           'Authorization': `Bearer ${token}`
         }
       })
+      .catch(() => {
+        RenderModal('error', 'Server error. Please try again.')
+      });
+      if (!response) {return null}
+      
       const userConvos = await response.json();
       if (userConvos.error) {
         this.props.history.push('/')

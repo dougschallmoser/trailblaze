@@ -10,7 +10,12 @@ export const loginUser = userData => {
         'Accept': 'application/json'
       },
       body: JSON.stringify({ user: userData })
+    })
+    .catch(() => {
+      RenderModal('error', 'Server error. Please try again.')
     });
+    if (!response) {return null}
+
     const data = await response.json();
     if (data.message) {
       RenderModal('error', data.message)
@@ -36,7 +41,12 @@ export const addUser = userData => {
         'Accept': 'application/json'
       },
       body: JSON.stringify({user: userData})
+    })
+    .catch(() => {
+      RenderModal('error', 'Server error. Please try again.')
     });
+    if (!response) {return null}
+
     const data = await response.json();
     if (data.error) {
       RenderModal('error', data.error.join("\r\n"))
@@ -60,6 +70,11 @@ export const getUserProfile = () => {
           'Authorization': `Bearer ${token}`
         }
       })
+      .catch(() => {
+        RenderModal('error', 'Server error. Please try again.')
+      });
+      if (!response) {return null}
+
       const data = await response.json();
       if (data.message) {
         RenderModal('error', data.message)

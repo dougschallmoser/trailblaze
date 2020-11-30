@@ -14,7 +14,12 @@ export const getUsers = queryData => {
         'Accept': 'application/json'
       },
       body: JSON.stringify({ query: queryData })
+    })
+    .catch(() => {
+      RenderModal('error', 'Server error. Please try again.')
     });
+    if (!response) {return null}
+    
     const data = await response.json();
     if (data.error) {
       RenderModal('error', data.error)
@@ -28,6 +33,11 @@ export const getTrails = queryData => {
   return async dispatch => {
     const response = await fetch(`https://www.hikingproject.com/data/get-trails?lat=${queryData.lat}&lon=${queryData.lng}&maxDistance=${queryData.radius}&maxResults=100&key=200850712-41bb2ec1278a205fdc5c9050b10c3ad2`)
     // const response = await fetch(`https://www.doesntwork.com`)
+    .catch(() => {
+      RenderModal('error', 'Server error. Please try again.')
+    });
+    if (!response) {return null}
+    
     const data = await response.json();
     if (data.error) {
       RenderModal('error', data.error)
