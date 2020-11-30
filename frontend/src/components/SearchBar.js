@@ -19,7 +19,6 @@ const SearchBar = ({ city, lat, lng, radius, gender, agemin, agemax, splashConta
   const handleSelect = async (selection, placeId) => {
     if (!placeId) {return null}
     setAddress(selection)
-    
     const response = await geocodeByAddress(selection)
     const results = await getLatLng(response[0])
     history.push(`/search?city=${selection}&lat=${results.lat.toFixed(5)}&lng=${results.lng.toFixed(5)}&radius=${queryData.radius}&agemin=${queryData.agemin}&agemax=${queryData.agemax}&gender=${queryData.gender}`)
@@ -35,7 +34,7 @@ const SearchBar = ({ city, lat, lng, radius, gender, agemin, agemax, splashConta
             dispatch(getUsers(queryData))
             dispatch(getTrails(queryData))
         }
-        history.push(`/search?city=${city}&lat=${lat}&lng=${lng}&radius=${queryData.radius}&agemin=${queryData.agemin}&agemax=${queryData.agemax}&gender=${queryData.gender}`)
+        history.push(`/search?city=${queryData.city}&lat=${queryData.lat}&lng=${queryData.lng}&radius=${queryData.radius}&agemin=${queryData.agemin}&agemax=${queryData.agemax}&gender=${queryData.gender}`)
       }
     }
   }, [queryData, dispatch, history, city, lat, lng, radius, gender, agemin, agemax])
