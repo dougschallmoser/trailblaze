@@ -20,6 +20,11 @@ class Api::V1::FavoritesController < ApplicationController
   def destroy
     favorite = Favorite.find_by(id: params[:id])
     favorite.destroy
+    if !favorite.destroyed?
+      render json: { error: 'An error occured when deleting' }
+    else 
+      render json: { success: 'success' }
+    end
   end
 
   private
