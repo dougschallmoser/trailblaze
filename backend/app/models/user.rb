@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   validates :email, uniqueness: true
   validates :name, :email, :bio, :gender, :dob, :avatar, presence: true
-  validates_presence_of :lat, :message => "- You must allow Trailblaze access to your location"
-  validates_presence_of :lng, :message => "- You must allow Trailblaze access to your location"
+  validates_presence_of :lat, :message => "- You must allow Trailblaze to access your location"
+  validates_presence_of :lng, :message => "- You must allow Trailblaze to access your location"
   before_save { name.capitalize() }
   acts_as_mappable
 
