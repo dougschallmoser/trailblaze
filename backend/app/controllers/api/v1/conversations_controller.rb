@@ -13,9 +13,9 @@ class Api::V1::ConversationsController < ApplicationController
     if conversation.save
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
         ConversationSerializer.new(conversation)
-      ).serializable_hash
-      ActionCable.server.broadcast 'conversations_channel', serialized_data
-      head :ok
+        ).serializable_hash
+        ActionCable.server.broadcast 'conversations_channel', serialized_data
+        head :ok
     else 
       render json: { error: conversation.errors.full_messages }, status: :not_acceptable
     end
@@ -33,6 +33,11 @@ class Api::V1::ConversationsController < ApplicationController
   def destroy
     conversation = Conversation.find_by(id: params[:id])
     conversation.destroy
+    if !conversation.destroyed?
+      render json: { error: 'An error occured when deleting' }
+    else 
+      render json: { success: 'success' }
+    end
   end
 
   private
