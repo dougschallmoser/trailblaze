@@ -5,6 +5,8 @@
 
 Trailblaze your way to new outdoor friends. Trailblaze is a geosocial single page application built with React/Redux/Rails. Find new friends in your area, communicate, explore trails and go on outdoor adventures.
 
+Utilizes JSON Web Tokens, WebSockets, Google APIs, ActionCable, and hooks.
+
 [Demo Video](https://youtu.be/Pzksvd9wRZM)
 
 
