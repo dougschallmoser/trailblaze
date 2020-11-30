@@ -9,6 +9,12 @@ const RootContainer = () => {
   const [loading, setLoading] = useState(false)
   const history = useHistory();
 
+  useEffect(() => {
+    if (location.lat) {
+      history.push(`/search?city=&lat=${location.lat.toFixed(5)}&lng=${location.lng.toFixed(5)}&radius=10&agemin=&agemax=&gender=any`)
+    }
+  }, [history, location])
+
   const getLocation = () => {
     setLoading(true)
     window.navigator.geolocation.getCurrentPosition(
@@ -24,12 +30,6 @@ const RootContainer = () => {
     {timeout: 10000}
     )
   }
-
-  useEffect(() => {
-    if (location.lat) {
-      history.push(`/search?city=&lat=${location.lat.toFixed(5)}&lng=${location.lng.toFixed(5)}&radius=10&agemin=&agemax=&gender=any`)
-    }
-  }, [history, location])
 
   const spinner = 
     <div className="spinner">
