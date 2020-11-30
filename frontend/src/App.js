@@ -21,8 +21,7 @@ const App = () => {
       <NavBar />
       <Switch>
         <Route exact path="/"><RootContainer /></Route>
-        <Route path="/search"><SearchContainer />
-        </Route>
+        <Route path="/search"><SearchContainer /></Route>
         <Route exact path="/users/:id/messages" render={(props) => <ChatConversationsList {...props} />} />
         <Route exact path="/users/:id/favorites" render={(props) => <FavoritesList {...props} />} />
         <Route render={() => <Redirect to="/" />} />
