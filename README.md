@@ -22,11 +22,15 @@ To run this application in your local environment, please follow these steps:
   -Run 'rails db:create'
   -Run 'rails db:migrate'
   -Run 'rails db:seed'
-5. Run 'rails s'
+5. Start the backend server, run 'rails s'
 6. Open a new terminal tab
 7. Change directory to frontend
-9. Run 'npm install'
-10. Run 'npm start'
+8. In the root of the frontend directory, create a ".env" file. 
+9. Inside the ".env" file, copy/paste the following two lines and insert your own API keys for Google Maps/Places/Autocomplete and for Hiking Project
+  `REACT_APP_GOOGLE_API_KEY = insert_api_key_here`
+  `REACT_APP_HIKING_PROJECT_API_KEY = insert_api_key_here`
+10. Run 'npm install'
+11. Run 'npm start'
 ```
 To experience all features of the application, please sign-up for an account.
 
