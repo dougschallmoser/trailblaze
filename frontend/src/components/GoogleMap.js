@@ -67,6 +67,11 @@ const GoogleMap = (props) => {
         },
         body: JSON.stringify({ favorite: trailObj })
       })
+      .catch(() => {
+        RenderModal('error', 'Server error. Please try again.')
+      });
+      if (!response) {return null}
+      
       const newFav = await response.json();
       if (newFav.error) {
         RenderModal('error', newFav.error)
