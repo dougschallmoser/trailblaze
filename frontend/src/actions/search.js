@@ -31,8 +31,8 @@ export const getUsers = queryData => {
 
 export const getTrails = queryData => {
   return async dispatch => {
-    const response = await fetch(`https://www.hikingproject.com/data/get-trails?lat=${queryData.lat}&lon=${queryData.lng}&maxDistance=${queryData.radius}&maxResults=100&key=200850712-41bb2ec1278a205fdc5c9050b10c3ad2`)
-    // const response = await fetch(`https://www.doesntwork.com`)
+    const API_KEY = process.env.REACT_APP_HIKING_PROJECT_API_KEY
+    const response = await fetch(`https://www.hikingproject.com/data/get-trails?lat=${queryData.lat}&lon=${queryData.lng}&maxDistance=${queryData.radius}&maxResults=100&key=${API_KEY}`)
     .catch(() => {
       RenderModal('error', 'Server error. Please try again.')
     });

@@ -89,6 +89,8 @@ const SearchBar = ({ city, lat, lng, radius, gender, agemin, agemax, splashConta
   )
 }
 
+const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY  
+
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyB41qACz2BElvLdaa3miyhluj0dsdyWoBE'
+  apiKey: `${API_KEY}`
 })(SearchBar);
