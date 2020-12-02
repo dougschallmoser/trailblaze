@@ -267,3 +267,37 @@ ul li {
 .no-cursor {
   cursor: auto;
 }
+
+@media only screen and (max-width: 800px) {
+  .conversationsList {
+    width: 50%;
+  }
+
+  .conversation-item {
+    width: 85%;
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  .messages {
+    position: absolute;
+    width: 40%;
+    margin: 0 0 0 50%;
+  }
+
+  .circular-portrait {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  #chat-time, #chat-preview {
+    display: none;
+  }
+
+  .message-input {
+    width: 100%;
+  }
+}
