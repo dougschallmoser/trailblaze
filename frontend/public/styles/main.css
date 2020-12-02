@@ -554,11 +554,29 @@ select:focus {
   .items {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .search-bar::placeholder {
+    font-size: 0.8em;
+  }
+
+  #result-city {
+    margin-top: 90px;
+  }
 }
 
 @media only screen and (max-width: 650px) {
   .google-map {
     display: none;
+  }
+
+  .search-bar::placeholder {
+    font-size: 0.64em;
+  }
+
+  .search-bar {
+    width: 125px;
+    font-size: 0.75em;
+    padding-left: 7px;
   }
 
   .items-container {
@@ -569,13 +587,14 @@ select:focus {
     width: 100%;
   }
 
-  .search-bar {
-    width: 100px;
-  }
 
   .radius-slider {
-    width: 100px;
+    width: 75px;
     margin-left: 12px;
+  }
+
+  .miles-display {
+    font-size: 0.75em;
   }
 
   .filter-button {
@@ -584,8 +603,8 @@ select:focus {
 
   .search-icon {
     position: absolute;
-    margin-top: 13px;
-    left: 125px;
+    margin-top: 11px;
+    left: 132px;
     height: 25px;
     display: inline-block;
     vertical-align: middle;
