@@ -35,7 +35,7 @@ To run this application in your local environment, please follow these steps:
 10. Run 'npm install'
 11. Run 'npm start'
 ```
-To experience all features of the application, please sign-up for an account.
+Note: To experience all features of the application, please sign-up for an account. There is currently seed data for Portland OR, Seattle WA, and Bellingham, WA.
 
 ## Contributing
 
