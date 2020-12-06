@@ -7,30 +7,24 @@ import { API_ROOT } from '../constants';
 
 const GoogleMap = (props) => {
 
-  const lat = useSelector(state => state.search.query.lat)
-  const lng = useSelector(state => state.search.query.lng)
+  const query = useSelector(state => state.search.query)
   const trails = useSelector(state => state.search.trails)
-  const currentUser = useSelector(state => state.currentUser);
-
-  const loggedIn = () => {
-    return Object.keys(currentUser).length > 0
-  }
-  
+  const currentUser = useSelector(state => state.currentUser)
   const [markerInfo, setMarkerInfo] = useState({
     showInfo: false, activeMarker: {}, selected: {} 
   })
 
+  const loggedIn = () => {
+    return Object.keys(currentUser).length > 0
+  }
+
   const onMarkerClick = (props, marker) => {
-    setMarkerInfo({selected: props, activeMarker: marker, showInfo: true})
+    setMarkerInfo({ selected: props, activeMarker: marker, showInfo: true })
   }
 
   const mapStyles = {
     width: '55%',
     height: '83%'
-  }
-
-  const containerStyle = {
-    position: 'fixed'
   }
 
   const handleMapClick = () => {
@@ -39,7 +33,7 @@ const GoogleMap = (props) => {
     }
   }
 
-  const handleClickTrail = async () => {
+  const handleFavoriteTrail = async () => {
     const trailObj = {
       user_id: currentUser.id,
       name: markerInfo.selected.name,
@@ -78,11 +72,11 @@ const GoogleMap = (props) => {
       } else {
         RenderModal('success', `${markerInfo.selected.name} has been added to your Favorites`)
         setMarkerInfo(prev => {
-          return {
-            ...prev, showInfo: false
-          }
+          return { ...prev, showInfo: false }
         })
       }
+    } else {
+      RenderModal('error', 'You must be logged in to view that content')
     }
   }
 
@@ -95,7 +89,7 @@ const GoogleMap = (props) => {
           >
             Trail Details
           </a>
-          <button onClick={handleClickTrail} className="user-submit sixteen-font">
+          <button onClick={handleFavoriteTrail} className="user-submit sixteen-font">
             Add Favorite
           </button>
         </>
@@ -113,10 +107,10 @@ const GoogleMap = (props) => {
       google={props.google}
       onClick={handleMapClick}
       zoom={9.5}
-      containerStyle={containerStyle}
+      containerStyle={{position: 'fixed'}}
       style={mapStyles}
       initialCenter={{ lat: 47.444, lng: -122.176 }}
-      center={{ lat: lat, lng: lng }}>
+      center={{ lat: query.lat, lng: query.lng }}>
       
       {trails.map(trail => {
         return (
