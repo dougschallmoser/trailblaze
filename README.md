@@ -7,6 +7,8 @@ Trailblaze your way to new outdoor friends. Trailblaze is a geosocial single pag
 
 Utilizes JSON Web Tokens, WebSockets, Google APIs, ActionCable, global state, Thunk middlware, and modern React hooks.
 
+[Live Demo](https://trailblaze-app.netlify.app/)
+
 [Demo Video](https://youtu.be/Pzksvd9wRZM)
 
 
