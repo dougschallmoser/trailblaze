@@ -4,6 +4,10 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
+  # for WebSockets
+  config.web_socket_server_url = "wss://trailblaze-app.herokuapp.com/cable" 
+  config.action_cable.allowed_request_origins = ['https://trailblaze-app.herokuapp.com', 'http://trailblaze-app.herokuapp.com']
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
