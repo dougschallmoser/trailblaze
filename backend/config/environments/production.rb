@@ -5,7 +5,7 @@ Rails.application.configure do
   config.cache_classes = true
 
   # for WebSockets
-  config.web_socket_server_url = "wss://trailblaze-app.herokuapp.com/api/v1/cable" 
+  config.web_socket_server_url = "wss://trailblaze-app.herokuapp.com/cable" 
   config.action_cable.allowed_request_origins = ['https://trailblaze-app.herokuapp.com', 'http://trailblaze-app.herokuapp.com']
 
   # Eager load code on boot. This eager loads most of Rails and
