@@ -6,8 +6,7 @@ Rails.application.configure do
 
   # for WebSockets
   config.web_socket_server_url = "wss://trailblaze-app.herokuapp.com/api/v1/cable" 
-  config.action_cable.url = "wss://trailblaze-app.herokuapp.com/api/v1/cable" 
-  config.action_cable.allowed_request_origins = ['https://trailblaze-app.herokuapp.com', 'http://trailblaze-app.herokuapp.com']
+  config.action_cable.allowed_request_origins = ['https://trailblaze-app.netlify.app', 'http://trailblaze-app.netlify.app']
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
