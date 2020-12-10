@@ -32,8 +32,14 @@ To run this application in your local environment, please follow these steps:
    REACT_APP_GOOGLE_API_KEY = insert_api_key_here
    REACT_APP_HIKING_PROJECT_API_KEY = insert_api_key_here
 
-10. Run 'npm install'
-11. Run 'npm start'
+10. In the frontend/src/constants directory, change the constants to the 
+    following:
+
+   export const API_ROOT = 'http://localhost:3001/api/v1';
+   export const API_WS_ROOT = 'ws://localhost:3001/api/v1/cable';
+
+11. Run 'npm install'
+12. Run 'npm start'
 ```
 Note: To experience all features of the application, please sign-up for an account. There is currently seed data for Portland OR, Seattle WA, and Bellingham, WA.
 
