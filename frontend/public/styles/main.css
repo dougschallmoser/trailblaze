@@ -607,6 +607,7 @@ select:focus {
 
   .filter-button {
     margin-left: 12px;
+    padding: 6px 12px;
   }
 
   .search-icon {
