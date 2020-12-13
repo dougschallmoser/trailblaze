@@ -567,10 +567,10 @@ select:focus {
 @media only screen and (max-width: 650px) {
 
   .dropdown-content {
-    top: 0;
+    min-width: 0;
+    position: fixed;
+    top: 150px;
     left: 0;
-    width: 100vw;
-    height: 100vh;
   }
 
   .google-map {
@@ -582,7 +582,7 @@ select:focus {
   }
 
   .search-bar {
-    width: 125px;
+    width: 150px;
     font-size: 0.75em;
     padding-left: 7px;
   }
@@ -612,7 +612,7 @@ select:focus {
   .search-icon {
     position: absolute;
     margin-top: 11px;
-    left: 132px;
+    left: 155px;
     height: 25px;
     display: inline-block;
     vertical-align: middle;
