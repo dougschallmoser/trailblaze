@@ -567,7 +567,6 @@ select:focus {
 @media only screen and (max-width: 650px) {
 
   .dropdown-content {
-    position: static;
     top: 0;
     left: 0;
     width: 100vw;
