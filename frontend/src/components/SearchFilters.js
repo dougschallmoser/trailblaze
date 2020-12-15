@@ -16,14 +16,12 @@ const SearchFilters = () => {
 
   const handleChange = (event) => {
     setFilters({ ...filters, [event.target.name]: event.target.value })
-    if (event.target.name === 'agemin' && filters.agemin > 1) {
+    if (
+      (event.target.name === 'agemin' && filters.agemin > 1) ||
+      (event.target.name === 'agemax' && filters.agemax > 1) || 
+      (event.target.name === 'gender')
+      ) {
       dispatch(updateQuery({ [event.target.name]: event.target.value }))
-    }
-    if (event.target.name === 'agemax' && filters.agemax > 1) {
-      dispatch(updateQuery({ [event.target.name]: event.target.value }))
-    }
-    if (event.target.name === 'gender') {
-      dispatch(updateQuery({ [event.target.name]: event.target.value}))
     }
   }
 
