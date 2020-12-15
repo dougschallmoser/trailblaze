@@ -35,8 +35,8 @@ To run this application in your local environment, please follow these steps:
    REACT_APP_GOOGLE_API_KEY = insert_api_key_here
    REACT_APP_HIKING_PROJECT_API_KEY = insert_api_key_here
 
-10. In the frontend/src/constants directory, change the constants to the 
-    following:
+10. In the frontend/src/constants directory, change the constants by
+    uncommenting the following lines:
 
    export const API_ROOT = 'http://localhost:3001/api/v1';
    export const API_WS_ROOT = 'ws://localhost:3001/api/v1/cable';
