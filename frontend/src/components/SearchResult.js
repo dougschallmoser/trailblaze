@@ -7,10 +7,10 @@ const SearchResult = ({ user }) => {
   const currentUser = useSelector(state => state.currentUser);
 
   const loggedIn = () => {
-    return Object.keys(currentUser).length > 0
+    return !!Object.keys(currentUser).length
   }
 
-  const userAge = () => {
+  const displayUserAge = () => {
     const birthDate = new Date(user.dob)
     const difference = Date.now() - birthDate.getTime()
     const age = new Date(difference)
@@ -23,7 +23,7 @@ const SearchResult = ({ user }) => {
         <div className="item">
           <img src={user.avatar} alt="avatar" />
           <span id="username-display">{user.name},</span>
-          <span id="age-display">{userAge()}</span>
+          <span id="age-display">{displayUserAge()}</span>
           <span id="gender-display">{user.gender === "nondisclose" ? null : user.gender}</span>
           <p id="bio-display">{user.bio}</p><br/>
           {loggedIn() && <ChatNewConversation user={user} currentUser={currentUser} />}
