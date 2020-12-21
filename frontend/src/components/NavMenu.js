@@ -10,7 +10,7 @@ const NavMenu = () => {
   const currentUser = useSelector(state => state.currentUser);
 
   const loggedIn = () => {
-    return Object.keys(currentUser).length > 0
+    return !!Object.keys(currentUser).length
   }
 
   return (
