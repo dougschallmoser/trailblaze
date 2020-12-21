@@ -15,7 +15,7 @@ const GoogleMap = (props) => {
   })
 
   const loggedIn = () => {
-    return Object.keys(currentUser).length > 0
+    return !!Object.keys(currentUser).length
   }
 
   const onMarkerClick = (props, marker) => {
