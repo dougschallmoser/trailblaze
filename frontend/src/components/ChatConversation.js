@@ -27,7 +27,7 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
   }
 
   const recentMessage = () => {
-    if (conversation.messages.length === 0) {
+    if (!conversation.messages.length) {
       return null
     }
     return conversation.messages[conversation.messages.length - 1]
