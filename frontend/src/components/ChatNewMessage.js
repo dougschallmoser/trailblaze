@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import RenderModal from './RenderModal';
 import { API_ROOT } from '../constants';
 
-const ChatNewMessage = ({ conversationId, currentUserId }) => {
+const ChatNewMessage = ({ convoId, currentUserId }) => {
 
   const [message, setMessage] = useState({
     text: '', conversation_id: '', user_id: currentUserId
@@ -12,9 +12,9 @@ const ChatNewMessage = ({ conversationId, currentUserId }) => {
 
   useEffect(() => {
     setMessage(message => {
-      return {...message, conversation_id: conversationId}
+      return {...message, conversation_id: convoId}
     })
-  }, [conversationId])
+  }, [convoId])
 
   useEffect(() => {
     messageInput.current.scrollIntoView();
@@ -42,7 +42,7 @@ const ChatNewMessage = ({ conversationId, currentUserId }) => {
       });
       if (!response) {return null}
 
-      setMessage({ ...message, text: '', conversation_id: conversationId })
+      setMessage({ ...message, text: '', conversation_id: convoId })
     }
   }
 
