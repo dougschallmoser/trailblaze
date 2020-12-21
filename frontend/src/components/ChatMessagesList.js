@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 import Moment from 'react-moment';
 import ChatNewMessage from './ChatNewMessage';
 
-const ChatMessagesList = ({ conversation: { id, author, receiver, title, messages, created_at } }) => {
+const ChatMessagesList = ({ convo: { id, author, receiver, title, messages, created_at } }) => {
+  
   const currentUser = useSelector(state => state.currentUser);
 
   const myMsg = message => {
@@ -58,7 +59,7 @@ const ChatMessagesList = ({ conversation: { id, author, receiver, title, message
         <li className={author.id === currentUser.id ? "me" : "them"}>{title}</li>
         {renderMessages(messages)}
       </ul>
-      <ChatNewMessage conversationId={id} currentUserId={currentUser.id} />
+      <ChatNewMessage convoId={id} currentUserId={currentUser.id} />
     </>
   )
 }
