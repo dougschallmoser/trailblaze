@@ -5,8 +5,9 @@ import { getUsers, getTrails, updateQuery } from '../actions';
 import { GoogleApiWrapper } from 'google-maps-react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
-const SearchBar = ({ city, lat, lng, radius, gender, agemin, agemax, splashContainer, splash, splashIcon }) => {
+const SearchBar = (props) => {
 
+  const { city, lat, lng, radius, gender, agemin, agemax, splashContainer, splash, splashIcon } = props;
   const dispatch = useDispatch();
   const history = useHistory();
   const queryData = useSelector(state => state.search.query);
