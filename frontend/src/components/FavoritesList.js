@@ -24,6 +24,11 @@ const FavoritesList = (props) => {
             'Authorization': `Bearer ${token}`
           }
         })
+        .catch(() => {
+          RenderModal('error', 'Server error. Please try again.')
+        })
+        if (!response) {return null}
+
         const userFavorites = await response.json();
         if (userFavorites.error) {
           props.history.push('/')
@@ -51,15 +56,12 @@ const FavoritesList = (props) => {
   }
 
   const handleDeleteFavorite = deleteFavorite => {
-    const oldFavorites = [...favorites]
-    const updatedFavorites = oldFavorites.filter(fav => fav.id !== deleteFavorite.id)
+    const updatedFavorites = [...favorites].filter(fav => fav.id !== deleteFavorite.id)
     setFavorites(updatedFavorites)
   }
 
   const findActiveFavorite = (favorites, activeFavorite) => {
-    return favorites.find(
-      favorite => favorite.id === activeFavorite
-    )
+    return favorites.find(favorite => favorite.id === activeFavorite)
   }
 
   return (
