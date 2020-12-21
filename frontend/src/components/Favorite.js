@@ -13,7 +13,7 @@ const Favorite = ({ favorite, setActive, activeFavorite, deleteFavorite }) => {
 
   const handleClick = (event) => {
     event.stopPropagation();
-    setClicked(prevState => !prevState)
+    setClicked(!clicked);
   }
 
   const handleDelete = async () => {
