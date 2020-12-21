@@ -14,7 +14,7 @@ const SearchContainer = () => {
   const { lat, lng, agemin, agemax, gender, radius, city } = queryString.parse(search);
   const results = useSelector(state => state.search.results)
   const trails = useSelector(state => state.search.trails)
-  
+  const loading = useSelector(state => state.search.loading)
 
   return (
     <div className="main-container">
@@ -34,9 +34,11 @@ const SearchContainer = () => {
       <div className="results">
         <div className="items-container">
           <div id="result-city">{city}</div>
-          <div id="result-length">
-            {results.length} trailblazers found
-          </div>
+          {loading ? <div className="loader"></div> :
+            <div id="result-length">
+              {results.length} trailblazers found
+            </div>
+          }
           <div className="items">
             {results.map(user => <SearchResult user={user} key={user.id} />)}
           </div>
