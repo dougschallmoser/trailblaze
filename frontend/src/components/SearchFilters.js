@@ -11,7 +11,7 @@ const SearchFilters = () => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    setClicked(prevState => !prevState)
+    setClicked(!clicked)
   }
 
   const handleChange = (event) => {
