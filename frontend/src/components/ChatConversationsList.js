@@ -59,8 +59,7 @@ class ChatConversationsList extends React.Component {
 
   handleReceivedMessage = response => {
     const { message } = response;
-    const conversations = [...this.state.conversations]
-    const conversation = conversations.find(
+    const conversation = [...this.state.conversations].find(
       conversation => conversation.id === message.conversation_id
     );
     conversation.messages = [...conversation.messages, message]
@@ -68,8 +67,7 @@ class ChatConversationsList extends React.Component {
   }
 
   handleAcceptConvo = updatedConvo => {
-    const oldConversations = [...this.state.conversations]
-    const conversations = oldConversations.filter(
+    const conversations = [...this.state.conversations].filter(
       conversation => conversation.id !== updatedConvo.id
     )
     conversations.push(updatedConvo)
@@ -77,8 +75,7 @@ class ChatConversationsList extends React.Component {
   }
 
   handleRejectConvo = rejectedConvo => {
-    const oldConversations = [...this.state.conversations]
-    const conversations = oldConversations.filter(
+    const conversations = [...this.state.conversations].filter(
       conversation => conversation.id !== rejectedConvo.id
     )
     this.setState({ conversations })
@@ -109,7 +106,7 @@ class ChatConversationsList extends React.Component {
         <div className="messages">
           {activeConversation ? (
             <ChatMessagesList
-              conversation={findActiveConvo(conversations, activeConversation)}
+              convo={findActiveConvo(conversations, activeConversation)}
             /> ) 
           : null}
         </div>
@@ -118,10 +115,8 @@ class ChatConversationsList extends React.Component {
   }
 }
 
-const findActiveConvo = (conversations, activeConversation) => {
-  return conversations.find(
-    conversation => conversation.id === activeConversation
-  )
+const findActiveConvo = (convos, activeConvo) => {
+  return convos.find(conversation => conversation.id === activeConvo)
 }
 
 const showConversations = (conversations, handleClick, currentUserId, handleAcceptConvo, handleRejectConvo, activeConversation) => {
