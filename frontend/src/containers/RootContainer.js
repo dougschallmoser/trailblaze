@@ -5,8 +5,8 @@ import SearchBar from '../components/SearchBar';
 
 const RootContainer = () => {
 
-  const [location, setLocation] = useState({lat: '', lng: '', city: ''})
-  const [loading, setLoading] = useState(false)
+  const [location, setLocation] = useState({ lat: '', lng: '', city: '' });
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -23,18 +23,18 @@ const RootContainer = () => {
           ...prevState, lat: success.coords.latitude, lng: success.coords.longitude
         }
       }),
-      failure => {
-        RenderModal('error', failure.message)
+      () => {
+        RenderModal('error', 'Trailblaze could not determine your location. Please search for a city instead.')
         setLoading(false)
       },
-    {timeout: 10000}
+    {timeout: 12000}
     )
   }
 
   const spinner = 
     <div className="spinner">
-      <div className="double-bounce1"></div>
-      <div className="double-bounce2"></div>
+      <div className="double-bounce1" />
+      <div className="double-bounce2" />
     </div>
 
   return (
