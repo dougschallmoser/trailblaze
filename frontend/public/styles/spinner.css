@@ -28,6 +28,7 @@
 }
 
 .loader {
+  margin: 0 auto;
   margin-top: 200px;
   border: 8px solid #f3f3f3;
   border-top: 8px solid #7bc7a6;
