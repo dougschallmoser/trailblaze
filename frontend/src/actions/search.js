@@ -24,7 +24,7 @@ export const getUsers = queryData => {
     if (data.error) {
       RenderModal('error', data.error)
     } else {
-      dispatch({ type: 'SEARCH_RESULTS', payload: data })
+      dispatch({ type: 'GET_USERS', payload: data })
     }
   }
 }

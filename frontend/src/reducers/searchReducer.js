@@ -15,7 +15,7 @@ const initialState = {
 
 const searchReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SEARCH_RESULTS':
+    case 'GET_USERS':
       return { ...state, results: action.payload, loading: false }
     case 'UPDATE_QUERY':
       return { ...state, query: { ...state.query, ...action.payload }}
