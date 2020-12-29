@@ -50,7 +50,7 @@ class ChatConversationsList extends React.Component {
     }
   }
 
-  handleReceivedConversation = response => {
+  handleReceivedConvo = response => {
     const { conversation } = response;
     this.setState({
       conversations: [...this.state.conversations, conversation]
@@ -87,17 +87,17 @@ class ChatConversationsList extends React.Component {
 
     return (
       <div className="main-container">
-        <div className="conversationsList">
+        <div className="conversations-list">
           <ActionCableConsumer
             channel={{ channel: 'ConversationsChannel' }}
-            onReceived={this.handleReceivedConversation}
+            onReceived={this.handleReceivedConvo}
           />
-          {this.state.conversations.length ? (
-            <ChatCable
-              conversations={conversations}
+          {this.state.conversations.length ? 
+            (<ChatCable
+              convos={conversations}
               handleReceivedMessage={this.handleReceivedMessage}
-            />
-          ) : null}
+            />) : null
+          }
           <h2>MESSAGES</h2>
           {conversations.length === 0 ? <div>No messages.</div> : null}
           {showConversations(conversations, this.handleClick, this.props.currentUser,
@@ -105,11 +105,11 @@ class ChatConversationsList extends React.Component {
           }
         </div>
         <div className="messages">
-          {activeConversation ? (
-            <ChatMessagesList
+          {activeConversation ? 
+            (<ChatMessagesList
               convo={findActiveConvo(conversations, activeConversation)}
-            /> ) 
-          : null}
+            />) : null
+          }
         </div>
       </div>
     )

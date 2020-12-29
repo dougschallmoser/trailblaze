@@ -1,10 +1,10 @@
 import React from 'react';
 import { ActionCableConsumer } from '@thrash-industries/react-actioncable-provider';
 
-const ChatCable = ({ conversations, handleReceivedMessage }) => {
+const ChatCable = ({ convos, handleReceivedMessage }) => {
   return (
     <>
-      {conversations.map(conversation => {
+      {convos.map(conversation => {
         return (
           <ActionCableConsumer
             key={conversation.id}  
