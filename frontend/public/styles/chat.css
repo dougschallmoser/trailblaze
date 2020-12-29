@@ -1,4 +1,4 @@
-.conversationsList {
+.conversations-list {
   position: fixed;
   width: 475px;
   left: 0;
@@ -13,7 +13,7 @@
   box-shadow: 7px 0 8px -8px #333;
 }
 
-.conversationsList h2 {
+.conversations-list h2 {
   width: 100%;
   font-size: 22px;
   font-weight: 500;
@@ -269,7 +269,7 @@ ul li {
 }
 
 @media only screen and (max-width: 800px) {
-  .conversationsList {
+  .conversations-list {
     width: 50%;
   }
 
