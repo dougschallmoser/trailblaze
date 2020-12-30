@@ -34,7 +34,7 @@ const SearchContainer = () => {
       <div className="results">
         <div className="items-container">
           <div id="result-city">{city}</div>
-          {loading ? <div className="loader"></div> :
+          {loading ? <div className="loader-container"><div className="loader">Searching for trailblazers</div></div> :
             <div id="result-length">
               {results.length} trailblazers found
             </div>

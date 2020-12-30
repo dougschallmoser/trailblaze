@@ -27,8 +27,14 @@
   background-color: #000;
 }
 
+.loader-container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
 .loader {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   margin-top: 200px;
   border: 8px solid #f3f3f3;
   border-top: 8px solid #7bc7a6;
