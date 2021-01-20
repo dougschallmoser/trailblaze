@@ -26,23 +26,27 @@ const ChatNewConversation = ({ user, currentUser }) => {
     event.preventDefault();
     const token = localStorage.token
     if (token) {
-      const response = await fetch(`${API_ROOT}/users/${currentUser.id}/conversations`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ conversation: convoData })
-      })
-      .catch(() => {
-        RenderModal('error', 'Server error. Please try again.')
-      });
-      if (!response) {return null}
-      
-      setConvoData({ ...convoData, title: '' })
-      toggleModal();
-      RenderModal('success', 'Message sent!')
+      try {
+        const response = await fetch(`${API_ROOT}/users/${currentUser.id}/conversations`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({ conversation: convoData })
+        })
+
+        if (!response) {
+          return RenderModal('error', 'Server error. Please try again.')
+        }
+
+        setConvoData({ ...convoData, title: '' })
+        toggleModal();
+        RenderModal('success', 'Message sent!')
+      } catch(error) {
+        return RenderModal('error', error)
+      }
     }
   }
 

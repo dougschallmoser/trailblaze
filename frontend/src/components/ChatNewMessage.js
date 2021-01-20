@@ -25,24 +25,28 @@ const ChatNewMessage = ({ convoId, currentUserId }) => {
   }
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     const token = localStorage.token
     if (token) {
-      e.preventDefault();
-      const response = await fetch(`${API_ROOT}/messages`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(message)
-      })
-      .catch(() => {
-        RenderModal('error', 'Server error. Please try again.')
-      });
-      if (!response) {return null}
+      try {
+        const response = await fetch(`${API_ROOT}/messages`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(message)
+        })
 
-      setMessage({ ...message, text: '', conversation_id: convoId })
+        if (!response) {
+          return RenderModal('error', 'Server error. Please try again.')
+        }
+        
+        setMessage({ ...message, text: '', conversation_id: convoId })
+      } catch(error) {
+        return RenderModal('error', error)
+      }
     }
   }
 
