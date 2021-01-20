@@ -16,26 +16,32 @@ const FavoritesList = (props) => {
     const getFavorites = async () => {
       const token = localStorage.token
       if (token) {
-        const response = await fetch(`${API_ROOT}/users/${props.match.params.id}/favorites`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Authorization': `Bearer ${token}`
-          }
-        })
-        .catch(() => {
-          RenderModal('error', 'Server error. Please try again.')
-        })
-        if (!response) {return null}
+        try {
+          const response = await fetch(`${API_ROOT}/users/${props.match.params.id}/favorites`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+              'Authorization': `Bearer ${token}`
+            }
+          })
 
-        const userFavorites = await response.json();
-        if (userFavorites.error) {
-          props.history.push('/')
-          RenderModal('error', userFavorites.error)
-        } else {
-          setFavorites(userFavorites)
+          if (!response) {
+            return RenderModal('error', 'Please try again.')
+          }
+
+          const userFavorites = await response.json();
+          
+          if (userFavorites.error) {
+            props.history.push('/')
+            RenderModal('error', userFavorites.error)
+          } else {
+            setFavorites(userFavorites)
+          }
+        } catch(error) {
+          return RenderModal('error', 'Server error. Please try again.')
         }
+
       } else {
         RenderModal('error', 'You must be logged in to view that content')
       }

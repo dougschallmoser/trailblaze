@@ -28,7 +28,7 @@ class ChatConversationsList extends React.Component {
         })
 
         if (!response) {
-          return RenderModal('error', 'Server error. Please try again.')
+          return RenderModal('error', 'Please try again.')
         }
 
         const userConvos = await response.json();
@@ -40,7 +40,7 @@ class ChatConversationsList extends React.Component {
           this.setState({ ...this.state, conversations: userConvos })
         }
       } catch(error) {
-        return RenderModal('error', error)
+        return RenderModal('error', 'Server error. Please try again.')
       }
     } else {
       RenderModal('error', 'You must be logged in to view that content')

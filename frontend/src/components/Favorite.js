@@ -30,7 +30,7 @@ const Favorite = ({ favorite, setActive, activeFavorite, deleteFavorite }) => {
         })
 
         if (!response) {
-          return RenderModal('error', 'Server error. Please try again.')
+          return RenderModal('error', 'Please try again.')
         }
 
         const jsonResponse = await response.json();
@@ -41,7 +41,7 @@ const Favorite = ({ favorite, setActive, activeFavorite, deleteFavorite }) => {
           deleteFavorite(favorite)
         }
       } catch(error) {
-        return RenderModal('error', error)
+        return RenderModal('error', 'Server error. Please try again.')
       }
     }
   }

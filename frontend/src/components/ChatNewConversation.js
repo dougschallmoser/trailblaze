@@ -38,14 +38,14 @@ const ChatNewConversation = ({ user, currentUser }) => {
         })
 
         if (!response) {
-          return RenderModal('error', 'Server error. Please try again.')
+          return RenderModal('error', 'Please try again.')
         }
 
         setConvoData({ ...convoData, title: '' })
         toggleModal();
         RenderModal('success', 'Message sent!')
       } catch(error) {
-        return RenderModal('error', error)
+        return RenderModal('error', 'Server error. Please try again.')
       }
     }
   }

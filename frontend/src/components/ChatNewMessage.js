@@ -40,12 +40,12 @@ const ChatNewMessage = ({ convoId, currentUserId }) => {
         })
 
         if (!response) {
-          return RenderModal('error', 'Server error. Please try again.')
+          return RenderModal('error', 'Please try again.')
         }
         
         setMessage({ ...message, text: '', conversation_id: convoId })
       } catch(error) {
-        return RenderModal('error', error)
+        return RenderModal('error', 'Server error. Please try again.')
       }
     }
   }
