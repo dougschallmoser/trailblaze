@@ -19,24 +19,29 @@ const Favorite = ({ favorite, setActive, activeFavorite, deleteFavorite }) => {
   const handleDelete = async () => {
     const token = localStorage.token
     if (token) {
-      const response = await fetch(`${API_ROOT}/favorites/${favorite.id}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      .catch(() => {
-        RenderModal('error', 'Server error. Please try again.')
-      })
-      if (!response) {return null}
+      try {
+        const response = await fetch(`${API_ROOT}/favorites/${favorite.id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        })
 
-      const jsonResponse = await response.json();
-      if (jsonResponse.error) {
-        RenderModal('error', jsonResponse.error)
-      } else {
-        deleteFavorite(favorite)
+        if (!response) {
+          return RenderModal('error', 'Server error. Please try again.')
+        }
+
+        const jsonResponse = await response.json();
+
+        if (jsonResponse.error) {
+          RenderModal('error', jsonResponse.error)
+        } else {
+          deleteFavorite(favorite)
+        }
+      } catch(error) {
+        return RenderModal('error', error)
       }
     }
   }

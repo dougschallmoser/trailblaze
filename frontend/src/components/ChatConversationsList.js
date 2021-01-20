@@ -17,25 +17,30 @@ class ChatConversationsList extends React.Component {
   componentDidMount = async () => {
     const token = localStorage.token
     if (token) {
-      const response = await fetch(`${API_ROOT}/users/${this.props.match.params.id}/conversations`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`
+      try {
+        const response = await fetch(`${API_ROOT}/users/${this.props.match.params.id}/conversations`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        })
+
+        if (!response) {
+          return RenderModal('error', 'Server error. Please try again.')
         }
-      })
-      .catch(() => {
-        RenderModal('error', 'Server error. Please try again.')
-      });
-      if (!response) {return null}
-      
-      const userConvos = await response.json();
-      if (userConvos.error) {
-        this.props.history.push('/')
-        RenderModal('error', userConvos.error)
-      } else {
-        this.setState({ ...this.state, conversations: userConvos })
+
+        const userConvos = await response.json();
+
+        if (userConvos.error) {
+          this.props.history.push('/')
+          RenderModal('error', userConvos.error)
+        } else {
+          this.setState({ ...this.state, conversations: userConvos })
+        }
+      } catch(error) {
+        return RenderModal('error', error)
       }
     } else {
       RenderModal('error', 'You must be logged in to view that content')
