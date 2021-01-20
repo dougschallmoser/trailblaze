@@ -27,7 +27,6 @@ const UserSignup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(loginUser(loginData))
-    setLoginData({ email: '', password: '' })
   }
 
   const toggleModal = () => {
