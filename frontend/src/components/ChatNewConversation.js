@@ -17,8 +17,8 @@ const ChatNewConversation = ({ user, currentUser }) => {
   })
 
   const handleChange = (event) => {
-    setConvoData(prev => {
-      return {...prev, [event.target.name]: event.target.value}
+    setConvoData({
+      ...convoData, [event.target.name]: event.target.value
     })
   }
 

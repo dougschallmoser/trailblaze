@@ -42,7 +42,7 @@ const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConv
 
   const handleClick = (event) => {
     event.stopPropagation();
-    setClicked(prevState => !prevState)
+    setClicked(!clicked)
   }
 
   const handleAccept = async () => {

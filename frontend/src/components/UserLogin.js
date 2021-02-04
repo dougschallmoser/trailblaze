@@ -17,10 +17,8 @@ const UserSignup = () => {
   })
 
   const handleChange = (event) => {
-    setLoginData(prevUser => {
-      return {
-        ...prevUser, [event.target.name]: event.target.value
-      }
+    setLoginData({
+      ...loginData, [event.target.name]: event.target.value
     })
   }
 

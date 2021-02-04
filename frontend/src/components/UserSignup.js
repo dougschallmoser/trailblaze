@@ -19,10 +19,8 @@ const UserSignup = () => {
   })
 
   const handleChange = (event) => {
-    setUserData(prevUserData => {
-      return {
-        ...prevUserData, [event.target.name]: event.target.value
-      }
+    setUserData({
+      ...userData, [event.target.name]: event.target.value
     })
   }
 
@@ -34,10 +32,8 @@ const UserSignup = () => {
   const getLocation = () => {
     setLoading(true)
     window.navigator.geolocation.getCurrentPosition(
-      success => setUserData(prevUserData => {
-        return {
-          ...prevUserData, lat: success.coords.latitude, lng: success.coords.longitude
-        }
+      success => setUserData({
+        ...userData, lat: success.coords.latitude, lng: success.coords.longitude
       }),
       failure => {
         RenderModal('error', failure.message)

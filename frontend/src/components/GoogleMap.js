@@ -71,8 +71,8 @@ const GoogleMap = (props) => {
         RenderModal('error', newFav.error)
       } else {
         RenderModal('success', `${markerInfo.selected.name} has been added to your Favorites`)
-        setMarkerInfo(prev => {
-          return { ...prev, showInfo: false }
+        setMarkerInfo({
+          ...markerInfo, showInfo: false 
         })
       }
     } else {
