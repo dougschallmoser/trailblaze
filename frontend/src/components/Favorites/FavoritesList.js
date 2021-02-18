@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import RenderModal from './RenderModal';
-import { API_ROOT } from '../constants';
+import RenderModal from '../shared/RenderModal';
+import { API_ROOT } from '../../constants';
 import FavoriteDisplay from './FavoriteDisplay';
 import Favorite from './Favorite';
 

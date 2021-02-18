@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateQuery } from '../actions';
+import { updateQuery } from '../../actions';
 import SearchFiltersDropdown from './SearchFiltersDropdown';
 
 const SearchFilters = () => {

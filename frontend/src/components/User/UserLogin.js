@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import UserInputField from './UserInputField';
-import UserSubmitButton from './UserSubmitButton';
-import { loginUser } from '../actions';
+import UserInputField from '../shared/UserInputField';
+import UserSubmitButton from '../shared/UserSubmitButton';
+import { loginUser } from '../../actions';
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");

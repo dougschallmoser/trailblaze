@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import RenderModal from './RenderModal';
-import { API_ROOT } from '../constants';
+import RenderModal from '../shared/RenderModal';
+import { API_ROOT } from '../../constants';
 
 const ChatNewMessage = ({ convoId, currentUserId }) => {
 

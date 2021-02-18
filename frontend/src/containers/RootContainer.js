@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import RenderModal from '../components/RenderModal'
-import SearchBar from '../components/SearchBar';
+import RenderModal from '../components/shared/RenderModal'
+import SearchBar from '../components/Search/SearchBar';
 
 const RootContainer = () => {
 

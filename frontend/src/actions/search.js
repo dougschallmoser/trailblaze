@@ -1,5 +1,5 @@
 import { API_ROOT } from '../constants';
-import RenderModal from '../components/RenderModal';
+import RenderModal from '../components/shared/RenderModal';
 
 export const updateQuery = (query) => {
   return { type: 'UPDATE_QUERY', payload: query }

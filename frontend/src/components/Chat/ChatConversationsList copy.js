@@ -1,30 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
+import { connect } from 'react-redux';
 import { ActionCableConsumer } from '@thrash-industries/react-actioncable-provider';
-import { API_ROOT } from '../constants';
-import RenderModal from './RenderModal';
+import { API_ROOT } from '../../constants';
+import RenderModal from '../shared/RenderModal';
 import ChatCable from './ChatCable';
 import ChatMessagesList from './ChatMessagesList';
 import ChatConversation from './ChatConversation';
 
-function ChatConversationsList({ match }) {
-
-  const [convoData, setConvoData] = useState({
+class ChatConversationsList extends React.Component {
+  state = {
     conversations: [],
     activeConversation: null,
     clicked: false
-  })
+  }
 
-  const { conversations, activeConversation, clicked } = convoData;
-  const history = useHistory();
-  const currentUser = useSelector(state => state.currentUser.id);
-
-  const fetchConversations = async () => {
+  componentDidMount = async () => {
     const token = localStorage.token
     if (token) {
       try {
-        const response = await fetch(`${API_ROOT}/users/${match.params.id}/conversations`, {
+        const response = await fetch(`${API_ROOT}/users/${this.props.match.params.id}/conversations`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -40,10 +34,10 @@ function ChatConversationsList({ match }) {
         const userConvos = await response.json();
 
         if (userConvos.error) {
-          history.push('/')
+          this.props.history.push('/')
           RenderModal('error', userConvos.error)
         } else {
-          setConvoData({ ...convoData, conversations: userConvos })
+          this.setState({ ...this.state, conversations: userConvos })
         }
       } catch(error) {
         return RenderModal('error', 'Server error. Please try again.')
@@ -52,83 +46,80 @@ function ChatConversationsList({ match }) {
       RenderModal('error', 'You must be logged in to view that content')
     }
   }
-
-  useEffect(() => {
-    fetchConversations();
-  }, [])
   
-  const handleClick = (id) => {
-    if (!clicked) {
-      setConvoData({ ...convoData, activeConversation: id, clicked: true })
+  handleClick = (id) => {
+    if (!this.state.clicked) {
+      this.setState({ activeConversation: id, clicked: true })
     } else {
-      setConvoData({ ...convoData, activeConversation: null, clicked: false })
+      this.setState({ activeConversation: null, clicked: false })
     }
   }
 
-  const handleReceivedConvo = response => {
+  handleReceivedConvo = response => {
     const { conversation } = response;
-    setConvoData({
-      ...convoData,
-      conversations: [...convoData.conversations, conversation]
+    this.setState({
+      conversations: [...this.state.conversations, conversation]
     })
   }
 
-  const handleReceivedMessage = response => {
+  handleReceivedMessage = response => {
     const { message } = response;
-    const conversations = [...convoData.conversations]
+    const conversations = [...this.state.conversations]
     const conversation = conversations.find(
       conversation => conversation.id === message.conversation_id
     );
     conversation.messages = [...conversation.messages, message]
-    setConvoData({ ...convoData, conversations })
+    this.setState({ conversations })
   }
 
-  const handleAcceptConvo = updatedConvo => {
-    const conversations = [...convoData.conversations].filter(
+  handleAcceptConvo = updatedConvo => {
+    const conversations = [...this.state.conversations].filter(
       conversation => conversation.id !== updatedConvo.id
     )
     conversations.push(updatedConvo)
-    setConvoData({ ...convoData, conversations })
+    this.setState({ conversations })
   }
 
-  const handleRejectConvo = rejectedConvo => {
-    const conversations = [...convoData.conversations].filter(
+  handleRejectConvo = rejectedConvo => {
+    const conversations = [...this.state.conversations].filter(
       conversation => conversation.id !== rejectedConvo.id
     )
-    setConvoData({ ...convoData, conversations })
+    this.setState({ conversations })
   }
 
-  return (
-    <div className="main-container">
-      <div className="conversations-list">
-        <ActionCableConsumer
-          channel={{ channel: 'ConversationsChannel' }}
-          onReceived={handleReceivedConvo}
-        />
-        {conversations.length ? 
-          (<ChatCable
-            convos={conversations}
-            handleReceivedMessage={handleReceivedMessage}
-          />) : null
-        }
-        <h2>MESSAGES</h2>
-        {conversations.length === 0 ? <div>No messages.</div> : null}
-        {showConversations(conversations, handleClick, currentUser,
-          handleAcceptConvo, handleRejectConvo, activeConversation)
-        }
-      </div>
-      <div className="messages">
-        {activeConversation ? 
-          (<ChatMessagesList
-            convo={findActiveConvo(conversations, activeConversation)}
-          />) : null
-        }
-      </div>
-    </div>
-  )
-}
+  render = () => {
+    const { conversations, activeConversation } = this.state
 
-// Helper Functions
+    return (
+      <div className="main-container">
+        <div className="conversations-list">
+          <ActionCableConsumer
+            channel={{ channel: 'ConversationsChannel' }}
+            onReceived={this.handleReceivedConvo}
+          />
+          {this.state.conversations.length ? 
+            (<ChatCable
+              convos={conversations}
+              handleReceivedMessage={this.handleReceivedMessage}
+            />) : null
+          }
+          <h2>MESSAGES</h2>
+          {conversations.length === 0 ? <div>No messages.</div> : null}
+          {showConversations(conversations, this.handleClick, this.props.currentUser,
+            this.handleAcceptConvo, this.handleRejectConvo, this.state.activeConversation)
+          }
+        </div>
+        <div className="messages">
+          {activeConversation ? 
+            (<ChatMessagesList
+              convo={findActiveConvo(conversations, activeConversation)}
+            />) : null
+          }
+        </div>
+      </div>
+    )
+  }
+}
 
 const findActiveConvo = (convos, activeConvo) => {
   return convos.find(conversation => conversation.id === activeConvo)
@@ -174,4 +165,10 @@ const showConversations = (conversations, handleClick, currentUserId, handleAcce
   })
 }
 
-export default ChatConversationsList;
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUser.id
+  }
+}
+
+export default connect(mapStateToProps)(ChatConversationsList);

@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { getUserProfile } from './actions'
-import NavBar from './components/NavBar';
+import NavBar from './components/Nav/NavBar';
 import SearchContainer from './containers/SearchContainer';
 import RootContainer from './containers/RootContainer';
-import ChatConversationsList from './components/ChatConversationsList';
-import FavoritesList from './components/FavoritesList';
+import ChatConversationsList from './components/Chat/ChatConversationsList';
+import FavoritesList from './components/Favorites/FavoritesList';
 
 const App = () => {
 

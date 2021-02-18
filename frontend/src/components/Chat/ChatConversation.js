@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Moment from 'react-moment';
-import RenderModal from './RenderModal';
-import { API_ROOT } from '../constants';
+import RenderModal from '../shared/RenderModal';
+import { API_ROOT } from '../../constants';
 import ChatRenderDropdown from './ChatRenderDropdown';
 
 const ChatConversation = ({ conversation, currentUserId, acceptConvo, rejectConvo, selected }) => {

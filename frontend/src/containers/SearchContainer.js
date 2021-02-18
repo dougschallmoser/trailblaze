@@ -2,11 +2,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string';
-import SearchRadius from '../components/SearchRadius';
-import SearchBar from '../components/SearchBar';
-import SearchFilters from '../components/SearchFilters';
-import GoogleMap from '../components/GoogleMap';
-import SearchResult from '../components/SearchResult';
+import SearchRadius from '../components/Search/SearchRadius';
+import SearchBar from '../components/Search/SearchBar';
+import SearchFilters from '../components/Search/SearchFilters';
+import GoogleMap from '../components/Search/GoogleMap';
+import SearchResult from '../components/Search/SearchResult';
 
 const SearchContainer = () => {
 

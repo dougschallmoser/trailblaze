@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { logoutUser } from '../actions';
+import { logoutUser } from '../../actions';
 import { Link } from 'react-router-dom';
-import RenderModal from './RenderModal';
+import RenderModal from '../shared/RenderModal';
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");

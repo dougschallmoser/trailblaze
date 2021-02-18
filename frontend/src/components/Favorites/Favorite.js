@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import RenderModal from './RenderModal';
+import RenderModal from '../shared/RenderModal';
 import FavoriteDropdown from './FavoriteDropdown';
-import { API_ROOT } from '../constants';
+import { API_ROOT } from '../../constants';
 
 const Favorite = ({ favorite, setActive, activeFavorite, deleteFavorite }) => {
 

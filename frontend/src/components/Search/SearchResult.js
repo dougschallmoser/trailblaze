@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import ChatNewConversation from './ChatNewConversation';
+import ChatNewConversation from '../Chat/ChatNewConversation';
 
 const SearchResult = ({ user }) => {
 

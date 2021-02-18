@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Modal from "react-modal";
-import RenderModal from './RenderModal';
-import UserSubmitButton from './UserSubmitButton';
-import UserInputField from './UserInputField';
-import { API_ROOT } from '../constants';
+import RenderModal from '../shared/RenderModal';
+import UserSubmitButton from '../shared/UserSubmitButton';
+import UserInputField from '../shared/UserInputField';
+import { API_ROOT } from '../../constants';
 
 Modal.setAppElement("#root");
 
